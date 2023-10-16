@@ -1,0 +1,861 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Cannot create GC thread. Out of system resources.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (gcTaskThread.cpp:48), pid=167261, tid=0x00007f79bf9fd800
+#
+# JRE version:  (8.0_382-b05) (build )
+# Java VM: OpenJDK 64-Bit Server VM (25.382-b05 mixed mode linux-amd64 compressed oops)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000561dfb415000):  JavaThread "Unknown thread" [_thread_in_vm, id=167261, stack(0x00007fffda687000,0x00007fffda787000)]
+
+Stack: [0x00007fffda687000,0x00007fffda787000],  sp=0x00007fffda77f280,  free space=992k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xb3e0a7]
+V  [libjvm.so+0x4f04cf]
+V  [libjvm.so+0x5cb31f]
+V  [libjvm.so+0x5ca9ff]
+V  [libjvm.so+0x9a8152]
+V  [libjvm.so+0xb01101]
+V  [libjvm.so+0xb013b6]
+V  [libjvm.so+0x64417f]
+V  [libjvm.so+0xae06d0]
+V  [libjvm.so+0x71b120]  JNI_CreateJavaVM+0x60
+C  [libjli.so+0x441a]
+C  [libjli.so+0x9a29]
+C  [libjli.so+0x5f3e]
+C  [libjli.so+0x72fc]  JLI_Launch+0x123c
+C  [java+0x10a5]
+C  [libc.so.6+0x29d90]
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x0000561dfb415000 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=167261, stack(0x00007fffda687000,0x00007fffda787000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x00000000ba600000, size: 1114 MB, Compressed Oops mode: Non-zero based:0x00000000ba5ff000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+ba600000-bf100000 rw-p 00000000 00:00 0 
+bf100000-e8d00000 ---p 00000000 00:00 0 
+e8d00000-eb200000 rw-p 00000000 00:00 0 
+eb200000-100000000 ---p 00000000 00:00 0 
+561df9797000-561df9798000 r--p 00000000 103:05 6961241                   /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+561df9798000-561df9799000 r-xp 00001000 103:05 6961241                   /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+561df9799000-561df979a000 r--p 00002000 103:05 6961241                   /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+561df979a000-561df979b000 r--p 00002000 103:05 6961241                   /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+561df979b000-561df979c000 rw-p 00003000 103:05 6961241                   /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+561dfb39c000-561dfb46a000 rw-p 00000000 00:00 0                          [heap]
+7f79af29e000-7f79af2c4000 rw-p 00000000 00:00 0 
+7f79af2c4000-7f79af412000 ---p 00000000 00:00 0 
+7f79af412000-7f79af438000 rw-p 00000000 00:00 0 
+7f79af438000-7f79af585000 ---p 00000000 00:00 0 
+7f79af585000-7f79af598000 rw-p 00000000 00:00 0 
+7f79af598000-7f79af63f000 ---p 00000000 00:00 0 
+7f79af63f000-7f79af64a000 rw-p 00000000 00:00 0 
+7f79af64a000-7f79afa00000 ---p 00000000 00:00 0 
+7f79afa00000-7f79afc70000 rwxp 00000000 00:00 0 
+7f79afc70000-7f79bea00000 ---p 00000000 00:00 0 
+7f79bea00000-7f79bebf6000 r--p 00000000 103:05 6961290                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7f79bebf6000-7f79bf566000 r-xp 001f6000 103:05 6961290                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7f79bf566000-7f79bf711000 r--p 00b66000 103:05 6961290                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7f79bf711000-7f79bf712000 ---p 00d11000 103:05 6961290                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7f79bf712000-7f79bf7a8000 r--p 00d11000 103:05 6961290                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7f79bf7a8000-7f79bf7d1000 rw-p 00da7000 103:05 6961290                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7f79bf7d1000-7f79bf804000 rw-p 00000000 00:00 0 
+7f79bf8eb000-7f79bfa00000 rw-p 00000000 00:00 0 
+7f79bfa00000-7f79bfa9a000 r--p 00000000 103:05 6319691                   /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7f79bfa9a000-7f79bfbab000 r-xp 0009a000 103:05 6319691                   /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7f79bfbab000-7f79bfc1a000 r--p 001ab000 103:05 6319691                   /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7f79bfc1a000-7f79bfc1b000 ---p 0021a000 103:05 6319691                   /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7f79bfc1b000-7f79bfc26000 r--p 0021a000 103:05 6319691                   /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7f79bfc26000-7f79bfc29000 rw-p 00225000 103:05 6319691                   /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7f79bfc29000-7f79bfc2c000 rw-p 00000000 00:00 0 
+7f79bfcaa000-7f79bfcb7000 r--p 00000000 103:05 6961268                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjava.so
+7f79bfcb7000-7f79bfccf000 r-xp 0000d000 103:05 6961268                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjava.so
+7f79bfccf000-7f79bfcd6000 r--p 00025000 103:05 6961268                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjava.so
+7f79bfcd6000-7f79bfcd7000 r--p 0002b000 103:05 6961268                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjava.so
+7f79bfcd7000-7f79bfcd9000 rw-p 0002c000 103:05 6961268                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjava.so
+7f79bfcd9000-7f79bfcfa000 rw-p 00000000 00:00 0 
+7f79bfcfa000-7f79bfd08000 r--p 00000000 103:05 6293613                   /usr/lib/x86_64-linux-gnu/libm.so.6
+7f79bfd08000-7f79bfd84000 r-xp 0000e000 103:05 6293613                   /usr/lib/x86_64-linux-gnu/libm.so.6
+7f79bfd84000-7f79bfddf000 r--p 0008a000 103:05 6293613                   /usr/lib/x86_64-linux-gnu/libm.so.6
+7f79bfddf000-7f79bfde0000 r--p 000e4000 103:05 6293613                   /usr/lib/x86_64-linux-gnu/libm.so.6
+7f79bfde0000-7f79bfde1000 rw-p 000e5000 103:05 6293613                   /usr/lib/x86_64-linux-gnu/libm.so.6
+7f79bfde1000-7f79bfe0c000 r--p 00000000 103:05 15080498                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4clhep-170e676c.so
+7f79bfe0c000-7f79bfe69000 r-xp 0002b000 103:05 15080498                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4clhep-170e676c.so
+7f79bfe69000-7f79bfe96000 r--p 00088000 103:05 15080498                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4clhep-170e676c.so
+7f79bfe96000-7f79bfe97000 ---p 000b5000 103:05 15080498                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4clhep-170e676c.so
+7f79bfe97000-7f79bfe99000 r--p 000b5000 103:05 15080498                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4clhep-170e676c.so
+7f79bfe99000-7f79bfe9b000 rw-p 000b7000 103:05 15080498                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4clhep-170e676c.so
+7f79bfe9b000-7f79bfe9c000 rw-p 00000000 00:00 0 
+7f79bfe9c000-7f79bfeb3000 rw-p 000e1000 103:05 15080498                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4clhep-170e676c.so
+7f79bfeb3000-7f79bfee8000 r--p 00000000 103:05 15080501                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4global-a19c55f2.so
+7f79bfee8000-7f79bff70000 r-xp 00035000 103:05 15080501                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4global-a19c55f2.so
+7f79bff70000-7f79bff92000 r--p 000bd000 103:05 15080501                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4global-a19c55f2.so
+7f79bff92000-7f79bff95000 r--p 000de000 103:05 15080501                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4global-a19c55f2.so
+7f79bff95000-7f79bff97000 rw-p 000e1000 103:05 15080501                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4global-a19c55f2.so
+7f79bff97000-7f79bff98000 rw-p 00000000 00:00 0 
+7f79bff98000-7f79bffec000 rw-p 0011f000 103:05 15080501                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4global-a19c55f2.so
+7f79bffec000-7f79bfffb000 r--p 00000000 103:05 15080565                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4intercoms-d770af8d.so
+7f79bfffb000-7f79c0045000 r-xp 0000f000 103:05 15080565                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4intercoms-d770af8d.so
+7f79c0045000-7f79c0054000 r--p 00059000 103:05 15080565                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4intercoms-d770af8d.so
+7f79c0054000-7f79c0055000 ---p 00068000 103:05 15080565                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4intercoms-d770af8d.so
+7f79c0055000-7f79c0056000 r--p 00068000 103:05 15080565                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4intercoms-d770af8d.so
+7f79c0056000-7f79c0057000 rw-p 00069000 103:05 15080565                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4intercoms-d770af8d.so
+7f79c0057000-7f79c006c000 rw-p 00079000 103:05 15080565                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4intercoms-d770af8d.so
+7f79c006c000-7f79c009b000 r--p 00000000 103:05 15080494                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4particles-a2ab1706.so
+7f79c009b000-7f79c015a000 r-xp 0002f000 103:05 15080494                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4particles-a2ab1706.so
+7f79c015a000-7f79c01b9000 r--p 000ee000 103:05 15080494                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4particles-a2ab1706.so
+7f79c01b9000-7f79c01ba000 ---p 0014d000 103:05 15080494                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4particles-a2ab1706.so
+7f79c01ba000-7f79c01bd000 r--p 0014d000 103:05 15080494                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4particles-a2ab1706.so
+7f79c01bd000-7f79c01bf000 rw-p 00150000 103:05 15080494                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4particles-a2ab1706.so
+7f79c01bf000-7f79c01c1000 rw-p 00000000 00:00 0 
+7f79c01c1000-7f79c0200000 rw-p 00180000 103:05 15080494                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4particles-a2ab1706.so
+7f79c0200000-7f79c0359000 r--p 00000000 103:05 15080559                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4analysis-58c18685.so
+7f79c0359000-7f79c06cc000 r-xp 00159000 103:05 15080559                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4analysis-58c18685.so
+7f79c06cc000-7f79c0786000 r--p 004cc000 103:05 15080559                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4analysis-58c18685.so
+7f79c0786000-7f79c07ab000 r--p 00585000 103:05 15080559                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4analysis-58c18685.so
+7f79c07ab000-7f79c07af000 rw-p 005aa000 103:05 15080559                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4analysis-58c18685.so
+7f79c07af000-7f79c07b2000 rw-p 00000000 00:00 0 
+7f79c07b2000-7f79c0996000 rw-p 006a7000 103:05 15080559                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4analysis-58c18685.so
+7f79c0996000-7f79c0999000 r--p 00000000 103:05 6961287                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libzip.so
+7f79c0999000-7f79c099e000 r-xp 00003000 103:05 6961287                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libzip.so
+7f79c099e000-7f79c09a0000 r--p 00008000 103:05 6961287                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libzip.so
+7f79c09a0000-7f79c09a1000 r--p 00009000 103:05 6961287                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libzip.so
+7f79c09a1000-7f79c09a2000 rw-p 0000a000 103:05 6961287                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libzip.so
+7f79c09a2000-7f79c09b3000 rw-p 00000000 00:00 0 
+7f79c09b3000-7f79c09c9000 r--p 00000000 103:05 15080492                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4ptl-124ac18e.so.2.3.3
+7f79c09c9000-7f79c09e6000 r-xp 00016000 103:05 15080492                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4ptl-124ac18e.so.2.3.3
+7f79c09e6000-7f79c09f1000 r--p 00033000 103:05 15080492                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4ptl-124ac18e.so.2.3.3
+7f79c09f1000-7f79c09f2000 ---p 0003e000 103:05 15080492                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4ptl-124ac18e.so.2.3.3
+7f79c09f2000-7f79c09f3000 r--p 0003e000 103:05 15080492                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4ptl-124ac18e.so.2.3.3
+7f79c09f3000-7f79c09f4000 rw-p 0003f000 103:05 15080492                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4ptl-124ac18e.so.2.3.3
+7f79c09f4000-7f79c0a00000 rw-p 00059000 103:05 15080492                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4ptl-124ac18e.so.2.3.3
+7f79c0a00000-7f79c0a28000 r--p 00000000 103:05 6293606                   /usr/lib/x86_64-linux-gnu/libc.so.6
+7f79c0a28000-7f79c0bbd000 r-xp 00028000 103:05 6293606                   /usr/lib/x86_64-linux-gnu/libc.so.6
+7f79c0bbd000-7f79c0c15000 r--p 001bd000 103:05 6293606                   /usr/lib/x86_64-linux-gnu/libc.so.6
+7f79c0c15000-7f79c0c19000 r--p 00214000 103:05 6293606                   /usr/lib/x86_64-linux-gnu/libc.so.6
+7f79c0c19000-7f79c0c1b000 rw-p 00218000 103:05 6293606                   /usr/lib/x86_64-linux-gnu/libc.so.6
+7f79c0c1b000-7f79c0c28000 rw-p 00000000 00:00 0 
+7f79c0c2b000-7f79c0c33000 rw-s 00000000 103:05 12058724                  /tmp/hsperfdata_jericho/167261
+7f79c0c33000-7f79c0c34000 r--p 00000000 103:05 6293655                   /usr/lib/x86_64-linux-gnu/librt.so.1
+7f79c0c34000-7f79c0c35000 r-xp 00001000 103:05 6293655                   /usr/lib/x86_64-linux-gnu/librt.so.1
+7f79c0c35000-7f79c0c36000 r--p 00002000 103:05 6293655                   /usr/lib/x86_64-linux-gnu/librt.so.1
+7f79c0c36000-7f79c0c37000 r--p 00002000 103:05 6293655                   /usr/lib/x86_64-linux-gnu/librt.so.1
+7f79c0c37000-7f79c0c38000 rw-p 00003000 103:05 6293655                   /usr/lib/x86_64-linux-gnu/librt.so.1
+7f79c0c38000-7f79c0c3a000 r--p 00000000 103:05 6319961                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f79c0c3a000-7f79c0c4b000 r-xp 00002000 103:05 6319961                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f79c0c4b000-7f79c0c51000 r--p 00013000 103:05 6319961                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f79c0c51000-7f79c0c52000 ---p 00019000 103:05 6319961                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f79c0c52000-7f79c0c53000 r--p 00019000 103:05 6319961                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f79c0c53000-7f79c0c54000 rw-p 0001a000 103:05 6319961                   /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7f79c0c54000-7f79c0c57000 r--p 00000000 103:05 6318903                   /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7f79c0c57000-7f79c0c6e000 r-xp 00003000 103:05 6318903                   /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7f79c0c6e000-7f79c0c72000 r--p 0001a000 103:05 6318903                   /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7f79c0c72000-7f79c0c73000 r--p 0001d000 103:05 6318903                   /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7f79c0c73000-7f79c0c74000 rw-p 0001e000 103:05 6318903                   /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7f79c0c74000-7f79c0c8b000 r--p 00000000 103:05 15080491                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4graphics_reps-f3db01e8.so
+7f79c0c8b000-7f79c0cb9000 r-xp 00017000 103:05 15080491                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4graphics_reps-f3db01e8.so
+7f79c0cb9000-7f79c0cc4000 r--p 00045000 103:05 15080491                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4graphics_reps-f3db01e8.so
+7f79c0cc4000-7f79c0cc5000 ---p 00050000 103:05 15080491                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4graphics_reps-f3db01e8.so
+7f79c0cc5000-7f79c0cc7000 r--p 00050000 103:05 15080491                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4graphics_reps-f3db01e8.so
+7f79c0cc7000-7f79c0cc8000 rw-p 00052000 103:05 15080491                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4graphics_reps-f3db01e8.so
+7f79c0cc8000-7f79c0cc9000 rw-p 00000000 00:00 0 
+7f79c0cc9000-7f79c0ce5000 rw-p 00065000 103:05 15080491                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4graphics_reps-f3db01e8.so
+7f79c0ce5000-7f79c0cfa000 r--p 00000000 103:05 15080558                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4materials-0a3fe0e7.so
+7f79c0cfa000-7f79c0d96000 r-xp 00015000 103:05 15080558                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4materials-0a3fe0e7.so
+7f79c0d96000-7f79c0ddd000 r--p 000b1000 103:05 15080558                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4materials-0a3fe0e7.so
+7f79c0ddd000-7f79c0dde000 ---p 000f8000 103:05 15080558                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4materials-0a3fe0e7.so
+7f79c0dde000-7f79c0ddf000 r--p 000f8000 103:05 15080558                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4materials-0a3fe0e7.so
+7f79c0ddf000-7f79c0de0000 rw-p 000f9000 103:05 15080558                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4materials-0a3fe0e7.so
+7f79c0de0000-7f79c0de1000 rw-p 00000000 00:00 0 
+7f79c0de1000-7f79c0e00000 rw-p 0010f000 103:05 15080558                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4materials-0a3fe0e7.so
+7f79c0e00000-7f79c0e92000 r--p 00000000 103:05 15080506                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4geometry-0c687114.so
+7f79c0e92000-7f79c1092000 r-xp 00092000 103:05 15080506                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4geometry-0c687114.so
+7f79c1092000-7f79c10f0000 r--p 00292000 103:05 15080506                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4geometry-0c687114.so
+7f79c10f0000-7f79c10fb000 r--p 002ef000 103:05 15080506                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4geometry-0c687114.so
+7f79c10fb000-7f79c10ff000 rw-p 002fa000 103:05 15080506                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4geometry-0c687114.so
+7f79c10ff000-7f79c1107000 rw-p 00000000 00:00 0 
+7f79c1107000-7f79c11d1000 rw-p 00381000 103:05 15080506                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4geometry-0c687114.so
+7f79c11d3000-7f79c11e1000 rw-p 00000000 00:00 0 
+7f79c11e1000-7f79c11e4000 r--p 00000000 103:05 15080479                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4zlib-8a92f4d5.so
+7f79c11e4000-7f79c11f6000 r-xp 00003000 103:05 15080479                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4zlib-8a92f4d5.so
+7f79c11f6000-7f79c11fd000 r--p 00015000 103:05 15080479                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4zlib-8a92f4d5.so
+7f79c11fd000-7f79c11fe000 r--p 0001b000 103:05 15080479                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4zlib-8a92f4d5.so
+7f79c11fe000-7f79c11ff000 rw-p 0001c000 103:05 15080479                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4zlib-8a92f4d5.so
+7f79c11ff000-7f79c1200000 rw-p 0001f000 103:05 15080479                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4zlib-8a92f4d5.so
+7f79c1200000-7f79c1580000 r--p 00000000 103:05 15080488                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4processes-92d9f07e.so
+7f79c1580000-7f79c228f000 r-xp 00380000 103:05 15080488                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4processes-92d9f07e.so
+7f79c228f000-7f79c29b3000 r--p 0108f000 103:05 15080488                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4processes-92d9f07e.so
+7f79c29b3000-7f79c29b4000 ---p 017b3000 103:05 15080488                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4processes-92d9f07e.so
+7f79c29b4000-7f79c2a38000 r--p 017b3000 103:05 15080488                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4processes-92d9f07e.so
+7f79c2a38000-7f79c2c54000 rw-p 01837000 103:05 15080488                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4processes-92d9f07e.so
+7f79c2c54000-7f79c2d21000 rw-p 00000000 00:00 0 
+7f79c2d21000-7f79c315f000 rw-p 01d40000 103:05 15080488                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4processes-92d9f07e.so
+7f79c3162000-7f79c3169000 rw-p 00000000 00:00 0 
+7f79c3169000-7f79c316a000 r--p 00000000 103:05 6293649                   /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7f79c316a000-7f79c316b000 r-xp 00001000 103:05 6293649                   /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7f79c316b000-7f79c316c000 r--p 00002000 103:05 6293649                   /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7f79c316c000-7f79c316d000 r--p 00002000 103:05 6293649                   /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7f79c316d000-7f79c316e000 rw-p 00003000 103:05 6293649                   /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7f79c316e000-7f79c3172000 rw-p 00000000 00:00 0 
+7f79c3172000-7f79c317b000 r--p 00000000 103:05 15080564                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4track-0f17a637.so
+7f79c317b000-7f79c3188000 r-xp 00009000 103:05 15080564                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4track-0f17a637.so
+7f79c3188000-7f79c318c000 r--p 00016000 103:05 15080564                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4track-0f17a637.so
+7f79c318c000-7f79c318d000 ---p 0001a000 103:05 15080564                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4track-0f17a637.so
+7f79c318d000-7f79c318e000 r--p 0001a000 103:05 15080564                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4track-0f17a637.so
+7f79c318e000-7f79c318f000 rw-p 0001b000 103:05 15080564                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4track-0f17a637.so
+7f79c318f000-7f79c319b000 rw-p 00023000 103:05 15080564                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4track-0f17a637.so
+7f79c319b000-7f79c31c1000 r--p 00000000 103:05 15080571                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4digits_hits-49ed91d8.so
+7f79c31c1000-7f79c3244000 r-xp 00026000 103:05 15080571                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4digits_hits-49ed91d8.so
+7f79c3244000-7f79c3261000 r--p 000a9000 103:05 15080571                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4digits_hits-49ed91d8.so
+7f79c3261000-7f79c3262000 ---p 000c6000 103:05 15080571                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4digits_hits-49ed91d8.so
+7f79c3262000-7f79c3265000 r--p 000c6000 103:05 15080571                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4digits_hits-49ed91d8.so
+7f79c3265000-7f79c3267000 rw-p 000c9000 103:05 15080571                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4digits_hits-49ed91d8.so
+7f79c3267000-7f79c326a000 rw-p 00000000 00:00 0 
+7f79c326a000-7f79c329a000 rw-p 000ef000 103:05 15080571                  /home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4digits_hits-49ed91d8.so
+7f79c329a000-7f79c329e000 r--p 00000000 103:05 6318826                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7
+7f79c329e000-7f79c32bd000 r-xp 00004000 103:05 6318826                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7
+7f79c32bd000-7f79c32c7000 r--p 00023000 103:05 6318826                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7
+7f79c32c7000-7f79c32c8000 ---p 0002d000 103:05 6318826                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7
+7f79c32c8000-7f79c32ca000 r--p 0002d000 103:05 6318826                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7
+7f79c32ca000-7f79c32cb000 rw-p 0002f000 103:05 6318826                   /usr/lib/x86_64-linux-gnu/libexpat.so.1.8.7
+7f79c32cb000-7f79c32ce000 rw-p 00000000 00:00 0 
+7f79c32ce000-7f79c32d3000 r--p 00000000 103:05 6961286                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libverify.so
+7f79c32d3000-7f79c32dc000 r-xp 00005000 103:05 6961286                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libverify.so
+7f79c32dc000-7f79c32de000 r--p 0000e000 103:05 6961286                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libverify.so
+7f79c32de000-7f79c32e0000 r--p 0000f000 103:05 6961286                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libverify.so
+7f79c32e0000-7f79c32e1000 rw-p 00011000 103:05 6961286                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libverify.so
+7f79c32e1000-7f79c32e4000 r--p 00000000 103:05 6961254                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+7f79c32e4000-7f79c32ed000 r-xp 00003000 103:05 6961254                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+7f79c32ed000-7f79c32f0000 r--p 0000c000 103:05 6961254                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+7f79c32f0000-7f79c32f1000 r--p 0000e000 103:05 6961254                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+7f79c32f1000-7f79c32f2000 rw-p 0000f000 103:05 6961254                   /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/jli/libjli.so
+7f79c32f2000-7f79c32f4000 rw-p 00000000 00:00 0 
+7f79c32f4000-7f79c32f6000 r--p 00000000 103:05 6293598                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7f79c32f6000-7f79c3320000 r-xp 00002000 103:05 6293598                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7f79c3320000-7f79c332b000 r--p 0002c000 103:05 6293598                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7f79c332b000-7f79c332c000 r--p 00000000 00:00 0 
+7f79c332c000-7f79c332e000 r--p 00037000 103:05 6293598                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7f79c332e000-7f79c3330000 rw-p 00039000 103:05 6293598                   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7fffda687000-7fffda68a000 ---p 00000000 00:00 0 
+7fffda68a000-7fffda787000 rw-p 00000000 00:00 0                          [stack]
+7fffda79d000-7fffda7a1000 r--p 00000000 00:00 0                          [vvar]
+7fffda7a1000-7fffda7a3000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Xmx1114m 
+java_command: ij.ImageJ -ijpath /home/jericho/.imagej -port1 rojection.png
+java_class_path (initial): /usr/share/java/ij.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/home/jericho/anaconda3/envs/opengate_env/bin:/home/jericho/anaconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+USERNAME=jericho
+LD_LIBRARY_PATH=/home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs:/home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs::YOUR_PATH/GGEMS_install/ggems/lib:/usr/local/ggems/lib:/usr/local/ggems/lib
+LD_PRELOAD=/home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4processes-92d9f07e.so:/home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4geometry-0c687114.so:/home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4processes-92d9f07e.so:/home/jericho/anaconda3/envs/opengate_env/lib/python3.9/site-packages/opengate_core.libs/libG4geometry-0c687114.so:
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xb3f5e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xb3f5e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x97dee0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x97dee0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x97dee0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x97dee0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x97e210], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGINT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGTERM: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGQUIT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=22.04
+DISTRIB_CODENAME=jammy
+DISTRIB_DESCRIPTION="Ubuntu 22.04.3 LTS"
+
+uname:Linux 6.2.0-34-generic #34~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep  7 13:12:03 UTC 2 x86_64
+libc:glibc 2.35 NPTL 2.35 
+rlimit: STACK 8192k, CORE 0k, NPROC 28140, NOFILE 1048576, AS infinity
+load average:0.49 0.63 0.71
+
+/proc/meminfo:
+MemTotal:        7280456 kB
+MemFree:          459752 kB
+MemAvailable:    1708808 kB
+Buffers:           82272 kB
+Cached:          1336516 kB
+SwapCached:        84760 kB
+Active:          2104200 kB
+Inactive:        3063908 kB
+Active(anon):    1244648 kB
+Inactive(anon):  2588128 kB
+Active(file):     859552 kB
+Inactive(file):   475780 kB
+Unevictable:          48 kB
+Mlocked:              48 kB
+SwapTotal:       2097148 kB
+SwapFree:         238280 kB
+Zswap:                 0 kB
+Zswapped:              0 kB
+Dirty:                12 kB
+Writeback:             0 kB
+AnonPages:       3665896 kB
+Mapped:           666588 kB
+Shmem:             84112 kB
+KReclaimable:     218752 kB
+Slab:             635428 kB
+SReclaimable:     218752 kB
+SUnreclaim:       416676 kB
+KernelStack:       28872 kB
+PageTables:        75272 kB
+SecPageTables:         0 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     5737376 kB
+Committed_AS:   15980872 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      156592 kB
+VmallocChunk:          0 kB
+Percpu:            14208 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:     3838908 kB
+DirectMap2M:     3702784 kB
+DirectMap1G:           0 kB
+
+container (cgroup) information:
+container_type: cgroupv2
+cpu_cpuset_cpus: failed
+cpu_memory_nodes: failed
+active_processor_count: 16
+cpu_quota: -2
+cpu_period: -2
+cpu_shares: -2
+memory_limit_in_bytes: -1
+memory_and_swap_limit_in_bytes: -1
+memory_soft_limit_in_bytes: 0
+memory_usage_in_bytes: 1789685760
+memory_max_usage_in_bytes: -2
+
+
+CPU:total 16 (initial active 16) (16 cores per cpu, 1 threads per core) family 25 model 116 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, mmxext, 3dnowpref, lzcnt, sse4a, tsc, tscinvbit, tscinv, bmi1
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 116
+model name	: AMD Ryzen 7 7840HS w/ Radeon 780M Graphics
+stepping	: 1
+microcode	: 0xa704101
+cpu MHz		: 2245.961
+cache size	: 1024 KB
+physical id	: 0
+siblings	: 16
+core id		: 0
+cpu cores	: 8
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload vgif x2avic v_spec_ctrl avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor smca flush_l1d
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso
+bogomips	: 7586.38
+TLB size	: 3584 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14] [15]
+
+processor	: 1
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 116
+model name	: AMD Ryzen 7 7840HS w/ Radeon 780M Graphics
+stepping	: 1
+microcode	: 0xa704101
+cpu MHz		: 1967.838
+cache size	: 1024 KB
+physical id	: 0
+siblings	: 16
+core id		: 0
+cpu cores	: 8
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload vgif x2avic v_spec_ctrl avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor smca flush_l1d
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso
+bogomips	: 7586.38
+TLB size	: 3584 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14] [15]
+
+processor	: 2
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 116
+model name	: AMD Ryzen 7 7840HS w/ Radeon 780M Graphics
+stepping	: 1
+microcode	: 0xa704101
+cpu MHz		: 1867.676
+cache size	: 1024 KB
+physical id	: 0
+siblings	: 16
+core id		: 1
+cpu cores	: 8
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload vgif x2avic v_spec_ctrl avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor smca flush_l1d
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso
+bogomips	: 7586.38
+TLB size	: 3584 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14] [15]
+
+processor	: 3
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 116
+model name	: AMD Ryzen 7 7840HS w/ Radeon 780M Graphics
+stepping	: 1
+microcode	: 0xa704101
+cpu MHz		: 1929.958
+cache size	: 1024 KB
+physical id	: 0
+siblings	: 16
+core id		: 1
+cpu cores	: 8
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload vgif x2avic v_spec_ctrl avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor smca flush_l1d
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso
+bogomips	: 7586.38
+TLB size	: 3584 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14] [15]
+
+processor	: 4
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 116
+model name	: AMD Ryzen 7 7840HS w/ Radeon 780M Graphics
+stepping	: 1
+microcode	: 0xa704101
+cpu MHz		: 1756.307
+cache size	: 1024 KB
+physical id	: 0
+siblings	: 16
+core id		: 2
+cpu cores	: 8
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload vgif x2avic v_spec_ctrl avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor smca flush_l1d
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso
+bogomips	: 7586.38
+TLB size	: 3584 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14] [15]
+
+processor	: 5
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 116
+model name	: AMD Ryzen 7 7840HS w/ Radeon 780M Graphics
+stepping	: 1
+microcode	: 0xa704101
+cpu MHz		: 1600.000
+cache size	: 1024 KB
+physical id	: 0
+siblings	: 16
+core id		: 2
+cpu cores	: 8
+apicid		: 5
+initial apicid	: 5
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload vgif x2avic v_spec_ctrl avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor smca flush_l1d
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso
+bogomips	: 7586.38
+TLB size	: 3584 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14] [15]
+
+processor	: 6
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 116
+model name	: AMD Ryzen 7 7840HS w/ Radeon 780M Graphics
+stepping	: 1
+microcode	: 0xa704101
+cpu MHz		: 1492.214
+cache size	: 1024 KB
+physical id	: 0
+siblings	: 16
+core id		: 3
+cpu cores	: 8
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload vgif x2avic v_spec_ctrl avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor smca flush_l1d
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso
+bogomips	: 7586.38
+TLB size	: 3584 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14] [15]
+
+processor	: 7
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 116
+model name	: AMD Ryzen 7 7840HS w/ Radeon 780M Graphics
+stepping	: 1
+microcode	: 0xa704101
+cpu MHz		: 720.948
+cache size	: 1024 KB
+physical id	: 0
+siblings	: 16
+core id		: 3
+cpu cores	: 8
+apicid		: 7
+initial apicid	: 7
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload vgif x2avic v_spec_ctrl avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor smca flush_l1d
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso
+bogomips	: 7586.38
+TLB size	: 3584 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14] [15]
+
+processor	: 8
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 116
+model name	: AMD Ryzen 7 7840HS w/ Radeon 780M Graphics
+stepping	: 1
+microcode	: 0xa704101
+cpu MHz		: 3021.508
+cache size	: 1024 KB
+physical id	: 0
+siblings	: 16
+core id		: 4
+cpu cores	: 8
+apicid		: 8
+initial apicid	: 8
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload vgif x2avic v_spec_ctrl avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor smca flush_l1d
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso
+bogomips	: 7586.38
+TLB size	: 3584 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14] [15]
+
+processor	: 9
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 116
+model name	: AMD Ryzen 7 7840HS w/ Radeon 780M Graphics
+stepping	: 1
+microcode	: 0xa704101
+cpu MHz		: 3522.504
+cache size	: 1024 KB
+physical id	: 0
+siblings	: 16
+core id		: 4
+cpu cores	: 8
+apicid		: 9
+initial apicid	: 9
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload vgif x2avic v_spec_ctrl avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor smca flush_l1d
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso
+bogomips	: 7586.38
+TLB size	: 3584 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14] [15]
+
+processor	: 10
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 116
+model name	: AMD Ryzen 7 7840HS w/ Radeon 780M Graphics
+stepping	: 1
+microcode	: 0xa704101
+cpu MHz		: 848.692
+cache size	: 1024 KB
+physical id	: 0
+siblings	: 16
+core id		: 5
+cpu cores	: 8
+apicid		: 10
+initial apicid	: 10
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload vgif x2avic v_spec_ctrl avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor smca flush_l1d
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso
+bogomips	: 7586.38
+TLB size	: 3584 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14] [15]
+
+processor	: 11
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 116
+model name	: AMD Ryzen 7 7840HS w/ Radeon 780M Graphics
+stepping	: 1
+microcode	: 0xa704101
+cpu MHz		: 562.047
+cache size	: 1024 KB
+physical id	: 0
+siblings	: 16
+core id		: 5
+cpu cores	: 8
+apicid		: 11
+initial apicid	: 11
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload vgif x2avic v_spec_ctrl avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor smca flush_l1d
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso
+bogomips	: 7586.38
+TLB size	: 3584 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14] [15]
+
+processor	: 12
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 116
+model name	: AMD Ryzen 7 7840HS w/ Radeon 780M Graphics
+stepping	: 1
+microcode	: 0xa704101
+cpu MHz		: 4677.401
+cache size	: 1024 KB
+physical id	: 0
+siblings	: 16
+core id		: 6
+cpu cores	: 8
+apicid		: 12
+initial apicid	: 12
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload vgif x2avic v_spec_ctrl avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor smca flush_l1d
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso
+bogomips	: 7586.38
+TLB size	: 3584 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14] [15]
+
+processor	: 13
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 116
+model name	: AMD Ryzen 7 7840HS w/ Radeon 780M Graphics
+stepping	: 1
+microcode	: 0xa704101
+cpu MHz		: 3525.169
+cache size	: 1024 KB
+physical id	: 0
+siblings	: 16
+core id		: 6
+cpu cores	: 8
+apicid		: 13
+initial apicid	: 13
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload vgif x2avic v_spec_ctrl avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor smca flush_l1d
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso
+bogomips	: 7586.38
+TLB size	: 3584 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14] [15]
+
+processor	: 14
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 116
+model name	: AMD Ryzen 7 7840HS w/ Radeon 780M Graphics
+stepping	: 1
+microcode	: 0xa704101
+cpu MHz		: 1098.678
+cache size	: 1024 KB
+physical id	: 0
+siblings	: 16
+core id		: 7
+cpu cores	: 8
+apicid		: 14
+initial apicid	: 14
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload vgif x2avic v_spec_ctrl avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor smca flush_l1d
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso
+bogomips	: 7586.38
+TLB size	: 3584 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14] [15]
+
+processor	: 15
+vendor_id	: AuthenticAMD
+cpu family	: 25
+model		: 116
+model name	: AMD Ryzen 7 7840HS w/ Radeon 780M Graphics
+stepping	: 1
+microcode	: 0xa704101
+cpu MHz		: 2080.190
+cache size	: 1024 KB
+physical id	: 0
+siblings	: 16
+core id		: 7
+cpu cores	: 8
+apicid		: 15
+initial apicid	: 15
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 16
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good amd_lbr_v2 nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba perfmon_v2 ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload vgif x2avic v_spec_ctrl avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_recov succor smca flush_l1d
+bugs		: sysret_ss_attrs spectre_v1 spectre_v2 spec_store_bypass srso
+bogomips	: 7586.38
+TLB size	: 3584 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm hwpstate cpb eff_freq_ro [13] [14] [15]
+
+
+
+Memory: 4k page, physical 7280456k(459760k free), swap 2097148k(238280k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.382-b05) for linux-amd64 JRE (1.8.0_382-8u382-ga-1~22.04.1-b05), built on Jul 24 2023 20:17:51 by "buildd" with gcc 11.3.0
+
+time: Tue Oct 10 11:46:11 2023
+timezone: EDT
+elapsed time: 0.014548 seconds (0d 0h 0m 0s)
+
