@@ -1,0 +1,7 @@
+*.raw
+*.pyc
+.ipynb_checkpoints/*
+**/build/*
+**/dist/*
+
+
