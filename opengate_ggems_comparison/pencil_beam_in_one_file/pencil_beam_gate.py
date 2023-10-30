@@ -12,9 +12,12 @@
 # ------------------------------------------------------------------------------
 
 import opengate as gate
-from opengate import get_default_test_paths
+import opengate.tests.utility as utility
+paths = utility.get_default_test_paths(
+    __file__, "gate_test004_simulation_stats_actor"
+)
 
-paths = get_default_test_paths(__file__, "gate_test004_simulation_stats_actor")
+paths = utility.get_default_test_paths(__file__, "gate_test004_simulation_stats_actor")
 
 # create the simulation
 sim = gate.Simulation()
@@ -27,11 +30,38 @@ ui = sim.user_info
 # ui.visu_filename = "geant4VisuFile.wrl"
 # ui.visu_verbose = True
 ui.g4_verbose = True
+ui.g4_verbose_level = 3
 # ui.check_volumes_overlap = True
-ui.number_of_threads = 15
+ui.number_of_threads = 1
 ui.random_seed = 654923
 
-sim.physics_manager.physics_list_name = "G4EmStandardPhysics_option4"
+# change physics
+p = sim.get_physics_user_info()
+p.physics_list_name = "G4EmStandardPhysics_option4"
+p.enable_decay = True
+p.apply_cuts = True  # default
+cuts = p.production_cuts
+um = gate.g4_units("um")
+cuts.world.gamma = 10 * um
+cuts.world.electron = 10 * um
+cuts.world.positron = 10 * um
+cuts.world.proton = 10 * um
+
+MeV = gate.g4_units("MeV")
+keV = gate.g4_units("keV")
+
+p.energy_range_min = 1 * keV
+p.energy_range_max = 1 * MeV
+
+
+# em parameters
+# phys_em_parameters(p)
+
+# print cuts
+print("Phys list cuts:")
+print(sim.physics_manager.dump_cuts())
+
+# sim.physics_manager.physics_list_name = "G4EmStandardPhysics_option4"
 
 
 paths = gate.get_default_test_paths(__file__, "gate_test004_simulation_stats_actor")
@@ -49,7 +79,7 @@ Bq = gate.g4_units("Bq")
 # Change world size
 world = sim.world
 world.size = [1 * m, 1 * m, 1 * m]
-world.material = "G4_AIR"
+world.material = "Vacuum"
 
 # detector in w2 (on top of world)
 det = sim.add_volume("Box", "detector")
@@ -66,13 +96,13 @@ source.particle = "gamma"
 source.position.type = "box"
 source.position.size = [0.01 * mm, 0.01 * mm, 0.01 * mm]
 source.position.translation = [0, 0, 200 * mm]
-source.n = 1e9 / ui.number_of_threads #number of particles
+source.n = 1e5 / ui.number_of_threads #number of particles
 source.direction.type = "momentum"
 source.direction.momentum = [0, 0, -1]
 
 # add phsp actor detector 1 (overlap!)
 dose = sim.add_actor("DoseActor", "edep")
-dose.output = "out/gate_edep_test.mhd"
+dose.output = "out/gate_edep_test2.mhd"
 dose.mother = det.name
 dose.size = [200,200,40]
 dose.spacing = [0.1 * mm, 0.1 * mm, 0.1 * mm]
@@ -85,12 +115,12 @@ det2 = sim.add_volume("Box", "detector2")
 det2.mother = "world"
 det2.material = "GOS"
 det2.size = [20 * mm, 20 * mm, 4 * mm]
-det2.translation = [0, 0, (-200-20.01) * mm]
+det2.translation = [0, 0, (-200-4.01) * mm]
 det2.color = [1, 0, 0, 1]
 
 # add phsp actor detector 1 (overlap!)
 dose2 = sim.add_actor("DoseActor", "edep2")
-dose2.output = "out/gate_edep2_test.mhd"
+dose2.output = "out/gate_edep2_test2.mhd"
 dose2.mother = det2.name
 dose2.size = [200,200,40]
 dose2.spacing = [0.1 * mm, 0.1 * mm, 0.1 * mm]

@@ -24,7 +24,7 @@ parser = argparse.ArgumentParser(
   formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
 parser.add_argument('-v', '--verbose', required=False, type=int, default=0, help='Set level of verbosity')
-parser.add_argument('-e', '--nogl', required=False, action='store_false', help='Disable OpenGL')
+parser.add_argument('-e', '--nogl', required=False, action='store_true', help='Disable OpenGL')
 parser.add_argument('-w', '--wdims', required=False, default=[800, 800], type=int, nargs=2, help='OpenGL window dimensions')
 parser.add_argument('-m', '--msaa', required=False, type=int, default=8, help='MSAA factor (1x, 2x, 4x or 8x)')
 parser.add_argument('-a', '--axis', required=False, action='store_true', help='Drawing axis in OpenGL window')
@@ -32,7 +32,7 @@ parser.add_argument('-p', '--nparticlesgl', required=False, type=int, default=25
 parser.add_argument('-b', '--drawgeom', required=False, action='store_true', help='Draw geometry only on OpenGL window')
 parser.add_argument('-c', '--wcolor', required=False, type=str, default='black', help='Background color of OpenGL window')
 parser.add_argument('-d', '--device', required=False, type=str, default='0', help="OpenCL device running visualization")
-parser.add_argument('-n', '--nparticles', required=False, type=int, default=int(1e9), help="Number of particles")
+parser.add_argument('-n', '--nparticles', required=False, type=int, default=int(1e8), help="Number of particles")
 parser.add_argument('-s', '--seed', required=False, type=int, default=777, help="Seed of pseudo generator number")
 
 args = parser.parse_args()
@@ -51,7 +51,7 @@ is_draw_geom = args.drawgeom
 is_gl = args.nogl
 # ------------------------------------------------------------------------------
 # STEP 0: Level of verbosity during computation
-GGEMSVerbosity(verbosity_level)
+GGEMSVerbosity(0)
 
 # ------------------------------------------------------------------------------
 # STEP 1: Calling C++ singleton
@@ -103,16 +103,33 @@ phantom.set_rotation(0.0, 0.0, 0.0, 'deg')
 phantom.set_position(0.0, 0.0, 0, 'mm')
 phantom.set_visible(True)
 
+phantom2 = GGEMSVoxelizedPhantom('phantom')
+phantom2.set_phantom('data/volume2.mhd', 'data/range_volume2.txt')
+phantom2.set_rotation(0.0, 0.0, 0.0, 'deg')
+phantom2.set_position(4.01, 0.0, 0, 'mm')
+phantom2.set_visible(True)
+
 dosimetry = GGEMSDosimetryCalculator()
 dosimetry.attach_to_navigator('phantom')
-dosimetry.set_output_basename('out/ggems_dosimetry')
+dosimetry.set_output_basename('out/ggems_dosimetry_no_tle')
 dosimetry.water_reference(False)
-dosimetry.set_tle(True)
+dosimetry.set_tle(False)
 dosimetry.set_dosel_size(0.1, 0.1, 0.1, 'mm')
 dosimetry.uncertainty(True)
 dosimetry.edep(True)
-dosimetry.hit(True)
-dosimetry.edep_squared(True)
+dosimetry.hit(False)
+dosimetry.edep_squared(False)
+
+dosimetry2 = GGEMSDosimetryCalculator()
+dosimetry2.attach_to_navigator('phantom')
+dosimetry2.set_output_basename('out/ggems_dosimetry_no_tle2')
+dosimetry2.water_reference(False)
+dosimetry2.set_tle(False)
+dosimetry2.set_dosel_size(0.1, 0.1, 0.1, 'mm')
+dosimetry2.uncertainty(True)
+dosimetry2.edep(True)
+dosimetry2.hit(False)
+dosimetry2.edep_squared(False)
 
 # cbct_detector = GGEMSCTSystem('custom')
 # cbct_detector.set_ct_type('flat')
@@ -144,6 +161,7 @@ processes_manager.set_cross_section_table_energy_max(1.0, 'MeV')
 # ------------------------------------------------------------------------------
 # STEP 7: Cuts, by default but are 1 um
 range_cuts_manager.set_cut('gamma', 0.01, 'mm', 'all')
+range_cuts_manager.set_cut('e-', 0.01, 'mm', 'all')
 
 # ------------------------------------------------------------------------------
 # STEP 8: Source

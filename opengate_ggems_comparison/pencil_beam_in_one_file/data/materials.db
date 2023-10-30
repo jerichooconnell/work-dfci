@@ -51,6 +51,8 @@ Uranium:    S= U   ; Z= 92. ; A= 238.03  g/mole
 #                               COMPLEX MATERIAL                               #
 ################################################################################
 [Materials]
+Vacuum: d=0.000001 mg/cm3 ; n=1
+       +el: name=Hydrogen ; n=1
 Breast: d=1.020 g/cm3; n=8;
 	+el: name=Oxygen    ; f=0.5270
 	+el: name=Carbon    ; f=0.3320
