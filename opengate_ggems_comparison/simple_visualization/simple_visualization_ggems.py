@@ -27,7 +27,7 @@ parser = argparse.ArgumentParser(
   epilog='''''',
   formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-parser.add_argument('-v', '--verbose', required=False, type=int, default=0, help='Set level of verbosity')
+parser.add_argument('-v', '--verbose', required=False, type=int, default=1, help='Set level of verbosity')
 parser.add_argument('-e', '--nogl', required=False, action='store_false', help='Disable OpenGL')
 parser.add_argument('-w', '--wdims', required=False, default=[800, 800], type=int, nargs=2, help='OpenGL window dimensions')
 parser.add_argument('-m', '--msaa', required=False, type=int, default=8, help='MSAA factor (1x, 2x, 4x or 8x)')
@@ -129,7 +129,7 @@ cbct_detector.set_material('GOS')
 cbct_detector.set_source_detector_distance(1500.5, 'mm') # Center of inside detector, adding half of detector (= SDD surface + 10.0/2 mm half of depth)
 cbct_detector.set_source_isocenter_distance(900.0, 'mm')
 cbct_detector.set_rotation(0.0, 0.0, 0.0, 'deg')
-cbct_detector.set_global_system_position(0.0, 0.0, 0.0, 'mm');
+cbct_detector.set_global_system_position(0.0, 0.0, 0.0, 'mm')
 cbct_detector.set_threshold(10.0, 'keV')
 cbct_detector.save('data/projection')
 cbct_detector.store_scatter(True)
@@ -146,7 +146,7 @@ cbct_detector2.set_material('Silicon')
 cbct_detector2.set_source_detector_distance(1605.0, 'mm') # Center of inside detector, adding half of detector (= SDD surface + 10.0/2 mm half of depth)
 cbct_detector2.set_source_isocenter_distance(1200.0, 'mm')
 cbct_detector2.set_rotation(0.0, 0.0, 90.0, 'deg')
-cbct_detector2.set_global_system_position(0.0, 0.0, 0.0, 'mm');
+cbct_detector2.set_global_system_position(0.0, 0.0, 0.0, 'mm')
 cbct_detector2.set_threshold(10.0, 'keV')
 cbct_detector2.save('data/projection2')
 cbct_detector2.store_scatter(True)

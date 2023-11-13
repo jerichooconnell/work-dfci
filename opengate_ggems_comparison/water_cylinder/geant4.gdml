@@ -1,0 +1,1770 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+  <define/>
+
+  <materials>
+    <isotope N="133" Z="55" name="Cs1330x5893e10">
+      <atom unit="g/mole" value="132.905"/>
+    </isotope>
+    <element name="Cesium0x5883250">
+      <fraction n="1" ref="Cs1330x5893e10"/>
+    </element>
+    <isotope N="127" Z="53" name="I1270x5894160">
+      <atom unit="g/mole" value="126.904"/>
+    </isotope>
+    <element name="Iodine0x5894040">
+      <fraction n="1" ref="I1270x5894160"/>
+    </element>
+    <material name="CsI0x5885470" state="solid">
+      <T unit="K" value="293.15"/>
+      <MEE unit="eV" value="489.469948021444"/>
+      <D unit="g/cm3" value="3.67"/>
+      <fraction n="0.511549" ref="Cesium0x5883250"/>
+      <fraction n="0.488451" ref="Iodine0x5894040"/>
+    </material>
+    <isotope N="12" Z="6" name="C120x587ca10">
+      <atom unit="g/mole" value="12"/>
+    </isotope>
+    <isotope N="13" Z="6" name="C130x587ca70">
+      <atom unit="g/mole" value="13.0034"/>
+    </isotope>
+    <element name="C0x58681d0">
+      <fraction n="0.9893" ref="C120x587ca10"/>
+      <fraction n="0.0107" ref="C130x587ca70"/>
+    </element>
+    <isotope N="14" Z="7" name="N140x587cc70">
+      <atom unit="g/mole" value="14.0031"/>
+    </isotope>
+    <isotope N="15" Z="7" name="N150x587cd00">
+      <atom unit="g/mole" value="15.0001"/>
+    </isotope>
+    <element name="N0x5874080">
+      <fraction n="0.99632" ref="N140x587cc70"/>
+      <fraction n="0.00368" ref="N150x587cd00"/>
+    </element>
+    <isotope N="16" Z="8" name="O160x587ceb0">
+      <atom unit="g/mole" value="15.9949"/>
+    </isotope>
+    <isotope N="17" Z="8" name="O170x587cf30">
+      <atom unit="g/mole" value="16.9991"/>
+    </isotope>
+    <isotope N="18" Z="8" name="O180x587cfb0">
+      <atom unit="g/mole" value="17.9992"/>
+    </isotope>
+    <element name="O0x587d010">
+      <fraction n="0.99757" ref="O160x587ceb0"/>
+      <fraction n="0.00038" ref="O170x587cf30"/>
+      <fraction n="0.00205" ref="O180x587cfb0"/>
+    </element>
+    <isotope N="36" Z="18" name="Ar360x587d220">
+      <atom unit="g/mole" value="35.9675"/>
+    </isotope>
+    <isotope N="38" Z="18" name="Ar380x587d280">
+      <atom unit="g/mole" value="37.9627"/>
+    </isotope>
+    <isotope N="40" Z="18" name="Ar400x587d370">
+      <atom unit="g/mole" value="39.9624"/>
+    </isotope>
+    <element name="Ar0x587d3d0">
+      <fraction n="0.003365" ref="Ar360x587d220"/>
+      <fraction n="0.000632" ref="Ar380x587d280"/>
+      <fraction n="0.996003" ref="Ar400x587d370"/>
+    </element>
+    <material name="G4_AIR0x587c900" state="gas">
+      <T unit="K" value="293.15"/>
+      <MEE unit="eV" value="85.7"/>
+      <D unit="g/cm3" value="0.00120479"/>
+      <fraction n="0.000124000124000124" ref="C0x58681d0"/>
+      <fraction n="0.755267755267755" ref="N0x5874080"/>
+      <fraction n="0.231781231781232" ref="O0x587d010"/>
+      <fraction n="0.0128270128270128" ref="Ar0x587d3d0"/>
+    </material>
+  </materials>
+
+  <solids>
+    <box lunit="mm" name="detector0x588f340" x="401.408" y="401.408" z="1"/>
+    <box lunit="mm" name="patient_Z0x5ed8ae0" x="0.5" y="0.5" z="0.5"/>
+    <box lunit="mm" name="patient_X0x620d510" x="0.5" y="0.5" z="200"/>
+    <box lunit="mm" name="patient_Y0x620d4b0" x="263" y="0.5" z="200"/>
+    <box lunit="mm" name="patient0x633de60" x="263" y="263" z="200"/>
+    <box lunit="mm" name="world0x5871360" x="3000" y="3000" z="3000"/>
+  </solids>
+
+  <structure>
+    <volume name="detector0x5894ee0">
+      <materialref ref="CsI0x5885470"/>
+      <solidref ref="detector0x588f340"/>
+    </volume>
+    <volume name="patient_log_Z0x612e0a0">
+      <materialref ref="G4_AIR0x587c900"/>
+      <solidref ref="patient_Z0x5ed8ae0"/>
+    </volume>
+    <volume name="patient_log_X0x64f3e10">
+      <materialref ref="G4_AIR0x587c900"/>
+      <solidref ref="patient_X0x620d510"/>
+      <paramvol ncopies="400">
+        <volumeref ref="patient_log_Z0x612e0a0"/>
+        <parameterised_position_size>
+          <parameters number="1">
+            <position name="patient_Z0x5f95ac00_pos" unit="mm" x="0" y="0" z="-99.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="2">
+            <position name="patient_Z0x5f95ac01_pos" unit="mm" x="0" y="0" z="-99.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="3">
+            <position name="patient_Z0x5f95ac02_pos" unit="mm" x="0" y="0" z="-98.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="4">
+            <position name="patient_Z0x5f95ac03_pos" unit="mm" x="0" y="0" z="-98.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="5">
+            <position name="patient_Z0x5f95ac04_pos" unit="mm" x="0" y="0" z="-97.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="6">
+            <position name="patient_Z0x5f95ac05_pos" unit="mm" x="0" y="0" z="-97.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="7">
+            <position name="patient_Z0x5f95ac06_pos" unit="mm" x="0" y="0" z="-96.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="8">
+            <position name="patient_Z0x5f95ac07_pos" unit="mm" x="0" y="0" z="-96.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="9">
+            <position name="patient_Z0x5f95ac08_pos" unit="mm" x="0" y="0" z="-95.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="10">
+            <position name="patient_Z0x5f95ac09_pos" unit="mm" x="0" y="0" z="-95.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="11">
+            <position name="patient_Z0x5f95ac010_pos" unit="mm" x="0" y="0" z="-94.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="12">
+            <position name="patient_Z0x5f95ac011_pos" unit="mm" x="0" y="0" z="-94.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="13">
+            <position name="patient_Z0x5f95ac012_pos" unit="mm" x="0" y="0" z="-93.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="14">
+            <position name="patient_Z0x5f95ac013_pos" unit="mm" x="0" y="0" z="-93.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="15">
+            <position name="patient_Z0x5f95ac014_pos" unit="mm" x="0" y="0" z="-92.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="16">
+            <position name="patient_Z0x5f95ac015_pos" unit="mm" x="0" y="0" z="-92.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="17">
+            <position name="patient_Z0x5f95ac016_pos" unit="mm" x="0" y="0" z="-91.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="18">
+            <position name="patient_Z0x5f95ac017_pos" unit="mm" x="0" y="0" z="-91.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="19">
+            <position name="patient_Z0x5f95ac018_pos" unit="mm" x="0" y="0" z="-90.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="20">
+            <position name="patient_Z0x5f95ac019_pos" unit="mm" x="0" y="0" z="-90.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="21">
+            <position name="patient_Z0x5f95ac020_pos" unit="mm" x="0" y="0" z="-89.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="22">
+            <position name="patient_Z0x5f95ac021_pos" unit="mm" x="0" y="0" z="-89.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="23">
+            <position name="patient_Z0x5f95ac022_pos" unit="mm" x="0" y="0" z="-88.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="24">
+            <position name="patient_Z0x5f95ac023_pos" unit="mm" x="0" y="0" z="-88.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="25">
+            <position name="patient_Z0x5f95ac024_pos" unit="mm" x="0" y="0" z="-87.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="26">
+            <position name="patient_Z0x5f95ac025_pos" unit="mm" x="0" y="0" z="-87.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="27">
+            <position name="patient_Z0x5f95ac026_pos" unit="mm" x="0" y="0" z="-86.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="28">
+            <position name="patient_Z0x5f95ac027_pos" unit="mm" x="0" y="0" z="-86.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="29">
+            <position name="patient_Z0x5f95ac028_pos" unit="mm" x="0" y="0" z="-85.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="30">
+            <position name="patient_Z0x5f95ac029_pos" unit="mm" x="0" y="0" z="-85.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="31">
+            <position name="patient_Z0x5f95ac030_pos" unit="mm" x="0" y="0" z="-84.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="32">
+            <position name="patient_Z0x5f95ac031_pos" unit="mm" x="0" y="0" z="-84.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="33">
+            <position name="patient_Z0x5f95ac032_pos" unit="mm" x="0" y="0" z="-83.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="34">
+            <position name="patient_Z0x5f95ac033_pos" unit="mm" x="0" y="0" z="-83.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="35">
+            <position name="patient_Z0x5f95ac034_pos" unit="mm" x="0" y="0" z="-82.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="36">
+            <position name="patient_Z0x5f95ac035_pos" unit="mm" x="0" y="0" z="-82.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="37">
+            <position name="patient_Z0x5f95ac036_pos" unit="mm" x="0" y="0" z="-81.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="38">
+            <position name="patient_Z0x5f95ac037_pos" unit="mm" x="0" y="0" z="-81.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="39">
+            <position name="patient_Z0x5f95ac038_pos" unit="mm" x="0" y="0" z="-80.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="40">
+            <position name="patient_Z0x5f95ac039_pos" unit="mm" x="0" y="0" z="-80.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="41">
+            <position name="patient_Z0x5f95ac040_pos" unit="mm" x="0" y="0" z="-79.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="42">
+            <position name="patient_Z0x5f95ac041_pos" unit="mm" x="0" y="0" z="-79.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="43">
+            <position name="patient_Z0x5f95ac042_pos" unit="mm" x="0" y="0" z="-78.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="44">
+            <position name="patient_Z0x5f95ac043_pos" unit="mm" x="0" y="0" z="-78.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="45">
+            <position name="patient_Z0x5f95ac044_pos" unit="mm" x="0" y="0" z="-77.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="46">
+            <position name="patient_Z0x5f95ac045_pos" unit="mm" x="0" y="0" z="-77.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="47">
+            <position name="patient_Z0x5f95ac046_pos" unit="mm" x="0" y="0" z="-76.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="48">
+            <position name="patient_Z0x5f95ac047_pos" unit="mm" x="0" y="0" z="-76.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="49">
+            <position name="patient_Z0x5f95ac048_pos" unit="mm" x="0" y="0" z="-75.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="50">
+            <position name="patient_Z0x5f95ac049_pos" unit="mm" x="0" y="0" z="-75.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="51">
+            <position name="patient_Z0x5f95ac050_pos" unit="mm" x="0" y="0" z="-74.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="52">
+            <position name="patient_Z0x5f95ac051_pos" unit="mm" x="0" y="0" z="-74.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="53">
+            <position name="patient_Z0x5f95ac052_pos" unit="mm" x="0" y="0" z="-73.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="54">
+            <position name="patient_Z0x5f95ac053_pos" unit="mm" x="0" y="0" z="-73.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="55">
+            <position name="patient_Z0x5f95ac054_pos" unit="mm" x="0" y="0" z="-72.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="56">
+            <position name="patient_Z0x5f95ac055_pos" unit="mm" x="0" y="0" z="-72.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="57">
+            <position name="patient_Z0x5f95ac056_pos" unit="mm" x="0" y="0" z="-71.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="58">
+            <position name="patient_Z0x5f95ac057_pos" unit="mm" x="0" y="0" z="-71.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="59">
+            <position name="patient_Z0x5f95ac058_pos" unit="mm" x="0" y="0" z="-70.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="60">
+            <position name="patient_Z0x5f95ac059_pos" unit="mm" x="0" y="0" z="-70.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="61">
+            <position name="patient_Z0x5f95ac060_pos" unit="mm" x="0" y="0" z="-69.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="62">
+            <position name="patient_Z0x5f95ac061_pos" unit="mm" x="0" y="0" z="-69.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="63">
+            <position name="patient_Z0x5f95ac062_pos" unit="mm" x="0" y="0" z="-68.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="64">
+            <position name="patient_Z0x5f95ac063_pos" unit="mm" x="0" y="0" z="-68.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="65">
+            <position name="patient_Z0x5f95ac064_pos" unit="mm" x="0" y="0" z="-67.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="66">
+            <position name="patient_Z0x5f95ac065_pos" unit="mm" x="0" y="0" z="-67.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="67">
+            <position name="patient_Z0x5f95ac066_pos" unit="mm" x="0" y="0" z="-66.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="68">
+            <position name="patient_Z0x5f95ac067_pos" unit="mm" x="0" y="0" z="-66.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="69">
+            <position name="patient_Z0x5f95ac068_pos" unit="mm" x="0" y="0" z="-65.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="70">
+            <position name="patient_Z0x5f95ac069_pos" unit="mm" x="0" y="0" z="-65.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="71">
+            <position name="patient_Z0x5f95ac070_pos" unit="mm" x="0" y="0" z="-64.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="72">
+            <position name="patient_Z0x5f95ac071_pos" unit="mm" x="0" y="0" z="-64.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="73">
+            <position name="patient_Z0x5f95ac072_pos" unit="mm" x="0" y="0" z="-63.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="74">
+            <position name="patient_Z0x5f95ac073_pos" unit="mm" x="0" y="0" z="-63.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="75">
+            <position name="patient_Z0x5f95ac074_pos" unit="mm" x="0" y="0" z="-62.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="76">
+            <position name="patient_Z0x5f95ac075_pos" unit="mm" x="0" y="0" z="-62.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="77">
+            <position name="patient_Z0x5f95ac076_pos" unit="mm" x="0" y="0" z="-61.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="78">
+            <position name="patient_Z0x5f95ac077_pos" unit="mm" x="0" y="0" z="-61.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="79">
+            <position name="patient_Z0x5f95ac078_pos" unit="mm" x="0" y="0" z="-60.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="80">
+            <position name="patient_Z0x5f95ac079_pos" unit="mm" x="0" y="0" z="-60.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="81">
+            <position name="patient_Z0x5f95ac080_pos" unit="mm" x="0" y="0" z="-59.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="82">
+            <position name="patient_Z0x5f95ac081_pos" unit="mm" x="0" y="0" z="-59.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="83">
+            <position name="patient_Z0x5f95ac082_pos" unit="mm" x="0" y="0" z="-58.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="84">
+            <position name="patient_Z0x5f95ac083_pos" unit="mm" x="0" y="0" z="-58.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="85">
+            <position name="patient_Z0x5f95ac084_pos" unit="mm" x="0" y="0" z="-57.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="86">
+            <position name="patient_Z0x5f95ac085_pos" unit="mm" x="0" y="0" z="-57.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="87">
+            <position name="patient_Z0x5f95ac086_pos" unit="mm" x="0" y="0" z="-56.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="88">
+            <position name="patient_Z0x5f95ac087_pos" unit="mm" x="0" y="0" z="-56.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="89">
+            <position name="patient_Z0x5f95ac088_pos" unit="mm" x="0" y="0" z="-55.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="90">
+            <position name="patient_Z0x5f95ac089_pos" unit="mm" x="0" y="0" z="-55.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="91">
+            <position name="patient_Z0x5f95ac090_pos" unit="mm" x="0" y="0" z="-54.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="92">
+            <position name="patient_Z0x5f95ac091_pos" unit="mm" x="0" y="0" z="-54.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="93">
+            <position name="patient_Z0x5f95ac092_pos" unit="mm" x="0" y="0" z="-53.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="94">
+            <position name="patient_Z0x5f95ac093_pos" unit="mm" x="0" y="0" z="-53.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="95">
+            <position name="patient_Z0x5f95ac094_pos" unit="mm" x="0" y="0" z="-52.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="96">
+            <position name="patient_Z0x5f95ac095_pos" unit="mm" x="0" y="0" z="-52.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="97">
+            <position name="patient_Z0x5f95ac096_pos" unit="mm" x="0" y="0" z="-51.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="98">
+            <position name="patient_Z0x5f95ac097_pos" unit="mm" x="0" y="0" z="-51.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="99">
+            <position name="patient_Z0x5f95ac098_pos" unit="mm" x="0" y="0" z="-50.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="100">
+            <position name="patient_Z0x5f95ac099_pos" unit="mm" x="0" y="0" z="-50.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="101">
+            <position name="patient_Z0x5f95ac0100_pos" unit="mm" x="0" y="0" z="-49.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="102">
+            <position name="patient_Z0x5f95ac0101_pos" unit="mm" x="0" y="0" z="-49.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="103">
+            <position name="patient_Z0x5f95ac0102_pos" unit="mm" x="0" y="0" z="-48.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="104">
+            <position name="patient_Z0x5f95ac0103_pos" unit="mm" x="0" y="0" z="-48.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="105">
+            <position name="patient_Z0x5f95ac0104_pos" unit="mm" x="0" y="0" z="-47.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="106">
+            <position name="patient_Z0x5f95ac0105_pos" unit="mm" x="0" y="0" z="-47.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="107">
+            <position name="patient_Z0x5f95ac0106_pos" unit="mm" x="0" y="0" z="-46.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="108">
+            <position name="patient_Z0x5f95ac0107_pos" unit="mm" x="0" y="0" z="-46.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="109">
+            <position name="patient_Z0x5f95ac0108_pos" unit="mm" x="0" y="0" z="-45.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="110">
+            <position name="patient_Z0x5f95ac0109_pos" unit="mm" x="0" y="0" z="-45.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="111">
+            <position name="patient_Z0x5f95ac0110_pos" unit="mm" x="0" y="0" z="-44.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="112">
+            <position name="patient_Z0x5f95ac0111_pos" unit="mm" x="0" y="0" z="-44.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="113">
+            <position name="patient_Z0x5f95ac0112_pos" unit="mm" x="0" y="0" z="-43.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="114">
+            <position name="patient_Z0x5f95ac0113_pos" unit="mm" x="0" y="0" z="-43.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="115">
+            <position name="patient_Z0x5f95ac0114_pos" unit="mm" x="0" y="0" z="-42.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="116">
+            <position name="patient_Z0x5f95ac0115_pos" unit="mm" x="0" y="0" z="-42.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="117">
+            <position name="patient_Z0x5f95ac0116_pos" unit="mm" x="0" y="0" z="-41.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="118">
+            <position name="patient_Z0x5f95ac0117_pos" unit="mm" x="0" y="0" z="-41.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="119">
+            <position name="patient_Z0x5f95ac0118_pos" unit="mm" x="0" y="0" z="-40.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="120">
+            <position name="patient_Z0x5f95ac0119_pos" unit="mm" x="0" y="0" z="-40.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="121">
+            <position name="patient_Z0x5f95ac0120_pos" unit="mm" x="0" y="0" z="-39.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="122">
+            <position name="patient_Z0x5f95ac0121_pos" unit="mm" x="0" y="0" z="-39.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="123">
+            <position name="patient_Z0x5f95ac0122_pos" unit="mm" x="0" y="0" z="-38.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="124">
+            <position name="patient_Z0x5f95ac0123_pos" unit="mm" x="0" y="0" z="-38.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="125">
+            <position name="patient_Z0x5f95ac0124_pos" unit="mm" x="0" y="0" z="-37.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="126">
+            <position name="patient_Z0x5f95ac0125_pos" unit="mm" x="0" y="0" z="-37.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="127">
+            <position name="patient_Z0x5f95ac0126_pos" unit="mm" x="0" y="0" z="-36.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="128">
+            <position name="patient_Z0x5f95ac0127_pos" unit="mm" x="0" y="0" z="-36.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="129">
+            <position name="patient_Z0x5f95ac0128_pos" unit="mm" x="0" y="0" z="-35.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="130">
+            <position name="patient_Z0x5f95ac0129_pos" unit="mm" x="0" y="0" z="-35.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="131">
+            <position name="patient_Z0x5f95ac0130_pos" unit="mm" x="0" y="0" z="-34.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="132">
+            <position name="patient_Z0x5f95ac0131_pos" unit="mm" x="0" y="0" z="-34.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="133">
+            <position name="patient_Z0x5f95ac0132_pos" unit="mm" x="0" y="0" z="-33.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="134">
+            <position name="patient_Z0x5f95ac0133_pos" unit="mm" x="0" y="0" z="-33.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="135">
+            <position name="patient_Z0x5f95ac0134_pos" unit="mm" x="0" y="0" z="-32.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="136">
+            <position name="patient_Z0x5f95ac0135_pos" unit="mm" x="0" y="0" z="-32.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="137">
+            <position name="patient_Z0x5f95ac0136_pos" unit="mm" x="0" y="0" z="-31.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="138">
+            <position name="patient_Z0x5f95ac0137_pos" unit="mm" x="0" y="0" z="-31.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="139">
+            <position name="patient_Z0x5f95ac0138_pos" unit="mm" x="0" y="0" z="-30.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="140">
+            <position name="patient_Z0x5f95ac0139_pos" unit="mm" x="0" y="0" z="-30.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="141">
+            <position name="patient_Z0x5f95ac0140_pos" unit="mm" x="0" y="0" z="-29.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="142">
+            <position name="patient_Z0x5f95ac0141_pos" unit="mm" x="0" y="0" z="-29.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="143">
+            <position name="patient_Z0x5f95ac0142_pos" unit="mm" x="0" y="0" z="-28.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="144">
+            <position name="patient_Z0x5f95ac0143_pos" unit="mm" x="0" y="0" z="-28.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="145">
+            <position name="patient_Z0x5f95ac0144_pos" unit="mm" x="0" y="0" z="-27.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="146">
+            <position name="patient_Z0x5f95ac0145_pos" unit="mm" x="0" y="0" z="-27.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="147">
+            <position name="patient_Z0x5f95ac0146_pos" unit="mm" x="0" y="0" z="-26.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="148">
+            <position name="patient_Z0x5f95ac0147_pos" unit="mm" x="0" y="0" z="-26.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="149">
+            <position name="patient_Z0x5f95ac0148_pos" unit="mm" x="0" y="0" z="-25.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="150">
+            <position name="patient_Z0x5f95ac0149_pos" unit="mm" x="0" y="0" z="-25.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="151">
+            <position name="patient_Z0x5f95ac0150_pos" unit="mm" x="0" y="0" z="-24.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="152">
+            <position name="patient_Z0x5f95ac0151_pos" unit="mm" x="0" y="0" z="-24.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="153">
+            <position name="patient_Z0x5f95ac0152_pos" unit="mm" x="0" y="0" z="-23.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="154">
+            <position name="patient_Z0x5f95ac0153_pos" unit="mm" x="0" y="0" z="-23.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="155">
+            <position name="patient_Z0x5f95ac0154_pos" unit="mm" x="0" y="0" z="-22.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="156">
+            <position name="patient_Z0x5f95ac0155_pos" unit="mm" x="0" y="0" z="-22.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="157">
+            <position name="patient_Z0x5f95ac0156_pos" unit="mm" x="0" y="0" z="-21.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="158">
+            <position name="patient_Z0x5f95ac0157_pos" unit="mm" x="0" y="0" z="-21.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="159">
+            <position name="patient_Z0x5f95ac0158_pos" unit="mm" x="0" y="0" z="-20.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="160">
+            <position name="patient_Z0x5f95ac0159_pos" unit="mm" x="0" y="0" z="-20.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="161">
+            <position name="patient_Z0x5f95ac0160_pos" unit="mm" x="0" y="0" z="-19.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="162">
+            <position name="patient_Z0x5f95ac0161_pos" unit="mm" x="0" y="0" z="-19.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="163">
+            <position name="patient_Z0x5f95ac0162_pos" unit="mm" x="0" y="0" z="-18.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="164">
+            <position name="patient_Z0x5f95ac0163_pos" unit="mm" x="0" y="0" z="-18.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="165">
+            <position name="patient_Z0x5f95ac0164_pos" unit="mm" x="0" y="0" z="-17.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="166">
+            <position name="patient_Z0x5f95ac0165_pos" unit="mm" x="0" y="0" z="-17.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="167">
+            <position name="patient_Z0x5f95ac0166_pos" unit="mm" x="0" y="0" z="-16.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="168">
+            <position name="patient_Z0x5f95ac0167_pos" unit="mm" x="0" y="0" z="-16.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="169">
+            <position name="patient_Z0x5f95ac0168_pos" unit="mm" x="0" y="0" z="-15.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="170">
+            <position name="patient_Z0x5f95ac0169_pos" unit="mm" x="0" y="0" z="-15.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="171">
+            <position name="patient_Z0x5f95ac0170_pos" unit="mm" x="0" y="0" z="-14.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="172">
+            <position name="patient_Z0x5f95ac0171_pos" unit="mm" x="0" y="0" z="-14.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="173">
+            <position name="patient_Z0x5f95ac0172_pos" unit="mm" x="0" y="0" z="-13.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="174">
+            <position name="patient_Z0x5f95ac0173_pos" unit="mm" x="0" y="0" z="-13.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="175">
+            <position name="patient_Z0x5f95ac0174_pos" unit="mm" x="0" y="0" z="-12.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="176">
+            <position name="patient_Z0x5f95ac0175_pos" unit="mm" x="0" y="0" z="-12.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="177">
+            <position name="patient_Z0x5f95ac0176_pos" unit="mm" x="0" y="0" z="-11.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="178">
+            <position name="patient_Z0x5f95ac0177_pos" unit="mm" x="0" y="0" z="-11.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="179">
+            <position name="patient_Z0x5f95ac0178_pos" unit="mm" x="0" y="0" z="-10.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="180">
+            <position name="patient_Z0x5f95ac0179_pos" unit="mm" x="0" y="0" z="-10.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="181">
+            <position name="patient_Z0x5f95ac0180_pos" unit="mm" x="0" y="0" z="-9.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="182">
+            <position name="patient_Z0x5f95ac0181_pos" unit="mm" x="0" y="0" z="-9.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="183">
+            <position name="patient_Z0x5f95ac0182_pos" unit="mm" x="0" y="0" z="-8.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="184">
+            <position name="patient_Z0x5f95ac0183_pos" unit="mm" x="0" y="0" z="-8.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="185">
+            <position name="patient_Z0x5f95ac0184_pos" unit="mm" x="0" y="0" z="-7.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="186">
+            <position name="patient_Z0x5f95ac0185_pos" unit="mm" x="0" y="0" z="-7.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="187">
+            <position name="patient_Z0x5f95ac0186_pos" unit="mm" x="0" y="0" z="-6.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="188">
+            <position name="patient_Z0x5f95ac0187_pos" unit="mm" x="0" y="0" z="-6.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="189">
+            <position name="patient_Z0x5f95ac0188_pos" unit="mm" x="0" y="0" z="-5.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="190">
+            <position name="patient_Z0x5f95ac0189_pos" unit="mm" x="0" y="0" z="-5.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="191">
+            <position name="patient_Z0x5f95ac0190_pos" unit="mm" x="0" y="0" z="-4.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="192">
+            <position name="patient_Z0x5f95ac0191_pos" unit="mm" x="0" y="0" z="-4.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="193">
+            <position name="patient_Z0x5f95ac0192_pos" unit="mm" x="0" y="0" z="-3.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="194">
+            <position name="patient_Z0x5f95ac0193_pos" unit="mm" x="0" y="0" z="-3.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="195">
+            <position name="patient_Z0x5f95ac0194_pos" unit="mm" x="0" y="0" z="-2.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="196">
+            <position name="patient_Z0x5f95ac0195_pos" unit="mm" x="0" y="0" z="-2.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="197">
+            <position name="patient_Z0x5f95ac0196_pos" unit="mm" x="0" y="0" z="-1.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="198">
+            <position name="patient_Z0x5f95ac0197_pos" unit="mm" x="0" y="0" z="-1.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="199">
+            <position name="patient_Z0x5f95ac0198_pos" unit="mm" x="0" y="0" z="-0.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="200">
+            <position name="patient_Z0x5f95ac0199_pos" unit="mm" x="0" y="0" z="-0.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="201">
+            <position name="patient_Z0x5f95ac0200_pos" unit="mm" x="0" y="0" z="0.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="202">
+            <position name="patient_Z0x5f95ac0201_pos" unit="mm" x="0" y="0" z="0.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="203">
+            <position name="patient_Z0x5f95ac0202_pos" unit="mm" x="0" y="0" z="1.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="204">
+            <position name="patient_Z0x5f95ac0203_pos" unit="mm" x="0" y="0" z="1.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="205">
+            <position name="patient_Z0x5f95ac0204_pos" unit="mm" x="0" y="0" z="2.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="206">
+            <position name="patient_Z0x5f95ac0205_pos" unit="mm" x="0" y="0" z="2.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="207">
+            <position name="patient_Z0x5f95ac0206_pos" unit="mm" x="0" y="0" z="3.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="208">
+            <position name="patient_Z0x5f95ac0207_pos" unit="mm" x="0" y="0" z="3.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="209">
+            <position name="patient_Z0x5f95ac0208_pos" unit="mm" x="0" y="0" z="4.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="210">
+            <position name="patient_Z0x5f95ac0209_pos" unit="mm" x="0" y="0" z="4.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="211">
+            <position name="patient_Z0x5f95ac0210_pos" unit="mm" x="0" y="0" z="5.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="212">
+            <position name="patient_Z0x5f95ac0211_pos" unit="mm" x="0" y="0" z="5.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="213">
+            <position name="patient_Z0x5f95ac0212_pos" unit="mm" x="0" y="0" z="6.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="214">
+            <position name="patient_Z0x5f95ac0213_pos" unit="mm" x="0" y="0" z="6.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="215">
+            <position name="patient_Z0x5f95ac0214_pos" unit="mm" x="0" y="0" z="7.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="216">
+            <position name="patient_Z0x5f95ac0215_pos" unit="mm" x="0" y="0" z="7.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="217">
+            <position name="patient_Z0x5f95ac0216_pos" unit="mm" x="0" y="0" z="8.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="218">
+            <position name="patient_Z0x5f95ac0217_pos" unit="mm" x="0" y="0" z="8.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="219">
+            <position name="patient_Z0x5f95ac0218_pos" unit="mm" x="0" y="0" z="9.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="220">
+            <position name="patient_Z0x5f95ac0219_pos" unit="mm" x="0" y="0" z="9.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="221">
+            <position name="patient_Z0x5f95ac0220_pos" unit="mm" x="0" y="0" z="10.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="222">
+            <position name="patient_Z0x5f95ac0221_pos" unit="mm" x="0" y="0" z="10.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="223">
+            <position name="patient_Z0x5f95ac0222_pos" unit="mm" x="0" y="0" z="11.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="224">
+            <position name="patient_Z0x5f95ac0223_pos" unit="mm" x="0" y="0" z="11.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="225">
+            <position name="patient_Z0x5f95ac0224_pos" unit="mm" x="0" y="0" z="12.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="226">
+            <position name="patient_Z0x5f95ac0225_pos" unit="mm" x="0" y="0" z="12.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="227">
+            <position name="patient_Z0x5f95ac0226_pos" unit="mm" x="0" y="0" z="13.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="228">
+            <position name="patient_Z0x5f95ac0227_pos" unit="mm" x="0" y="0" z="13.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="229">
+            <position name="patient_Z0x5f95ac0228_pos" unit="mm" x="0" y="0" z="14.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="230">
+            <position name="patient_Z0x5f95ac0229_pos" unit="mm" x="0" y="0" z="14.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="231">
+            <position name="patient_Z0x5f95ac0230_pos" unit="mm" x="0" y="0" z="15.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="232">
+            <position name="patient_Z0x5f95ac0231_pos" unit="mm" x="0" y="0" z="15.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="233">
+            <position name="patient_Z0x5f95ac0232_pos" unit="mm" x="0" y="0" z="16.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="234">
+            <position name="patient_Z0x5f95ac0233_pos" unit="mm" x="0" y="0" z="16.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="235">
+            <position name="patient_Z0x5f95ac0234_pos" unit="mm" x="0" y="0" z="17.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="236">
+            <position name="patient_Z0x5f95ac0235_pos" unit="mm" x="0" y="0" z="17.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="237">
+            <position name="patient_Z0x5f95ac0236_pos" unit="mm" x="0" y="0" z="18.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="238">
+            <position name="patient_Z0x5f95ac0237_pos" unit="mm" x="0" y="0" z="18.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="239">
+            <position name="patient_Z0x5f95ac0238_pos" unit="mm" x="0" y="0" z="19.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="240">
+            <position name="patient_Z0x5f95ac0239_pos" unit="mm" x="0" y="0" z="19.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="241">
+            <position name="patient_Z0x5f95ac0240_pos" unit="mm" x="0" y="0" z="20.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="242">
+            <position name="patient_Z0x5f95ac0241_pos" unit="mm" x="0" y="0" z="20.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="243">
+            <position name="patient_Z0x5f95ac0242_pos" unit="mm" x="0" y="0" z="21.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="244">
+            <position name="patient_Z0x5f95ac0243_pos" unit="mm" x="0" y="0" z="21.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="245">
+            <position name="patient_Z0x5f95ac0244_pos" unit="mm" x="0" y="0" z="22.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="246">
+            <position name="patient_Z0x5f95ac0245_pos" unit="mm" x="0" y="0" z="22.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="247">
+            <position name="patient_Z0x5f95ac0246_pos" unit="mm" x="0" y="0" z="23.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="248">
+            <position name="patient_Z0x5f95ac0247_pos" unit="mm" x="0" y="0" z="23.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="249">
+            <position name="patient_Z0x5f95ac0248_pos" unit="mm" x="0" y="0" z="24.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="250">
+            <position name="patient_Z0x5f95ac0249_pos" unit="mm" x="0" y="0" z="24.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="251">
+            <position name="patient_Z0x5f95ac0250_pos" unit="mm" x="0" y="0" z="25.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="252">
+            <position name="patient_Z0x5f95ac0251_pos" unit="mm" x="0" y="0" z="25.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="253">
+            <position name="patient_Z0x5f95ac0252_pos" unit="mm" x="0" y="0" z="26.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="254">
+            <position name="patient_Z0x5f95ac0253_pos" unit="mm" x="0" y="0" z="26.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="255">
+            <position name="patient_Z0x5f95ac0254_pos" unit="mm" x="0" y="0" z="27.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="256">
+            <position name="patient_Z0x5f95ac0255_pos" unit="mm" x="0" y="0" z="27.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="257">
+            <position name="patient_Z0x5f95ac0256_pos" unit="mm" x="0" y="0" z="28.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="258">
+            <position name="patient_Z0x5f95ac0257_pos" unit="mm" x="0" y="0" z="28.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="259">
+            <position name="patient_Z0x5f95ac0258_pos" unit="mm" x="0" y="0" z="29.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="260">
+            <position name="patient_Z0x5f95ac0259_pos" unit="mm" x="0" y="0" z="29.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="261">
+            <position name="patient_Z0x5f95ac0260_pos" unit="mm" x="0" y="0" z="30.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="262">
+            <position name="patient_Z0x5f95ac0261_pos" unit="mm" x="0" y="0" z="30.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="263">
+            <position name="patient_Z0x5f95ac0262_pos" unit="mm" x="0" y="0" z="31.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="264">
+            <position name="patient_Z0x5f95ac0263_pos" unit="mm" x="0" y="0" z="31.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="265">
+            <position name="patient_Z0x5f95ac0264_pos" unit="mm" x="0" y="0" z="32.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="266">
+            <position name="patient_Z0x5f95ac0265_pos" unit="mm" x="0" y="0" z="32.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="267">
+            <position name="patient_Z0x5f95ac0266_pos" unit="mm" x="0" y="0" z="33.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="268">
+            <position name="patient_Z0x5f95ac0267_pos" unit="mm" x="0" y="0" z="33.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="269">
+            <position name="patient_Z0x5f95ac0268_pos" unit="mm" x="0" y="0" z="34.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="270">
+            <position name="patient_Z0x5f95ac0269_pos" unit="mm" x="0" y="0" z="34.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="271">
+            <position name="patient_Z0x5f95ac0270_pos" unit="mm" x="0" y="0" z="35.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="272">
+            <position name="patient_Z0x5f95ac0271_pos" unit="mm" x="0" y="0" z="35.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="273">
+            <position name="patient_Z0x5f95ac0272_pos" unit="mm" x="0" y="0" z="36.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="274">
+            <position name="patient_Z0x5f95ac0273_pos" unit="mm" x="0" y="0" z="36.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="275">
+            <position name="patient_Z0x5f95ac0274_pos" unit="mm" x="0" y="0" z="37.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="276">
+            <position name="patient_Z0x5f95ac0275_pos" unit="mm" x="0" y="0" z="37.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="277">
+            <position name="patient_Z0x5f95ac0276_pos" unit="mm" x="0" y="0" z="38.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="278">
+            <position name="patient_Z0x5f95ac0277_pos" unit="mm" x="0" y="0" z="38.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="279">
+            <position name="patient_Z0x5f95ac0278_pos" unit="mm" x="0" y="0" z="39.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="280">
+            <position name="patient_Z0x5f95ac0279_pos" unit="mm" x="0" y="0" z="39.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="281">
+            <position name="patient_Z0x5f95ac0280_pos" unit="mm" x="0" y="0" z="40.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="282">
+            <position name="patient_Z0x5f95ac0281_pos" unit="mm" x="0" y="0" z="40.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="283">
+            <position name="patient_Z0x5f95ac0282_pos" unit="mm" x="0" y="0" z="41.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="284">
+            <position name="patient_Z0x5f95ac0283_pos" unit="mm" x="0" y="0" z="41.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="285">
+            <position name="patient_Z0x5f95ac0284_pos" unit="mm" x="0" y="0" z="42.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="286">
+            <position name="patient_Z0x5f95ac0285_pos" unit="mm" x="0" y="0" z="42.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="287">
+            <position name="patient_Z0x5f95ac0286_pos" unit="mm" x="0" y="0" z="43.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="288">
+            <position name="patient_Z0x5f95ac0287_pos" unit="mm" x="0" y="0" z="43.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="289">
+            <position name="patient_Z0x5f95ac0288_pos" unit="mm" x="0" y="0" z="44.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="290">
+            <position name="patient_Z0x5f95ac0289_pos" unit="mm" x="0" y="0" z="44.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="291">
+            <position name="patient_Z0x5f95ac0290_pos" unit="mm" x="0" y="0" z="45.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="292">
+            <position name="patient_Z0x5f95ac0291_pos" unit="mm" x="0" y="0" z="45.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="293">
+            <position name="patient_Z0x5f95ac0292_pos" unit="mm" x="0" y="0" z="46.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="294">
+            <position name="patient_Z0x5f95ac0293_pos" unit="mm" x="0" y="0" z="46.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="295">
+            <position name="patient_Z0x5f95ac0294_pos" unit="mm" x="0" y="0" z="47.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="296">
+            <position name="patient_Z0x5f95ac0295_pos" unit="mm" x="0" y="0" z="47.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="297">
+            <position name="patient_Z0x5f95ac0296_pos" unit="mm" x="0" y="0" z="48.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="298">
+            <position name="patient_Z0x5f95ac0297_pos" unit="mm" x="0" y="0" z="48.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="299">
+            <position name="patient_Z0x5f95ac0298_pos" unit="mm" x="0" y="0" z="49.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="300">
+            <position name="patient_Z0x5f95ac0299_pos" unit="mm" x="0" y="0" z="49.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="301">
+            <position name="patient_Z0x5f95ac0300_pos" unit="mm" x="0" y="0" z="50.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="302">
+            <position name="patient_Z0x5f95ac0301_pos" unit="mm" x="0" y="0" z="50.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="303">
+            <position name="patient_Z0x5f95ac0302_pos" unit="mm" x="0" y="0" z="51.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="304">
+            <position name="patient_Z0x5f95ac0303_pos" unit="mm" x="0" y="0" z="51.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="305">
+            <position name="patient_Z0x5f95ac0304_pos" unit="mm" x="0" y="0" z="52.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="306">
+            <position name="patient_Z0x5f95ac0305_pos" unit="mm" x="0" y="0" z="52.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="307">
+            <position name="patient_Z0x5f95ac0306_pos" unit="mm" x="0" y="0" z="53.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="308">
+            <position name="patient_Z0x5f95ac0307_pos" unit="mm" x="0" y="0" z="53.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="309">
+            <position name="patient_Z0x5f95ac0308_pos" unit="mm" x="0" y="0" z="54.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="310">
+            <position name="patient_Z0x5f95ac0309_pos" unit="mm" x="0" y="0" z="54.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="311">
+            <position name="patient_Z0x5f95ac0310_pos" unit="mm" x="0" y="0" z="55.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="312">
+            <position name="patient_Z0x5f95ac0311_pos" unit="mm" x="0" y="0" z="55.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="313">
+            <position name="patient_Z0x5f95ac0312_pos" unit="mm" x="0" y="0" z="56.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="314">
+            <position name="patient_Z0x5f95ac0313_pos" unit="mm" x="0" y="0" z="56.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="315">
+            <position name="patient_Z0x5f95ac0314_pos" unit="mm" x="0" y="0" z="57.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="316">
+            <position name="patient_Z0x5f95ac0315_pos" unit="mm" x="0" y="0" z="57.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="317">
+            <position name="patient_Z0x5f95ac0316_pos" unit="mm" x="0" y="0" z="58.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="318">
+            <position name="patient_Z0x5f95ac0317_pos" unit="mm" x="0" y="0" z="58.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="319">
+            <position name="patient_Z0x5f95ac0318_pos" unit="mm" x="0" y="0" z="59.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="320">
+            <position name="patient_Z0x5f95ac0319_pos" unit="mm" x="0" y="0" z="59.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="321">
+            <position name="patient_Z0x5f95ac0320_pos" unit="mm" x="0" y="0" z="60.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="322">
+            <position name="patient_Z0x5f95ac0321_pos" unit="mm" x="0" y="0" z="60.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="323">
+            <position name="patient_Z0x5f95ac0322_pos" unit="mm" x="0" y="0" z="61.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="324">
+            <position name="patient_Z0x5f95ac0323_pos" unit="mm" x="0" y="0" z="61.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="325">
+            <position name="patient_Z0x5f95ac0324_pos" unit="mm" x="0" y="0" z="62.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="326">
+            <position name="patient_Z0x5f95ac0325_pos" unit="mm" x="0" y="0" z="62.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="327">
+            <position name="patient_Z0x5f95ac0326_pos" unit="mm" x="0" y="0" z="63.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="328">
+            <position name="patient_Z0x5f95ac0327_pos" unit="mm" x="0" y="0" z="63.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="329">
+            <position name="patient_Z0x5f95ac0328_pos" unit="mm" x="0" y="0" z="64.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="330">
+            <position name="patient_Z0x5f95ac0329_pos" unit="mm" x="0" y="0" z="64.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="331">
+            <position name="patient_Z0x5f95ac0330_pos" unit="mm" x="0" y="0" z="65.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="332">
+            <position name="patient_Z0x5f95ac0331_pos" unit="mm" x="0" y="0" z="65.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="333">
+            <position name="patient_Z0x5f95ac0332_pos" unit="mm" x="0" y="0" z="66.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="334">
+            <position name="patient_Z0x5f95ac0333_pos" unit="mm" x="0" y="0" z="66.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="335">
+            <position name="patient_Z0x5f95ac0334_pos" unit="mm" x="0" y="0" z="67.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="336">
+            <position name="patient_Z0x5f95ac0335_pos" unit="mm" x="0" y="0" z="67.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="337">
+            <position name="patient_Z0x5f95ac0336_pos" unit="mm" x="0" y="0" z="68.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="338">
+            <position name="patient_Z0x5f95ac0337_pos" unit="mm" x="0" y="0" z="68.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="339">
+            <position name="patient_Z0x5f95ac0338_pos" unit="mm" x="0" y="0" z="69.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="340">
+            <position name="patient_Z0x5f95ac0339_pos" unit="mm" x="0" y="0" z="69.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="341">
+            <position name="patient_Z0x5f95ac0340_pos" unit="mm" x="0" y="0" z="70.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="342">
+            <position name="patient_Z0x5f95ac0341_pos" unit="mm" x="0" y="0" z="70.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="343">
+            <position name="patient_Z0x5f95ac0342_pos" unit="mm" x="0" y="0" z="71.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="344">
+            <position name="patient_Z0x5f95ac0343_pos" unit="mm" x="0" y="0" z="71.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="345">
+            <position name="patient_Z0x5f95ac0344_pos" unit="mm" x="0" y="0" z="72.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="346">
+            <position name="patient_Z0x5f95ac0345_pos" unit="mm" x="0" y="0" z="72.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="347">
+            <position name="patient_Z0x5f95ac0346_pos" unit="mm" x="0" y="0" z="73.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="348">
+            <position name="patient_Z0x5f95ac0347_pos" unit="mm" x="0" y="0" z="73.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="349">
+            <position name="patient_Z0x5f95ac0348_pos" unit="mm" x="0" y="0" z="74.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="350">
+            <position name="patient_Z0x5f95ac0349_pos" unit="mm" x="0" y="0" z="74.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="351">
+            <position name="patient_Z0x5f95ac0350_pos" unit="mm" x="0" y="0" z="75.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="352">
+            <position name="patient_Z0x5f95ac0351_pos" unit="mm" x="0" y="0" z="75.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="353">
+            <position name="patient_Z0x5f95ac0352_pos" unit="mm" x="0" y="0" z="76.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="354">
+            <position name="patient_Z0x5f95ac0353_pos" unit="mm" x="0" y="0" z="76.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="355">
+            <position name="patient_Z0x5f95ac0354_pos" unit="mm" x="0" y="0" z="77.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="356">
+            <position name="patient_Z0x5f95ac0355_pos" unit="mm" x="0" y="0" z="77.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="357">
+            <position name="patient_Z0x5f95ac0356_pos" unit="mm" x="0" y="0" z="78.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="358">
+            <position name="patient_Z0x5f95ac0357_pos" unit="mm" x="0" y="0" z="78.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="359">
+            <position name="patient_Z0x5f95ac0358_pos" unit="mm" x="0" y="0" z="79.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="360">
+            <position name="patient_Z0x5f95ac0359_pos" unit="mm" x="0" y="0" z="79.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="361">
+            <position name="patient_Z0x5f95ac0360_pos" unit="mm" x="0" y="0" z="80.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="362">
+            <position name="patient_Z0x5f95ac0361_pos" unit="mm" x="0" y="0" z="80.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="363">
+            <position name="patient_Z0x5f95ac0362_pos" unit="mm" x="0" y="0" z="81.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="364">
+            <position name="patient_Z0x5f95ac0363_pos" unit="mm" x="0" y="0" z="81.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="365">
+            <position name="patient_Z0x5f95ac0364_pos" unit="mm" x="0" y="0" z="82.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="366">
+            <position name="patient_Z0x5f95ac0365_pos" unit="mm" x="0" y="0" z="82.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="367">
+            <position name="patient_Z0x5f95ac0366_pos" unit="mm" x="0" y="0" z="83.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="368">
+            <position name="patient_Z0x5f95ac0367_pos" unit="mm" x="0" y="0" z="83.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="369">
+            <position name="patient_Z0x5f95ac0368_pos" unit="mm" x="0" y="0" z="84.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="370">
+            <position name="patient_Z0x5f95ac0369_pos" unit="mm" x="0" y="0" z="84.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="371">
+            <position name="patient_Z0x5f95ac0370_pos" unit="mm" x="0" y="0" z="85.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="372">
+            <position name="patient_Z0x5f95ac0371_pos" unit="mm" x="0" y="0" z="85.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="373">
+            <position name="patient_Z0x5f95ac0372_pos" unit="mm" x="0" y="0" z="86.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="374">
+            <position name="patient_Z0x5f95ac0373_pos" unit="mm" x="0" y="0" z="86.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="375">
+            <position name="patient_Z0x5f95ac0374_pos" unit="mm" x="0" y="0" z="87.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="376">
+            <position name="patient_Z0x5f95ac0375_pos" unit="mm" x="0" y="0" z="87.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="377">
+            <position name="patient_Z0x5f95ac0376_pos" unit="mm" x="0" y="0" z="88.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="378">
+            <position name="patient_Z0x5f95ac0377_pos" unit="mm" x="0" y="0" z="88.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="379">
+            <position name="patient_Z0x5f95ac0378_pos" unit="mm" x="0" y="0" z="89.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="380">
+            <position name="patient_Z0x5f95ac0379_pos" unit="mm" x="0" y="0" z="89.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="381">
+            <position name="patient_Z0x5f95ac0380_pos" unit="mm" x="0" y="0" z="90.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="382">
+            <position name="patient_Z0x5f95ac0381_pos" unit="mm" x="0" y="0" z="90.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="383">
+            <position name="patient_Z0x5f95ac0382_pos" unit="mm" x="0" y="0" z="91.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="384">
+            <position name="patient_Z0x5f95ac0383_pos" unit="mm" x="0" y="0" z="91.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="385">
+            <position name="patient_Z0x5f95ac0384_pos" unit="mm" x="0" y="0" z="92.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="386">
+            <position name="patient_Z0x5f95ac0385_pos" unit="mm" x="0" y="0" z="92.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="387">
+            <position name="patient_Z0x5f95ac0386_pos" unit="mm" x="0" y="0" z="93.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="388">
+            <position name="patient_Z0x5f95ac0387_pos" unit="mm" x="0" y="0" z="93.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="389">
+            <position name="patient_Z0x5f95ac0388_pos" unit="mm" x="0" y="0" z="94.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="390">
+            <position name="patient_Z0x5f95ac0389_pos" unit="mm" x="0" y="0" z="94.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="391">
+            <position name="patient_Z0x5f95ac0390_pos" unit="mm" x="0" y="0" z="95.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="392">
+            <position name="patient_Z0x5f95ac0391_pos" unit="mm" x="0" y="0" z="95.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="393">
+            <position name="patient_Z0x5f95ac0392_pos" unit="mm" x="0" y="0" z="96.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="394">
+            <position name="patient_Z0x5f95ac0393_pos" unit="mm" x="0" y="0" z="96.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="395">
+            <position name="patient_Z0x5f95ac0394_pos" unit="mm" x="0" y="0" z="97.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="396">
+            <position name="patient_Z0x5f95ac0395_pos" unit="mm" x="0" y="0" z="97.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="397">
+            <position name="patient_Z0x5f95ac0396_pos" unit="mm" x="0" y="0" z="98.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="398">
+            <position name="patient_Z0x5f95ac0397_pos" unit="mm" x="0" y="0" z="98.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="399">
+            <position name="patient_Z0x5f95ac0398_pos" unit="mm" x="0" y="0" z="99.25"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+          <parameters number="400">
+            <position name="patient_Z0x5f95ac0399_pos" unit="mm" x="0" y="0" z="99.75"/>
+            <box_dimensions lunit="mm" x="0.5" y="0.5" z="0.5"/>
+          </parameters>
+        </parameterised_position_size>
+      </paramvol>
+    </volume>
+    <volume name="patient_log_Y0x65311a0">
+      <materialref ref="G4_AIR0x587c900"/>
+      <solidref ref="patient_Y0x620d4b0"/>
+      <replicavol number="526">
+        <volumeref ref="patient_log_X0x64f3e10"/>
+        <replicate_along_axis>
+          <direction x="1"/>
+          <width unit="mm" value="0.5"/>
+          <offset unit="mm" value="0"/>
+        </replicate_along_axis>
+      </replicavol>
+    </volume>
+    <volume name="patient0x61e6d50">
+      <materialref ref="G4_AIR0x587c900"/>
+      <solidref ref="patient0x633de60"/>
+      <replicavol number="526">
+        <volumeref ref="patient_log_Y0x65311a0"/>
+        <replicate_along_axis>
+          <direction y="1"/>
+          <width unit="mm" value="0.5"/>
+          <offset unit="mm" value="0"/>
+        </replicate_along_axis>
+      </replicavol>
+    </volume>
+    <volume name="world0x5888bf0">
+      <materialref ref="G4_AIR0x587c900"/>
+      <solidref ref="world0x5871360"/>
+      <physvol name="detector0x58952d0">
+        <volumeref ref="detector0x5894ee0"/>
+        <position name="detector0x58952d0_pos" unit="mm" x="0" y="0" z="-510"/>
+      </physvol>
+      <physvol name="patient0x6570d80">
+        <volumeref ref="patient0x61e6d50"/>
+      </physvol>
+    </volume>
+  </structure>
+
+  <userinfo>
+    <auxiliary auxtype="Region" auxvalue="DefaultRegionForTheWorld0x4cadcc0">
+      <auxiliary auxtype="volume" auxvalue="world0x5888bf0"/>
+      <auxiliary auxtype="gamcut" auxunit="mm" auxvalue="0.1"/>
+      <auxiliary auxtype="ecut" auxunit="mm" auxvalue="1"/>
+      <auxiliary auxtype="poscut" auxunit="mm" auxvalue="0.1"/>
+      <auxiliary auxtype="pcut" auxunit="mm" auxvalue="0.1"/>
+    </auxiliary>
+    <auxiliary auxtype="Region" auxvalue="patient0x602d0e0">
+      <auxiliary auxtype="volume" auxvalue="patient0x61e6d50"/>
+      <auxiliary auxtype="gamcut" auxunit="mm" auxvalue="0.1"/>
+      <auxiliary auxtype="ecut" auxunit="mm" auxvalue="1"/>
+      <auxiliary auxtype="poscut" auxunit="mm" auxvalue="0.1"/>
+      <auxiliary auxtype="pcut" auxunit="mm" auxvalue="0.1"/>
+    </auxiliary>
+  </userinfo>
+
+  <setup name="Default" version="1.0">
+    <world ref="world0x5888bf0"/>
+  </setup>
+
+</gdml>

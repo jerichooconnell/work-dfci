@@ -32,7 +32,7 @@ parser.add_argument('-p', '--nparticlesgl', required=False, type=int, default=25
 parser.add_argument('-b', '--drawgeom', required=False, action='store_true', help='Draw geometry only on OpenGL window')
 parser.add_argument('-c', '--wcolor', required=False, type=str, default='black', help='Background color of OpenGL window')
 parser.add_argument('-d', '--device', required=False, type=str, default='0', help="OpenCL device running visualization")
-parser.add_argument('-n', '--nparticles', required=False, type=int, default=int(1e8), help="Number of particles")
+parser.add_argument('-n', '--nparticles', required=False, type=int, default=int(1e9), help="Number of particles")
 parser.add_argument('-s', '--seed', required=False, type=int, default=777, help="Seed of pseudo generator number")
 
 args = parser.parse_args()

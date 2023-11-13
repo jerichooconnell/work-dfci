@@ -1,0 +1,8 @@
+ObjectType = Image
+NDims = 3
+BinaryData = True
+BinaryDataByteOrderMSB = False
+DimSize = 526 526 400
+ElementSpacing = 0.500 0.500 0.500
+ElementType = MET_INT
+ElementDataFile = Catphan604.raw
