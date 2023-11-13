@@ -27,7 +27,7 @@ file_name = f'{out}/ggems_{f"{np:.0e}".replace("+", "")}_{s.x.max():.0f}kVp_{ede
 gg_scatter.run_ggems_scatter_simulation(Catphan604_phantom,
                                         nparticles=np,
                                         output_file=file_name,
-                                        spectrum=spectrum_file,
+                                        spectrum=None,
                                         detector_material='CsI',
                                         vis=False,
                                         edep_detector=edep_detector)

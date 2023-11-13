@@ -25,11 +25,11 @@ s.load(spectrum_file=spectrum_file)
 
 det = fc.Detector(s,'CsI-784-micrometer')
 angles = np.linspace(0,np.pi*2,180,endpoint=False)        
-nparticles = 1e4
+nparticles = 1e7
 out = f'/home/jericho/1-Workspace/opengate_ggems_comparison/water_cylinder/out'
 edep_detector = True
 edep = 'edep' if edep_detector else 'counts'
-file_name = f'{out}/ogate_{f"{nparticles:.0e}".replace("+", "")}_{s.x.max():.0f}kVp_2mmAl_{edep}'
+file_name = f'{out}/ogate_{f"{nparticles:.0e}".replace("+", "")}_{s.x.max():.0f}kVp_2mmAl_{edep}_no_body'
 
 og_scatter.run_ogate_scatter_simulation(Catphan604_phantom,
                                         nparticles=nparticles,

@@ -21,4 +21,4 @@ def load_itk(filename):
     # Read the spacing along each dimension
     spacing = np.array(list(reversed(itkimage.GetSpacing())))
 
-    return ct_scan, origin, spacing
+    return ct_scan.squeeze(), origin, spacing

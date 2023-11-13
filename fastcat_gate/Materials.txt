@@ -21,7 +21,7 @@ pmp: d=0.8300 g/cm3 ; n=2;
 bone50: d=1.4000 g/cm3 ; n=6;
     +el: name=Carbon; f=0.3500
     +el: name=Calcium; f=0.1400
-    +el: name=Hydrogen; f=0.0400
+    +el: name=Hydrogen; f=0.0500
     +el: name=Nitrogen; f=0.0600
     +el: name=Oxygen; f=0.3400
     +el: name=Phosphor; f=0.0600
