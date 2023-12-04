@@ -63,3 +63,9 @@ GOS: d=7.44 g/cm3; n=3;
 CsI: d=4.51 g/cm3; n=2;  state=solid
     +el: name=Caesium ; f=0.512
     +el: name=Iodine ; f=0.488
+
+Aluminium: d=2.699 g/cm3; n=1;
+	+el: name=Aluminium ; f=1.0
+
+Copper: d=8.96 g/cm3; n=1;  state=solid
+    +el: name=Copper ; f=1
