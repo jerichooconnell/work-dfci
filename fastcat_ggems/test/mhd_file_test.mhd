@@ -1,0 +1,8 @@
+ObjectType = Image
+NDims = 3
+BinaryData = True
+BinaryDataByteOrderMSB = False
+DimSize = 512 512 86
+ElementSpacing = 0.5 0.5 3.125
+ElementType = MET_SHORT
+ElementDataFile = mhd_file_test.raw
