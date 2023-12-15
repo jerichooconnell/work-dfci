@@ -7,27 +7,29 @@ from PIL import Image
 # import matplotlib.gridspec as gridspec
 from numpy import unique
 
+
 def bin_to_array(fn, num_bytes=32, pix_width=512):
 
-    if num_bytes==32:
+    if num_bytes == 32:
         dtype = np.float32
-    elif num_bytes==64:
+    elif num_bytes == 64:
         dtype = np.float64
 
     image = np.fromfile(fn, dtype=dtype)
     num_slices = int(image.shape[0]/(pix_width**2))
     image = image.reshape(num_slices, pix_width, pix_width)
-    
+
     return image
+
 
 def parse_attenuation_coefficients(file_path):
     # Open the file and read the lines
     with open(file_path, 'r') as file:
         lines = file.readlines()
-    
+
     # Initialize an empty dictionary to store the results
     coefficients = {}
-    
+
     # Iterate over the lines
     for ii, line in enumerate(lines):
         # Check if the phrase 'Linear Attenuation Coefficients (1/pixel):
@@ -46,10 +48,10 @@ def parse_attenuation_coefficients(file_path):
                     # The material is the first word
                     material = words[0]
                     print(material)
-                    
+
                     # The coefficient is the second word, converted to a float
                     coefficient = float(words[equals_index+1])
-                    
+
                     # Add the material and coefficient to the dictionary
                     coefficients[material] = coefficient
                 else:
@@ -57,10 +59,12 @@ def parse_attenuation_coefficients(file_path):
             break
     return coefficients
 
+
 # %%
 # Load attenuation coeffs in patient
 ct_fn, pw = '/home/jericho/Software/sysiphus_drive/XCAT-phantom/DXCAT2/512_female_head_phantom_full_atn_1.bin', 512
-file_log = '/home/jericho/Software/sysiphus_drive/XCAT-phantom/DXCAT2/512_female_head_phantom_full_log'  # Replace with your file path
+# Replace with your file path
+file_log = '/home/jericho/Software/sysiphus_drive/XCAT-phantom/DXCAT2/512_female_head_phantom_full_log'
 out_file = 'test/mhd_file_test'
 ct_scan = bin_to_array(ct_fn, pix_width=pw)
 coefficients = parse_attenuation_coefficients(file_log)
@@ -109,8 +113,10 @@ with open(out_file + '.mhd', 'w') as file:
     file.write('NDims = 3\n')
     file.write('BinaryData = True\n')
     file.write('BinaryDataByteOrderMSB = False\n')
-    file.write('DimSize = {} {} {}\n'.format(array_size, array_size, end_slice-start_slice+1))
-    file.write('ElementSpacing = {} {} {}\n'.format(10*pixel_width, 10*pixel_width, 10*slice_width))
+    file.write('DimSize = {} {} {}\n'.format(
+        array_size, array_size, end_slice-start_slice+1))
+    file.write('ElementSpacing = {} {} {}\n'.format(
+        10*pixel_width, 10*pixel_width, 10*slice_width))
     file.write('ElementType = MET_SHORT\n')
     file.write('ElementDataFile = ' + out_file.split('/')[-1] + '.raw\n')
 
@@ -124,7 +130,7 @@ materials = ct_scan.copy()
 for ii, material in enumerate(unique(ct_scan)):
     materials[ct_scan == material] = ii
 
-np.array(materials,dtype=np.int16).tofile(out_file + '.raw')
+np.array(materials, dtype=np.int16).tofile(out_file + '.raw')
 
 # %%
 data_dict = {
@@ -157,22 +163,15 @@ data_dict = {
     "Bladder": "BLADDER_ICRP.csv",
 }
 
-# loop through the csv files and load the mu data from fastCat 
-# import fastcat as fc
-# for key, value in data_dict.items():
-#     print(key, value)
-#     fc.get_mu(value.split('.')[0])
-
 # Find the unique materials in the ct_scan
 unique_coefficients = unique(ct_scan)
-
 unique_materials = []
-# unique_materials.append('Air')
 
 # Loop through the unique coefficients and find the corresponding material
 for ii, coefficient in enumerate(unique_coefficients):
     # Find the material that has the closest coefficient value
-    closest_material = min(coefficients, key=lambda x:abs(coefficients[x]-coefficient))
+    closest_material = min(
+        coefficients, key=lambda x: abs(coefficients[x]-coefficient))
     print('Closest material to {} is {}'.format(coefficient, closest_material))
     # Replace the coefficient value with the material name
     unique_materials.append(closest_material)
@@ -180,7 +179,7 @@ for ii, coefficient in enumerate(unique_coefficients):
 print(unique_coefficients)
 print(unique_materials)
 # %%
-# Make a list that has 3 entries for each material, the material name, the mu value, and the csv file name 
+# Make a list that has 3 entries for each material, the material name, the mu value, and the csv file name
 mat_list = []
 for ii, material in enumerate(unique_materials):
     mat_list.append([])
@@ -193,7 +192,7 @@ mat_list.sort(key=lambda x: x[2])
 
 # Write a range file in the following format for all the materials in the mat_list
 '''
-0 0 Air 
+0 0 Air
 1 1 polyurethane 
 2 2 teflon 
 3 3 pmp 

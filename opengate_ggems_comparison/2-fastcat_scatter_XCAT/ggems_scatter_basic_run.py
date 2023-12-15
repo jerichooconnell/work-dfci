@@ -13,16 +13,17 @@ nparticles = 3000000000
 out = 'out'
 
 s = fc.Spectrum()
-s.load(spectrum_file=spectrum_file) 
+s.load(spectrum_file=spectrum_file)
 spectrum = spectrum_file
-s_max= s.x.max()
+s_max = s.x.max()
 
-Catphan604_phantom = fc.utils.get_phantom_from_mhd(mhd_file,range_file,material_file)
-angles = np.linspace(0,np.pi*2,90)
+Catphan604_phantom = fc.utils.get_phantom_from_mhd(
+    mhd_file, range_file, material_file)
+angles = np.linspace(0, np.pi*2, 90)
 
 generate_ggems_bash_script(Catphan604_phantom, angles=angles, spectrum=spectrum_file,
-                            s_max=s_max, detector_material='CsI',
-                            nparticles=nparticles, 
-                            output_dir='/home/jericho/1-Workspace/opengate_ggems_comparison/2-fastcat_scatter_XCAT/test/')
+                           s_max=s_max, detector_material='CsI',
+                           nparticles=nparticles,
+                           output_dir='/home/jericho/1-Workspace/opengate_ggems_comparison/2-fastcat_scatter_XCAT/test/')
 
 Catphan604_phantom.run_ggems_bash_script()
