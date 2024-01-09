@@ -1,14 +1,14 @@
 # ------------------------------------------------------------------------------
 #
-#    $$$$$$\   $$$$$$\  $$$$$$$$\ $$\      $$\  $$$$$$\  
-#   $$  __$$\ $$  __$$\ $$  _____|$$$\    $$$ |$$  __$$\ 
+#    $$$$$$\   $$$$$$\  $$$$$$$$\ $$\      $$\  $$$$$$\
+#   $$  __$$\ $$  __$$\ $$  _____|$$$\    $$$ |$$  __$$\
 #   $$ /  \__|$$ /  \__|$$ |      $$$$\  $$$$ |$$ /  \__|
-#   $$ |$$$$\ $$ |$$$$\ $$$$$\    $$\$$\$$ $$ |\$$$$$$\  
-#   $$ |\_$$ |$$ |\_$$ |$$  __|   $$ \$$$  $$ | \____$$\ 
+#   $$ |$$$$\ $$ |$$$$\ $$$$$\    $$\$$\$$ $$ |\$$$$$$\
+#   $$ |\_$$ |$$ |\_$$ |$$  __|   $$ \$$$  $$ | \____$$\
 #   $$ |  $$ |$$ |  $$ |$$ |      $$ |\$  /$$ |$$\   $$ |
 #   \$$$$$$  |\$$$$$$  |$$$$$$$$\ $$ | \_/ $$ |\$$$$$$  |
-#    \______/  \______/ \________|\__|     \__| \______/ 
-#                                                     
+#    \______/  \______/ \________|\__|     \__| \______/
+#
 # ------------------------------------------------------------------------------
 
 # Import the necessary GGEMS modules
@@ -18,22 +18,33 @@ from ggems import *
 # ------------------------------------------------------------------------------
 # Read arguments
 parser = argparse.ArgumentParser(
-  prog='visualization.py',
-  description='''-->> 6 - OpenGL Visualization Example <<--''',
-  epilog='''''',
-  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    prog='visualization.py',
+    description='''-->> 6 - OpenGL Visualization Example <<--''',
+    epilog='''''',
+    formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-parser.add_argument('-v', '--verbose', required=False, type=int, default=0, help='Set level of verbosity')
-parser.add_argument('-e', '--nogl', required=False, action='store_true', help='Disable OpenGL')
-parser.add_argument('-w', '--wdims', required=False, default=[800, 800], type=int, nargs=2, help='OpenGL window dimensions')
-parser.add_argument('-m', '--msaa', required=False, type=int, default=8, help='MSAA factor (1x, 2x, 4x or 8x)')
-parser.add_argument('-a', '--axis', required=False, action='store_true', help='Drawing axis in OpenGL window')
-parser.add_argument('-p', '--nparticlesgl', required=False, type=int, default=256, help='Number of displayed primary particles on OpenGL window (max: 65536)')
-parser.add_argument('-b', '--drawgeom', required=False, action='store_true', help='Draw geometry only on OpenGL window')
-parser.add_argument('-c', '--wcolor', required=False, type=str, default='black', help='Background color of OpenGL window')
-parser.add_argument('-d', '--device', required=False, type=str, default='0', help="OpenCL device running visualization")
-parser.add_argument('-n', '--nparticles', required=False, type=int, default=int(1e9), help="Number of particles")
-parser.add_argument('-s', '--seed', required=False, type=int, default=777, help="Seed of pseudo generator number")
+parser.add_argument('-v', '--verbose', required=False,
+                    type=int, default=0, help='Set level of verbosity')
+parser.add_argument('-e', '--nogl', required=False,
+                    action='store_true', help='Disable OpenGL')
+parser.add_argument('-w', '--wdims', required=False,
+                    default=[800, 800], type=int, nargs=2, help='OpenGL window dimensions')
+parser.add_argument('-m', '--msaa', required=False, type=int,
+                    default=8, help='MSAA factor (1x, 2x, 4x or 8x)')
+parser.add_argument('-a', '--axis', required=False,
+                    action='store_true', help='Drawing axis in OpenGL window')
+parser.add_argument('-p', '--nparticlesgl', required=False, type=int, default=256,
+                    help='Number of displayed primary particles on OpenGL window (max: 65536)')
+parser.add_argument('-b', '--drawgeom', required=False,
+                    action='store_true', help='Draw geometry only on OpenGL window')
+parser.add_argument('-c', '--wcolor', required=False, type=str,
+                    default='black', help='Background color of OpenGL window')
+parser.add_argument('-d', '--device', required=False, type=str,
+                    default='0', help="OpenCL device running visualization")
+parser.add_argument('-n', '--nparticles', required=False,
+                    type=int, default=int(1e8), help="Number of particles")
+parser.add_argument('-s', '--seed', required=False, type=int,
+                    default=777, help="Seed of pseudo generator number")
 
 args = parser.parse_args()
 
@@ -64,17 +75,17 @@ volume_creator_manager = GGEMSVolumeCreatorManager()
 # ------------------------------------------------------------------------------
 # STEP 2: Params for visualization
 if is_gl:
-  opengl_manager = GGEMSOpenGLManager()
-  opengl_manager.set_window_dimensions(window_dims[0], window_dims[1])
-  opengl_manager.set_msaa(msaa)
-  opengl_manager.set_background_color(window_color)
-  opengl_manager.set_draw_axis(is_axis)
-  opengl_manager.set_world_size(1.0, 1.0, 1.0, 'm')
-  opengl_manager.set_image_output('data/axis')
-  opengl_manager.set_displayed_particles(number_of_displayed_particles)
-  opengl_manager.set_particle_color('gamma', 152, 251, 152)
-  # opengl_manager.set_particle_color('gamma', color_name='red') # Using registered color
-  opengl_manager.initialize()
+    opengl_manager = GGEMSOpenGLManager()
+    opengl_manager.set_window_dimensions(window_dims[0], window_dims[1])
+    opengl_manager.set_msaa(msaa)
+    opengl_manager.set_background_color(window_color)
+    opengl_manager.set_draw_axis(is_axis)
+    opengl_manager.set_world_size(1.0, 1.0, 1.0, 'm')
+    opengl_manager.set_image_output('data/axis')
+    opengl_manager.set_displayed_particles(number_of_displayed_particles)
+    opengl_manager.set_particle_color('gamma', 152, 251, 152)
+    # opengl_manager.set_particle_color('gamma', color_name='red') # Using registered color
+    opengl_manager.initialize()
 
 # ------------------------------------------------------------------------------
 # STEP 3: Choosing an OpenCL device
@@ -88,9 +99,20 @@ materials_database_manager.set_materials('data/materials.txt')
 # STEP 5: Phantoms and systems
 volume_creator_manager = GGEMSVolumeCreatorManager()
 volume_creator_manager.set_dimensions(40, 200, 200)
-volume_creator_manager.set_element_sizes(0.1, 0.1, 0.1, "mm")
+volume_creator_manager.set_element_sizes(0.1, 0.1, 1, "mm")
 volume_creator_manager.set_output('data/volume.mhd')
 volume_creator_manager.set_range_output('data/range_volume.txt')
+volume_creator_manager.set_material('GOS')
+volume_creator_manager.set_data_type('MET_INT')
+volume_creator_manager.initialize()
+volume_creator_manager.write()
+
+# STEP 5: Phantoms and systems
+volume_creator_manager = GGEMSVolumeCreatorManager()
+volume_creator_manager.set_dimensions(40, 200, 200)
+volume_creator_manager.set_element_sizes(0.1, 0.1, 1, "mm")
+volume_creator_manager.set_output('data/volume2.mhd')
+volume_creator_manager.set_range_output('data/range_volume2.txt')
 volume_creator_manager.set_material('GOS')
 volume_creator_manager.set_data_type('MET_INT')
 volume_creator_manager.initialize()
@@ -103,29 +125,29 @@ phantom.set_rotation(0.0, 0.0, 0.0, 'deg')
 phantom.set_position(0.0, 0.0, 0, 'mm')
 phantom.set_visible(True)
 
-phantom2 = GGEMSVoxelizedPhantom('phantom')
+phantom2 = GGEMSVoxelizedPhantom('phantom2')
 phantom2.set_phantom('data/volume2.mhd', 'data/range_volume2.txt')
 phantom2.set_rotation(0.0, 0.0, 0.0, 'deg')
-phantom2.set_position(4.01, 0.0, 0, 'mm')
+phantom2.set_position(300.01, 0.0, 0, 'mm')
 phantom2.set_visible(True)
 
 dosimetry = GGEMSDosimetryCalculator()
 dosimetry.attach_to_navigator('phantom')
-dosimetry.set_output_basename('out/ggems_dosimetry_no_tle')
+dosimetry.set_output_basename('out2/ggems_dosimetry_no_tle')
 dosimetry.water_reference(False)
 dosimetry.set_tle(False)
-dosimetry.set_dosel_size(0.1, 0.1, 0.1, 'mm')
+dosimetry.set_dosel_size(0.1, 0.1, 1, 'mm')
 dosimetry.uncertainty(True)
 dosimetry.edep(True)
 dosimetry.hit(False)
 dosimetry.edep_squared(False)
 
 dosimetry2 = GGEMSDosimetryCalculator()
-dosimetry2.attach_to_navigator('phantom')
-dosimetry2.set_output_basename('out/ggems_dosimetry_no_tle2')
+dosimetry2.attach_to_navigator('phantom2')
+dosimetry2.set_output_basename('out2/ggems_dosimetry_no_tle2')
 dosimetry2.water_reference(False)
 dosimetry2.set_tle(False)
-dosimetry2.set_dosel_size(0.1, 0.1, 0.1, 'mm')
+dosimetry2.set_dosel_size(0.1, 0.1, 1, 'mm')
 dosimetry2.uncertainty(True)
 dosimetry2.edep(True)
 dosimetry2.hit(False)
@@ -192,10 +214,10 @@ ggems.tracking_verbose(False, 0)
 # Initializing the GGEMS simulation
 ggems.initialize(seed)
 
-if is_draw_geom and is_gl: # Draw only geometry and do not run GGEMS
-  opengl_manager.display()
-else: # Running GGEMS and draw particles
-  ggems.run()
+if is_draw_geom and is_gl:  # Draw only geometry and do not run GGEMS
+    opengl_manager.display()
+else:  # Running GGEMS and draw particles
+    ggems.run()
 
 
 # ------------------------------------------------------------------------------

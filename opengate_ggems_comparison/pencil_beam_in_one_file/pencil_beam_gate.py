@@ -79,7 +79,7 @@ source.particle = "gamma"
 source.position.type = "box"
 source.position.size = [0.01 * mm, 0.01 * mm, 0.01 * mm]
 source.position.translation = [0, 0, 200 * mm]
-source.n = 1e3 #/ ui.number_of_threads #number of particles
+source.n = 1e3  # / ui.number_of_threads #number of particles
 source.direction.theta = [0, 12.5 * deg]
 source.direction.phi = [0, 360 * deg]
 source.direction.type = "iso"
@@ -109,14 +109,14 @@ dose = sim.add_actor("DigitizerHitsCollectionActor", "Hits")
 dose.mother = det.name
 dose.output = 'test_hits.root'
 dose.attributes = ['TotalEnergyDeposit', 'KineticEnergy', 'PostPosition',
-                'CreatorProcess', 'VolumeName', 'TrackID']
+                   'CreatorProcess', 'VolumeName', 'TrackID']
 # dose.mother = ['crystal1', 'crystal2']
 # dose.output = 'test_hits.root'
 # dose.attributes = ['TotalEnergyDeposit', 'KineticEnergy', 'PostPosition',
 #                 'CreatorProcess', 'VolumeName', 'TrackID']
 dose.output = "out/gate_edep_test2.mhd"
 dose.mother = det.name
-dose.size = [200,200,40]
+dose.size = [200, 200, 40]
 dose.spacing = [0.1 * mm, 0.1 * mm, 0.1 * mm]
 dose.size = [20 * mm, 20 * mm, 4 * mm]
 dose.hit_type = "random"
@@ -134,7 +134,7 @@ det2.color = [1, 0, 0, 1]
 dose2 = sim.add_actor("DoseActor", "edep2")
 dose2.output = "out/gate_edep2_test2.mhd"
 dose2.mother = det2.name
-dose2.size = [200,200,40]
+dose2.size = [200, 200, 40]
 dose2.spacing = [0.1 * mm, 0.1 * mm, 0.1 * mm]
 dose2.hit_type = "random"
 dose2.uncertainty = True

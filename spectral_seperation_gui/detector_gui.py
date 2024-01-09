@@ -6,6 +6,7 @@ from copy import deepcopy as __deepcopy__
 from detector_class import Detector
 import matplotlib.pyplot as plt
 
+
 class Detector_GUI(object):
     '''
     This class is a gui for the detector class.
@@ -27,14 +28,14 @@ class Detector_GUI(object):
         # Initialize the gui.
         self.gui = self.initialize_gui_lower()
         self.update_radio_buttons()
-        
+
         if self.detector.layers != []:
             self.plot_detector()
             self.filter_spectrum()
             self.plot_spectra()
             self.plot_HU()
         # Update radio buttons
-        plt.tight_layout()
+        # plt.tight_layout()
         plt.show()
 
     def initialize_gui_lower(self):
@@ -198,7 +199,7 @@ class Detector_GUI(object):
         self.gui['text']['Info'].clear()
         # Check if the info button is checked
         if self.gui['radio buttons']['Info'].get_status()[0]:
-            #Turn off the x and y labels
+            # Turn off the x and y labels
             self.gui['text']['Info'].set_xticks([])
             self.gui['text']['Info'].set_yticks([])
             self.gui['text']['Info'].text(0.1, 0.1, '''
@@ -223,7 +224,7 @@ class Detector_GUI(object):
     kVp: Enter the kVp of the spectrum,''')
         else:
             self.gui['text']['Info'].axis('off')
-            self.gui['text']['Info'].text(0.5, 0.5,'')
+            self.gui['text']['Info'].text(0.5, 0.5, '')
         # Show the changes
         self.gui['window'].canvas.draw()
 
@@ -262,8 +263,8 @@ class Detector_GUI(object):
         # Plot the HU values
         self.detector.plot_HU_values(self.gui['axes']['HU'],
                                      material, thickness=thickness,
-                                     water_padding=water_padding,mu=mu,
-                                           spectras=spectras)
+                                     water_padding=water_padding, mu=mu,
+                                     spectras=spectras)
         # Redraw the plot.
         self.gui['window'].canvas.draw()
 

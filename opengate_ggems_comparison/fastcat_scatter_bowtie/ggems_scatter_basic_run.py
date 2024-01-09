@@ -24,6 +24,6 @@ angles = np.linspace(0, np.pi*2, 15)
 generate_ggems_bash_script(Catphan604_phantom, angles=angles, spectrum=spectrum_file,
                            s_max=s_max, detector_material='CsI',
                            nparticles=nparticles, bowtie_file=bowtie_file,
-                           output_dir='/home/jericho/1-Workspace/opengate_ggems_comparison/fastcat_scatter_test/test/')
+                           output_dir='/home/jericho/1-Workspace/opengate_ggems_comparison/fastcat_scatter_bowtie/test')
 
 Catphan604_phantom.run_ggems_bash_script()

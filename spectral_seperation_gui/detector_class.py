@@ -57,13 +57,13 @@ class Detector(object):
                 axis.add_patch(plt.Rectangle(
                     (0, -self.layer['total_thickness']+self.layer['thickness']), 1, -self.layer['thickness'], color=color))
                 axis.annotate(self.layer['material'] + ' (' + f'{self.layer["thickness"]}' + ')', xy=(0.5, -self.layer['total_thickness'] + 0.5*self.layer['thickness']),
-                                color='k', fontsize=12, ha='center', va='center')
+                              color='k', fontsize=12, ha='center', va='center')
             else:
                 axis.add_patch(plt.Rectangle(
                     (0, -self.layer['total_thickness']+5), 1, -5, color=color))
                 axis.annotate(self.layer['material'] + ' ()' + f'{self.layer["thickness"]}' + ')', xy=(0.5, -self.layer['total_thickness'] + 0.5*5),
                               color='k', fontsize=12, ha='center', va='center')
-            
+
     def add_layers(self, materials, thicknesses, densities=None):
         # This function adds a layer to the detector.
         # It takes in the material name, thickness in cm, and density in g/cm^3.
@@ -202,7 +202,6 @@ class Detector(object):
                               self.filtered_spectrum['initial spectrum'],
                               label=self.filtered_spectrum['material'] + ' ' + f"{self.filtered_spectrum['total fluence absorbed']:.{2}e}" + ' $cm^{-2}$')
 
-
         def plot_final_spectrum(self, axis, norm=False, log=False):
             '''
             This function plots the final spectrum.
@@ -229,7 +228,6 @@ class Detector(object):
                     axis.plot(self.filtered_spectrum['energy'],
                               self.filtered_spectrum['final spectrum'],
                               label=self.filtered_spectrum['material'])
-
 
         def plot_absorbed_spectrum(self, axis, norm=False, log=False):
             '''
@@ -264,7 +262,6 @@ class Detector(object):
                               self.filtered_spectrum['absorbed spectrum']+1,
                               label=self.filtered_spectrum['material'] + ' ' + str(round(self.filtered_spectrum['mean energy absorbed'], 1)) + ' keV')
 
-
         def plot_all_spectrum(self, axis):
             '''
             This function plots the initial, final, and absorbed spectrum.
@@ -280,7 +277,7 @@ class Detector(object):
             axis.plot(self.filtered_spectrum['energy'],
                       self.filtered_spectrum['absorbed spectrum'],
                       label='spectrum absorbed by' + self.filtered_spectrum['material'])
-            axis.set_xlabel('Energy [keV]')
+            # axis.set_xlabel('Energy [keV]')
             axis.set_ylabel('Fluence $[cm^{-1} keV^{-2}]$')
             axis.set_title('Filtered spectra')
             axis.legend()
@@ -291,12 +288,12 @@ class Detector(object):
             axis: matplotlib axis object
             '''
 
-            atten = self.spectrum.mu_data.get_mu_t(self.filtered_spectrum['material'], 
-                                                          np.logspace( 1, 3, 2000),1)
+            atten = self.spectrum.mu_data.get_mu_t(self.filtered_spectrum['material'],
+                                                   np.logspace(1, 3, 2000), 1)
             axis.loglog(np.logspace(1, 3, 2000), atten,
                         label=self.filtered_spectrum['material'])
-        
-        def get_HU_value(self,material,water_padding=1,thickness=1,mu=False):
+
+        def get_HU_value(self, material, water_padding=1, thickness=1, mu=False):
             '''
             This function calculates the weighted attenuation coefficient for the layer.
             material: string
@@ -306,22 +303,29 @@ class Detector(object):
             The thickness of the layer
             '''
             # Get the attenuation coefficients for the material and water
-            mu_t_material = self.spectrum.mu_data.get_mu_t(material, self.filtered_spectrum['energy'], thickness)
-            mu_t_self = self.spectrum.mu_data.get_mu_t(self.filtered_spectrum['material'], self.filtered_spectrum['energy'], self.filtered_spectrum['thickness'])
-            mu_t_padding = self.spectrum.mu_data.get_mu_t('Water', self.filtered_spectrum['energy'],water_padding+thickness)
+            mu_t_material = self.spectrum.mu_data.get_mu_t(
+                material, self.filtered_spectrum['energy'], thickness)
+            mu_t_self = self.spectrum.mu_data.get_mu_t(
+                self.filtered_spectrum['material'], self.filtered_spectrum['energy'], self.filtered_spectrum['thickness'])
+            mu_t_padding = self.spectrum.mu_data.get_mu_t(
+                'Water', self.filtered_spectrum['energy'], water_padding+thickness)
             # Exponentially attenuate the spectrum
-            spec_test = self.filtered_spectrum['initial spectrum']*np.exp(-mu_t_material)
+            spec_test = self.filtered_spectrum['initial spectrum'] * \
+                np.exp(-mu_t_material)
             # Expenentially attenuate by some water as well
             if not mu:
                 spec_test = spec_test*np.exp(-mu_t_padding)
             # The amount of the spectrum that is attenuated by the material
             final_signal = spec_test - spec_test*np.exp(-mu_t_self)
             # Estimate the attenuation coefficient of the material
-            mu_material = -np.log(np.sum(final_signal)/np.sum(self.filtered_spectrum['absorbed spectrum']))/(thickness)
+            mu_material = -np.log(np.sum(final_signal)/np.sum(
+                self.filtered_spectrum['absorbed spectrum']))/(thickness)
             # calculate the attenuation coefficient of water
-            spec_water = self.filtered_spectrum['initial spectrum']*np.exp(-mu_t_padding)
+            spec_water = self.filtered_spectrum['initial spectrum'] * \
+                np.exp(-mu_t_padding)
             final_signal_water = spec_water - spec_water*np.exp(-mu_t_self)
-            mu_water = -np.log(np.sum(final_signal_water)/np.sum(self.filtered_spectrum['absorbed spectrum']))/(thickness)
+            mu_water = -np.log(np.sum(final_signal_water) /
+                               np.sum(self.filtered_spectrum['absorbed spectrum']))/(thickness)
             if mu:
                 return mu_material
             else:
@@ -355,7 +359,7 @@ class Detector(object):
         axis.set_title('Incident Spectra')
         if legend:
             axis.legend()
-    
+
     def plot_final_spectra(self, axis, norm=False, spectras=None, log=False, legend=True):
         '''
         This function plots the filtered spectra.
@@ -375,7 +379,7 @@ class Detector(object):
         axis.set_title('Final Spectra')
         if legend:
             axis.legend()
-    
+
     def plot_absorbed_spectra(self, axis, norm=False, spectras=None, log=False, legend=True):
         '''
         This function plots the filtered spectra.
@@ -389,7 +393,7 @@ class Detector(object):
         for spectrum in spectra:
             spectrum.plot_absorbed_spectrum(axis, norm=norm, log=log)
 
-        axis.set_xlabel('Energy [keV]')
+        # axis.set_xlabel('Energy [keV]')
         if norm:
             axis.set_ylabel('Normalized Fluence')
         else:
@@ -397,7 +401,7 @@ class Detector(object):
         axis.set_title('Absorbed Spectra')
         if legend:
             axis.legend()
-    
+
     def plot_detector(self, axis, colors=None):
         '''
         This function plots the detector.
@@ -421,30 +425,31 @@ class Detector(object):
         axis.set_title('Attenuation Coefficient')
         axis.legend()
 
-    def get_HU_values(self, material,thickness=1,water_padding=1,mu=False):
+    def get_HU_values(self, material, thickness=1, water_padding=1, mu=False):
         '''
         This function calculates the weighted attenuation coefficient for the detector.
         materials: list of strings
         '''
         HU_values = []
         for spectrum in self.spectra:
-            HU_values.append(spectrum.get_HU_value(material,thickness=thickness,water_padding=water_padding,mu=mu))
-        
+            HU_values.append(spectrum.get_HU_value(
+                material, thickness=thickness, water_padding=water_padding, mu=mu))
+
         return HU_values
-    
-    def plot_HU_values(self,axis,material,thickness=1,water_padding=1,spectras=None,mu=True):
+
+    def plot_HU_values(self, axis, material, thickness=1, water_padding=1, spectras=None, mu=True):
         '''
         This function plots the HU values of a given material for each spectra
         axis: matplotlib axis object
         '''
-        HU_values = self.get_HU_values(material,thickness=thickness,
-                                       water_padding=water_padding,mu=mu)
+        HU_values = self.get_HU_values(material, thickness=thickness,
+                                       water_padding=water_padding, mu=mu)
         # select which spectra to plot
         if spectras == None:
             HU_plots = HU_values
         else:
             HU_plots = [HU_values[i] for i in spectras]
-        axis.bar(np.arange(len(HU_plots)),HU_plots)
+        axis.bar(np.arange(len(HU_plots)), HU_plots)
         # axis.set_xlabel('Layer')
         if mu:
             axis.set_ylabel('Attenuation Coefficient')
@@ -455,7 +460,6 @@ class Detector(object):
         # Set the xticks to the label materials in spectra
         axis.set_xticks(np.arange(len(spectras)))
         # set the xticks but truncate at 4 characters
-        axis.set_xticklabels([self.spectra[ii].filtered_spectrum['material'][:4] for ii in spectras])
+        axis.set_xticklabels(
+            [self.spectra[ii].filtered_spectrum['material'][:4] for ii in spectras])
         # axis.set_ylim(-500,1000)
-
-
