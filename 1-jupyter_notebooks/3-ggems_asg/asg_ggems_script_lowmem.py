@@ -5,7 +5,7 @@ import argparse
 
 # Some variables to define the asg
 
-period = 5*0.167  # mm
+period = 10*0.167  # mm
 detector_width = 397  # mm
 detector_height = 298  # mm from the varex 4030cb datasheet
 y_dist = 1500  # mm focus from Varian
@@ -37,7 +37,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument('-v', '--verbose', required=False,
                     type=int, default=0, help='Set level of verbosity')
 parser.add_argument('-e', '--nogl', required=False,
-                    action='store_true', help='Disable OpenGL')
+                    action='store_false', help='Disable OpenGL')
 parser.add_argument('-w', '--wdims', required=False,
                     default=[800, 800], type=int, nargs=2, help='OpenGL window dimensions')
 parser.add_argument('-m', '--msaa', required=False, type=int,
@@ -105,146 +105,66 @@ if is_gl:
 opencl_manager.set_device_to_activate(device)
 
 # STEP 6: Physics
-# processes_manager.add_process('Compton', 'gamma', 'all')
+processes_manager.add_process('Compton', 'gamma', 'all')
 processes_manager.add_process('Photoelectric', 'gamma', 'all')
-# processes_manager.add_process('Rayleigh', 'gamma', 'all')
-
-# Optional options, the following are by default
-processes_manager.set_cross_section_table_number_of_bins(10)
-processes_manager.set_cross_section_table_energy_min(50, 'keV')
-processes_manager.set_cross_section_table_energy_max(0.15, 'MeV')
+processes_manager.add_process('Rayleigh', 'gamma', 'all')
 
 
 # ------------------------------------------------------------------------------
 # STEP 4: Setting GGEMS materials
-materials_database_manager.set_materials('data/materials_small.txt')
+materials_database_manager.set_materials('data/materials.txt')
 
 # ------------------------------------------------------------------------------
 # # STEP 5: Phantoms and systems
-# volume_creator_manager = GGEMSVolumeCreatorManager()
-# volume_creator_manager.set_dimensions(40, 200, 200)
-# volume_creator_manager.set_element_sizes(0.1, 0.1, 1, "mm")
-# volume_creator_manager.set_output('data/volume.mhd')
-# volume_creator_manager.set_range_output('data/range_volume.txt')
-# volume_creator_manager.set_material('GOS')
-# volume_creator_manager.set_data_type('MET_INT')
-# volume_creator_manager.initialize()
-# volume_creator_manager.write()
 
-
-# volume_creator_manager = GGEMSVolumeCreatorManager()
-# volume_creator_manager.set_dimensions(1, 1, 1)
-# volume_creator_manager.set_element_sizes(
-#     lamella_height, lamella_width, detector_width, "mm")  # From Varian
-# volume_creator_manager.set_output('data/volume0.mhd')
-# volume_creator_manager.set_range_output('data/range_volume0.txt')
-# volume_creator_manager.set_material('Lead')
-# volume_creator_manager.set_data_type('MET_INT')
-# volume_creator_manager.initialize()
-
-boxes = []
-
-for ii, thet in enumerate(theta):
-    x0, x1, y0, y1 = ray_x0[ii], ray_x0[ii]+10 * \
-        np.tan(np.deg2rad(thet)), -y_dist, -y_dist - 10
-
-    # phantom = GGEMSVoxelizedPhantom(f'phantom{ii}')
-    # phantom.set_phantom('data/volume0.mhd', 'data/range_volume0.txt')
-    # phantom.set_position(x0*np.tan(np.deg2rad(thet)), x0, 0, 'mm')
-    # phantom.set_rotation(0.0, 0.0, thet, 'rad')
-    # phantom.set_visible(True)
-
-    # # Creating a box
-
-    # boxes.append(GGEMSBox(lamella_height, lamella_width, detector_width, 'mm'))
-    # boxes[-1].set_position(0, x0, 0, 'mm')
-    # boxes[-1].set_label_value(ii+2)
-    # boxes[-1].set_material('Lead')
-    # boxes[-1].initialize()
-    # boxes[-1].draw()
-    # boxes[-1].delete()
-    name = 'ct_detector' + str(ii)
-    ct_detector = GGEMSCTSystem(name)
-    ct_detector.set_ct_type("flat")
-    ct_detector.set_number_of_modules(1, 1)
-    ct_detector.set_number_of_detection_elements(1, 1, 1)
-    ct_detector.set_size_of_detection_elements(400, 0.036, 1.3, "mm")
-    ct_detector.set_material('Lead')
-    ct_detector.set_source_detector_distance(1500, "mm")
-    ct_detector.set_source_isocenter_distance(1000, "mm")
-    # Rotate each based on focus distance
-    ct_detector.set_rotation(0.0, 0.0, thet, "deg")
-    ct_detector.set_global_system_position(
-        x0*np.tan(np.deg2rad(thet)), x0, 0.0, "mm")  # Repeat every 0.131 mm
-    ct_detector.set_threshold(100.0, "keV")
-    ct_detector.save(f"outs/outname_{ii}")
-    ct_detector.store_scatter(False)
-    # ct_detector.set_visible(True)
-    # ct_detector.set_material_color('Lead', 255, 0, 0)
-
-
-# volume_creator_manager.write()
-# # STEP 5: Phantoms and systems
-# volume_creator_manager = GGEMSVolumeCreatorManager()
-# volume_creator_manager.set_dimensions(40, 200, 200)
-# volume_creator_manager.set_element_sizes(0.1, 0.1, 1, "mm")
-# volume_creator_manager.set_output('data/volume2.mhd')
-# volume_creator_manager.set_range_output('data/range_volume2.txt')
-# volume_creator_manager.set_material('GOS')
-# volume_creator_manager.set_data_type('MET_INT')
-# volume_creator_manager.initialize()
-# volume_creator_manager.write()
-
-# # Loading phantom
-# phantom = GGEMSVoxelizedPhantom('phantom')
-# phantom.set_phantom('data/volume.mhd', 'data/range_volume.txt')
-# phantom.set_rotation(0.0, 0.0, 0.0, 'deg')
-# phantom.set_position(200, 0.0, 0, 'mm')
+# phantom = GGEMSVoxelizedPhantom(f'phantom')
+# phantom.set_phantom('data/test2.mhd', 'data/range_test.txt')
+# phantom.set_position(0, 0, 0, 'mm')
+# phantom.set_rotation(0.0, 0.0, 0, 'rad')
 # phantom.set_visible(True)
 
-# phantom2 = GGEMSVoxelizedPhantom('phantom2')
-# phantom2.set_phantom('data/volume2.mhd', 'data/range_volume2.txt')
-# phantom2.set_rotation(0.0, 0.0, 0.0, 'deg')
-# phantom2.set_position(300.01, 0.0, 0, 'mm')
-# phantom2.set_visible(True)
-
-# dosimetry = GGEMSDosimetryCalculator()
-# dosimetry.attach_to_navigator('phantom')
-# dosimetry.set_output_basename('out/ggems_dosimetry_no_tle')
-# dosimetry.water_reference(False)
-# dosimetry.set_tle(False)
-# dosimetry.set_dosel_size(0.1, 0.1, 1, 'mm')
-# dosimetry.uncertainty(True)
-# dosimetry.edep(True)
-# dosimetry.hit(False)
-# dosimetry.edep_squared(False)
-
-# dosimetry2 = GGEMSDosimetryCalculator()
-# dosimetry2.attach_to_navigator('phantom2')
-# dosimetry2.set_output_basename('out/ggems_dosimetry_no_tle2')
-# dosimetry2.water_reference(False)
-# dosimetry2.set_tle(False)
-# dosimetry2.set_dosel_size(0.1, 0.1, 1, 'mm')
-# dosimetry2.uncertainty(True)
-# dosimetry2.edep(True)
-# dosimetry2.hit(False)
-# dosimetry2.edep_squared(False)
-
-# cbct_detector = GGEMSCTSystem('custom')
-# cbct_detector.set_ct_type('flat')
-# cbct_detector.set_number_of_modules(1, 1)
-# cbct_detector.set_number_of_detection_elements(200, 200, 40) # Might be a sham
-# cbct_detector.set_size_of_detection_elements(0.1, 0.1, 0.1, 'mm')
-# cbct_detector.set_material('GOS')
-# cbct_detector.set_source_detector_distance(400., 'mm') # Center of inside detector, adding half of detector (= SDD surface + 10.0/2 mm half of depth)
-# cbct_detector.set_source_isocenter_distance(200., 'mm')
+cbct_detector = GGEMSCTSystem('custom')
+cbct_detector.set_ct_type('flat')
+cbct_detector.set_number_of_modules(1, 1)
+cbct_detector.set_number_of_detection_elements(500, 500, 1)  # Might be a sham
+cbct_detector.set_size_of_detection_elements(0.8, 0.8, 3, 'mm')
+cbct_detector.set_material('GOS')
+# Center of inside detector, adding half of detector (= SDD surface + 10.0/2 mm half of depth)
+cbct_detector.set_source_detector_distance(400., 'mm')
+cbct_detector.set_source_isocenter_distance(200., 'mm')
 # cbct_detector.set_rotation(0.0, 0.0, 0.0, 'deg')
 # cbct_detector.set_global_system_position(0.0, 0.0, 0.0, 'mm')
-# cbct_detector.set_threshold(0.1, 'keV')
-# cbct_detector.save('out/ggems_edep')
-# cbct_detector.store_scatter(True)
-# cbct_detector.set_visible(True)
-# cbct_detector.set_material_color('GOS', 255, 0, 0) # Custom color using RGB
+cbct_detector.set_threshold(10, 'keV')
+cbct_detector.save('out/ggems_edep')
+cbct_detector.store_scatter(True)
+cbct_detector.set_visible(True)
+
+# ct_detector = GGEMSCTSystem('Stellar')
+# ct_detector.set_ct_type('curved')
+# ct_detector.set_number_of_modules(1, 46)
+# ct_detector.set_number_of_detection_elements(64, 16, 1)
+# ct_detector.set_size_of_detection_elements(0.6, 0.6, 0.6, 'mm')
+# ct_detector.set_material('GOS')
+# ct_detector.set_source_detector_distance(1085.6, 'mm')
+# ct_detector.set_source_isocenter_distance(595.0, 'mm')
+# ct_detector.set_rotation(0.0, 0.0, 0.0, 'deg')
+# ct_detector.set_threshold(10.0, 'keV')
+# ct_detector.save('data/projection')
+# ct_detector.store_scatter(True)
+
+# ct_detector = GGEMSCTSystem('Stellar')
+# ct_detector.set_ct_type('curved')
+# ct_detector.set_number_of_modules(1, 46)
+# ct_detector.set_number_of_detection_elements(64, 16, 1)
+# ct_detector.set_size_of_detection_elements(0.6, 0.6, 0.6, 'mm')
+# ct_detector.set_material('GOS')
+# ct_detector.set_source_detector_distance(200, 'mm')
+# ct_detector.set_source_isocenter_distance(100, 'mm')
+# ct_detector.set_rotation(0.0, 0.0, 0.0, 'deg')
+# ct_detector.set_threshold(10.0, 'keV')
+# ct_detector.save('data/projection')
+# ct_detector.set_visible(True)
+# ct_detector.store_scatter(True)
 
 # ------------------------------------------------------------------------------
 
@@ -262,7 +182,7 @@ point_source.set_position(-200.0, 0.0, 0.0, 'mm')
 point_source.set_rotation(0.0, 0.0, 0.0, 'deg')
 point_source.set_beam_aperture(8, 'deg')
 point_source.set_focal_spot_size(0.01, 0.01, 0.01, 'mm')
-point_source.set_monoenergy(100, 'keV')
+point_source.set_monoenergy(50, 'keV')
 # point_source.set_polyenergy('data/spectrum_120kVp_2mmAl.dat')
 
 # ------------------------------------------------------------------------------

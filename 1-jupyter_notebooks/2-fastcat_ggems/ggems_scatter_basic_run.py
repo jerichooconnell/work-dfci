@@ -11,7 +11,7 @@ spectrum_file = '/home/jericho/1-Workspace/opengate_ggems_comparison/water_cylin
 range_file = '/home/jericho/1-Workspace/fastcat_gate/Catphan604_Range.txt'
 bowtie_file = '/home/jericho/Software/ct_scanner_example/data/full_fan.dat'
 
-nparticles = 10000000  # 00
+nparticles = 1000000000
 out = 'out'
 
 s = fc.Spectrum()

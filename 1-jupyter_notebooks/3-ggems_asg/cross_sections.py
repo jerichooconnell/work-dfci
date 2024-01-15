@@ -63,7 +63,7 @@ opencl_manager.set_device_index(device_id)
 
 # ------------------------------------------------------------------------------
 # STEP 3: Setting GGEMS materials
-materials_database_manager.set_materials('data/materials_small.txt')
+materials_database_manager.set_materials('data/materials.txt')
 
 # ------------------------------------------------------------------------------
 # STEP 4: Add material and initialize it
