@@ -47,7 +47,7 @@ parser.add_argument('-c', '--wcolor', required=False, type=str,
 parser.add_argument('-d', '--device', required=False, type=str,
                     default='0', help="OpenCL device running visualization")
 parser.add_argument('-n', '--nparticles', required=False,
-                    type=int, default=int(1e9), help="Number of particles")
+                    type=int, default=int(1e10), help="Number of particles")
 parser.add_argument('-s', '--seed', required=False, type=int,
                     default=777, help="Seed of pseudo generator number")
 
@@ -121,37 +121,37 @@ volume_creator_manager.initialize()
 # box_phantom.draw()
 # box_phantom.delete()
 
-phantom = GGEMSVoxelizedPhantom('phantom')
-phantom.set_phantom('data/asg_0.mhd', 'data/range_test.txt')
-phantom.set_position(500, 0, 0, 'mm')
-phantom.set_rotation(0.0, 0.0, 0, 'rad')
-phantom.set_visible(True)
-phantom.set_material_color(
-    'Helium', color_name='black')
-phantom.set_material_color(
-    'Lead', color_name='red')
+# phantom = GGEMSVoxelizedPhantom('phantom')
+# phantom.set_phantom('data/asg_0.mhd', 'data/range_test.txt')
+# phantom.set_position(500, 0, 0, 'mm')
+# phantom.set_rotation(0.0, 0.0, 0, 'rad')
+# phantom.set_visible(True)
+# phantom.set_material_color(
+#     'Helium', color_name='black')
+# phantom.set_material_color(
+#     'Lead', color_name='red')
 
-asg_thick = 0.533333
+# asg_thick = 0.533333
 
-phantom = GGEMSVoxelizedPhantom('phantom2')
-phantom.set_phantom('data/asg_1.mhd', 'data/range_test.txt')
-phantom.set_position(500 + asg_thick, 0, 0, 'mm')
-phantom.set_rotation(0.0, 0.0, 0, 'rad')
-phantom.set_visible(True)
-phantom.set_material_color(
-    'Helium', color_name='black')
-phantom.set_material_color(
-    'Lead', color_name='red')
+# phantom = GGEMSVoxelizedPhantom('phantom2')
+# phantom.set_phantom('data/asg_1.mhd', 'data/range_test.txt')
+# phantom.set_position(500 + asg_thick, 0, 0, 'mm')
+# phantom.set_rotation(0.0, 0.0, 0, 'rad')
+# phantom.set_visible(True)
+# phantom.set_material_color(
+#     'Helium', color_name='black')
+# phantom.set_material_color(
+#     'Lead', color_name='red')
 
-phantom = GGEMSVoxelizedPhantom('phantom3')
-phantom.set_phantom('data/asg_2.mhd', 'data/range_test.txt')
-phantom.set_position(500 + 2*asg_thick, 0, 0, 'mm')
-phantom.set_rotation(0.0, 0.0, 0, 'rad')
-phantom.set_visible(True)
-phantom.set_material_color(
-    'Helium', color_name='black')
-phantom.set_material_color(
-    'Lead', color_name='red')
+# phantom = GGEMSVoxelizedPhantom('phantom3')
+# phantom.set_phantom('data/asg_2.mhd', 'data/range_test.txt')
+# phantom.set_position(500 + 2*asg_thick, 0, 0, 'mm')
+# phantom.set_rotation(0.0, 0.0, 0, 'rad')
+# phantom.set_visible(True)
+# phantom.set_material_color(
+#     'Helium', color_name='black')
+# phantom.set_material_color(
+#     'Lead', color_name='red')
 
 # volume_creator_manager.write()
 
@@ -175,15 +175,15 @@ detector_pitch = 0.3
 cbct_detector = GGEMSCTSystem('custom')
 cbct_detector.set_ct_type('flat')
 cbct_detector.set_number_of_modules(1, 1)
-cbct_detector.set_number_of_detection_elements(int(detector_width/detector_pitch),
-                                               int(detector_height/detector_pitch), 1)
+cbct_detector.set_number_of_detection_elements(int(detector_height/detector_pitch),
+                                               int(detector_width/detector_pitch), 1)
 cbct_detector.set_size_of_detection_elements(
     detector_pitch, detector_pitch, 10.0, 'mm')
 cbct_detector.set_material('GOS')
 cbct_detector.set_source_detector_distance(1510, 'mm')
 cbct_detector.set_source_isocenter_distance(1000.0, 'mm')
 cbct_detector.set_rotation(0.0, 0.0, 0.0, 'deg')
-cbct_detector.set_global_system_position(0.0, 0.0, 0.0, 'mm')
+cbct_detector.set_global_system_position(0.0, -16, 0.0, 'cm')
 cbct_detector.set_threshold(10.0, 'keV')
 cbct_detector.save('data/projection')
 cbct_detector.store_scatter(True)
@@ -226,6 +226,7 @@ range_cuts_manager.set_cut('gamma', 0.1, 'mm', 'all')
 # ------------------------------------------------------------------------------
 # STEP 8: Source
 point_source = GGEMSXRaySource('point_source')
+point_source.read_bowtie_file('data/half_fan_mm.dat')
 point_source.set_source_particle_type('gamma')
 point_source.set_number_of_particles(number_of_particles)
 point_source.set_position(-1000.0, 0.0, 0.0, 'mm')
@@ -233,15 +234,15 @@ point_source.set_rotation(0.0, 0.0, 0.0, 'deg')
 # point_source.set_beam_aperture(6, 'deg')
 point_source.set_focal_spot_size(0.2, 0.6, 0.0, 'mm')
 point_source.set_polyenergy('data/spectrum_120kVp_2mmAl.dat')
-c_float_x1 = ctypes.c_float(1/3*detector_width)
-c_float_x2 = ctypes.c_float(1/3*detector_width)
-c_float_y1 = ctypes.c_float(1/3*detector_height)
-c_float_y2 = ctypes.c_float(1/3*detector_height)
+c_float_x1 = ctypes.c_float(103)
+c_float_x2 = ctypes.c_float(103)
+c_float_y1 = ctypes.c_float(252)
+c_float_y2 = ctypes.c_float(28)
 
 point_source.set_field_size(c_float_x1, c_float_x2,
                             c_float_y1, c_float_y2, 'mm')
 # point_source.set_monoenergy(120.0, 'keV')
-point_source.read_bowtie_file('data/half_fan_mm.dat')
+
 # point_source2 = GGEMSXRaySource('point_source2')
 # point_source2.set_source_particle_type('gamma')
 # point_source2.set_number_of_particles(number_of_particles)

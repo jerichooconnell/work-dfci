@@ -4,7 +4,6 @@ import fastcat as fc
 import numpy as np
 
 out_file = '/home/jericho/1-Workspace/1-jupyter_notebooks/2-fastcat_ggems/test'
-
 mhd_file = '/home/jericho/1-Workspace/fastcat_gate/Catphan604.mhd'
 material_file = '/home/jericho/1-Workspace/fastcat_gate/Materials.txt'
 spectrum_file = '/home/jericho/1-Workspace/opengate_ggems_comparison/water_cylinder/data/spectrum_120kVp_2mmAl.dat'
