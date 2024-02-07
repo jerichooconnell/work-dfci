@@ -6,3 +6,6 @@
 **/build/*
 **/dist/*
 *.wrl
+*.mat
+*.zip
+*.npy

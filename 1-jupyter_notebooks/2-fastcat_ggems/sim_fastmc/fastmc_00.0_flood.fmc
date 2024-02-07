@@ -9,7 +9,8 @@
     <parameter name="DetectorElementsY">512</parameter>
     <parameter name="ElementXSize">0.784</parameter>
     <parameter name="ElementYSize">0.784</parameter>
-    <parameter name="DetectorThickness">6</parameter>
+    <parameter name="DetectorThickness">0.6</parameter>
+    <parameter name="DetectorThickness2">0.5</parameter>
     <parameter name="DetectorMaterial">CsI</parameter>
     <parameter name="FieldX1At100cm">133.80266666666668</parameter>
     <parameter name="FieldX2At100cm">133.80266666666668</parameter>
@@ -20,5 +21,5 @@
     <parameter name="BowtieFile">/home/jericho/Software/Catphan604_HeadSized/full_fan_1_deg.dat</parameter>
     <parameter name="OutputFilename">/home/jericho/1-Workspace/1-jupyter_notebooks/2-fastcat_ggems/out_fastmc/fastmc_00.0_flood</parameter>
     <parameter name="MaterialsDatabase">/home/jericho/1-Workspace/fastcat_gate/Materials.txt</parameter>
-    <parameter name="SpectrumFile">/home/jericho/1-Workspace/opengate_ggems_comparison/water_cylinder/data/spectrum_120kVp_2mmAl.dat</parameter>
+    <parameter name="SpectrumFile">/home/jericho/Downloads/FastMC_Jan_05/FastMC_install/bin/data/120kV_2.5mmAl.dat</parameter>
 </FastMCParameters>
