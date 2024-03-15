@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FastMCParameters>
+    <parameter name="NumberOfParticles">10000000000</parameter>
+    <parameter name="XRayTubeAngle">288.0</parameter>
+    <parameter name="SourceDetectorDistance">1510</parameter>
+    <parameter name="SourceIsocenterDistance">1000.0</parameter>
+    <parameter name="FanAngle">-1</parameter>
+    <parameter name="DetectorElementsX">512</parameter>
+    <parameter name="DetectorElementsY">512</parameter>
+    <parameter name="ElementXSize">0.784</parameter>
+    <parameter name="ElementYSize">0.784</parameter>
+    <parameter name="DetectorThickness">0.6</parameter>
+    <parameter name="DetectorThickness2">0.8</parameter>
+    <parameter name="DetectorMaterial">CsI</parameter>
+    <parameter name="FieldX1At100cm">134.0</parameter>
+    <parameter name="FieldX2At100cm">134.0</parameter>
+    <parameter name="FieldY1At100cm">134.0</parameter>
+    <parameter name="FieldY2At100cm">134.0</parameter>
+    <parameter name="ShiftXcm">0</parameter>
+    <parameter name="ShiftYcm">0</parameter>
+    <parameter name="BowtieFile">/home/jericho/Software/fastcat/fastcat/data/ggems_files/full_fan_1_deg.dat</parameter>
+    <parameter name="OutputFilename">/home/jericho/1-Workspace/3-jupyter_notebooks_patient/1-initial_patient_test/out_dir/fastmc_288.00</parameter>
+    <parameter name="MaterialsDatabase">/home/jericho/Software/fastcat/fastcat/data/user_phantoms/brain_materials.txt</parameter>
+    <parameter name="SpectrumFile">/home/jericho/1-Workspace/1-jupyter_notebooks/4-preliminary_fastmc_projections/spectrum_120kVp_2.75mmAl_0.89mmTi.dat</parameter>
+    <parameter name="PhantomFile">/home/jericho/Software/fastcat/fastcat/data/user_phantoms/brain.mhd</parameter>
+    <parameter name="PhantomRange">/home/jericho/Software/fastcat/fastcat/data/user_phantoms/brain_range.txt</parameter>
+    <parameter name="PhantomZpos">0</parameter>
+</FastMCParameters>
