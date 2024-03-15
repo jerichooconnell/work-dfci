@@ -1,0 +1,7 @@
+ObjectType = Image
+BinaryDataByteOrderMSB = False
+NDims = 3
+ElementSpacing = 1.31 0.036 397
+DimSize = 1 1 1
+ElementType = MET_INT
+ElementDataFile = volume0.raw

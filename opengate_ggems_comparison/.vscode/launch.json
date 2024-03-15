@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "name": "Python: File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "justMyCode": true,
+            "cwd": "/home/jericho/1-Workspace/opengate_ggems_comparison/pencil_beam_in_one_file"
+        }
+    ]
+}

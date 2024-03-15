@@ -1,0 +1,10 @@
+0 0 Air 
+1 1 polyurethane 
+2 2 teflon 
+3 3 pmp 
+4 4 bone50 
+5 5 ldpe 
+6 6 polystyrene 
+7 7 acrylic 
+8 8 bone20 
+9 9 pom

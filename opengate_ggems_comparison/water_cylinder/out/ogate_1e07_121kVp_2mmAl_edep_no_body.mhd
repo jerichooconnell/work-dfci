@@ -1,0 +1,13 @@
+ObjectType = Image
+NDims = 3
+BinaryData = True
+BinaryDataByteOrderMSB = False
+CompressedData = False
+TransformMatrix = 1 0 0 0 1 0 0 0 1
+Offset = -200.31200000000001 0 -200.31200000000001
+CenterOfRotation = 0 0 0
+AnatomicalOrientation = RAI
+ElementSpacing = 0.78400000000000003 1 0.78400000000000003
+DimSize = 512 1 512
+ElementType = MET_FLOAT
+ElementDataFile = ogate_1e07_121kVp_2mmAl_edep_no_body.raw

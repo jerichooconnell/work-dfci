@@ -1,0 +1,7 @@
+ObjectType = Image
+BinaryDataByteOrderMSB = False
+NDims = 3
+ElementSpacing = 0.784 0.784 1
+DimSize = 512 512 1
+ElementType = MET_INT
+ElementDataFile = ggems_3e09_121kVp_0062-scatter.raw

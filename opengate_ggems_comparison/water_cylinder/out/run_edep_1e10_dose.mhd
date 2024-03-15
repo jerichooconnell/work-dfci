@@ -1,0 +1,7 @@
+ObjectType = Image
+BinaryDataByteOrderMSB = False
+NDims = 3
+ElementSpacing = 1 0.784 0.784
+DimSize = 1 512 512
+ElementType = MET_FLOAT
+ElementDataFile = run_edep_1e10_dose.raw

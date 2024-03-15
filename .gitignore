@@ -1,0 +1,12 @@
+*.raw
+*.pyc
+*.root
+*.pkl
+.ipynb_checkpoints/*
+**/build/*
+**/dist/*
+*.wrl
+*.mat
+*.zip
+*.npy
+*.gif

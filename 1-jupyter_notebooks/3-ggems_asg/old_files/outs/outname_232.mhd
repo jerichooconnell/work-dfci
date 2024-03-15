@@ -1,0 +1,7 @@
+ObjectType = Image
+BinaryDataByteOrderMSB = False
+NDims = 3
+ElementSpacing = 400 0.036 1.3
+DimSize = 1 1 1
+ElementType = MET_INT
+ElementDataFile = outname_232.raw

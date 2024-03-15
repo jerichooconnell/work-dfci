@@ -1,0 +1,7 @@
+ObjectType = Image
+BinaryDataByteOrderMSB = False
+NDims = 3
+ElementSpacing = 0.6 0.6 0.6
+DimSize = 64 736 1
+ElementType = MET_INT
+ElementDataFile = projection-scatter.raw

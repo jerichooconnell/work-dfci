@@ -1,0 +1,1225 @@
+Air: d=0.00129 g/cm3 ; n=4; state=gas
+    +el: name=Argon; f=0.012827
+    +el: name=Carbon; f=0.000124
+    +el: name=Nitrogen; f=0.755268
+    +el: name=Oxygen; f=0.231781
+    
+polyurethane: d=1.0600 g/cm3 ; n=4;
+    +el: name=Carbon; f=0.5909
+    +el: name=Hydrogen; f=0.0662
+    +el: name=Nitrogen; f=0.0511
+    +el: name=Oxygen; f=0.2918
+
+teflon: d=2.1600 g/cm3 ; n=2;
+    +el: name=Carbon; f=0.2400
+    +el: name=Fluorine; f=0.7600
+
+pmp: d=0.8300 g/cm3 ; n=2;
+    +el: name=Carbon; f=0.8562
+    +el: name=Hydrogen; f=0.1438
+
+bone50: d=1.4000 g/cm3 ; n=6;
+    +el: name=Carbon; f=0.3500
+    +el: name=Calcium; f=0.1400
+    +el: name=Hydrogen; f=0.0500
+    +el: name=Nitrogen; f=0.0600
+    +el: name=Oxygen; f=0.3400
+    +el: name=Phosphor; f=0.0600
+
+ldpe: d=0.9200 g/cm3 ; n=2;
+    +el: name=Carbon; f=0.8562
+    +el: name=Hydrogen; f=0.1438
+
+polystyrene: d=1.0300 g/cm3 ; n=2;
+    +el: name=Carbon; f=0.9225
+    +el: name=Hydrogen; f=0.0775
+
+acrylic: d=1.1800 g/cm3 ; n=3;
+    +el: name=Carbon; f=0.5996
+    +el: name=Hydrogen; f=0.0806
+    +el: name=Oxygen; f=0.3198
+
+bone20: d=1.1400 g/cm3 ; n=6;
+    +el: name=Carbon; f=0.5100
+    +el: name=Calcium; f=0.0600
+    +el: name=Hydrogen; f=0.0600
+    +el: name=Nitrogen; f=0.0600
+    +el: name=Oxygen; f=0.3000
+    +el: name=Phosphor; f=0.0300
+
+pom: d=1.4150 g/cm3 ; n=3;
+    +el: name=Carbon; f=0.3998
+    +el: name=Hydrogen; f=0.0672
+    +el: name=Oxygen; f=0.5330
+
+Tungsten: d=19.3 g/cm3; n=1;
+        +el: name=Tungsten; f=1
+
+GOS: d=7.44 g/cm3; n=3;
+    +el: name=Sulfur; f=0.084704
+    +el: name=Oxygen; f=0.084527
+    +el: name=Gadolinium; f=0.830769
+
+CsI: d=4.51 g/cm3; n=2;  state=solid
+    +el: name=Caesium ; f=0.512
+    +el: name=Iodine ; f=0.488
+
+Aluminium: d=2.699 g/cm3; n=1;
+	+el: name=Aluminium ; f=1.0
+
+Copper: d=8.96 g/cm3; n=1;  state=solid
+    +el: name=Copper ; f=1
+
+G4_ACETONE: d=0.7899 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.104122
+    +el: name=Carbon ; f=0.620405
+    +el: name=Oxygen ; f=0.275473
+
+G4_ACETYLENE: d=0.0010967 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.077418
+    +el: name=Carbon ; f=0.922582
+
+G4_ADIPOSE_TISSUE_ICRP: d=0.95 g/cm3; n=7;  state=solid
+    +el: name=Hydrogen ; f=0.114
+    +el: name=Carbon ; f=0.598
+    +el: name=Nitrogen ; f=0.007
+    +el: name=Oxygen ; f=0.278
+    +el: name=Sodium ; f=0.001
+    +el: name=Sulfur ; f=0.001
+    +el: name=Chlorine ; f=0.001
+
+BREAST_GLANDULAR_ICRU: d=1.07 g/cm3; n=8;  state=solid
+    +el: name=Hydrogen ; f=0.106
+    +el: name=Carbon ; f=0.332
+    +el: name=Nitrogen ; f=0.03
+    +el: name=Oxygen ; f=0.527
+    +el: name=Sodium ; f=0.001
+    +el: name=Phosphor ; f=0.001
+    +el: name=Sulfur ; f=0.002
+    +el: name=Chlorine ; f=0.001
+
+G4_ADIPOSE_TISSUE_ICRP2: d=0.93 g/cm3; n=7;  state=solid
+    +el: name=Hydrogen ; f=0.116
+    +el: name=Carbon ; f=0.681
+    +el: name=Nitrogen ; f=0.002
+    +el: name=Oxygen ; f=0.198
+    +el: name=Sodium ; f=0.001
+    +el: name=Sulfur ; f=0.001
+    +el: name=Chlorine ; f=0.001
+
+CATPHAN_PMP: d=0.83 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.1437
+    +el: name=Carbon ; f=0.8563
+
+CATPHAN_LDPE: d=0.92 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.1437
+    +el: name=Carbon ; f=0.8563
+
+CATPHAN_LDPE: d=0.92 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.1437
+    +el: name=Carbon ; f=0.8563
+
+CATPHAN_Polystyrene: d=1.03 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.0774
+    +el: name=Carbon ; f=0.9226
+
+CATPHAN_Acrylic: d=1.18 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.0806
+    +el: name=Carbon ; f=0.5998
+    +el: name=Oxygen ; f=0.3196
+
+CATPHAN_Delrin_revised: d=1.42 g/cm3; n=4;  state=solid
+    +el: name=Hydrogen ; f=0.0634
+    +el: name=Carbon ; f=0.6156
+    +el: name=Oxygen ; f=0.1993
+    +el: name=Chlorine ; f=0.1217
+
+CATPHAN_Delrin: d=1.42 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.0671
+    +el: name=Carbon ; f=0.4
+    +el: name=Oxygen ; f=0.5329
+
+CATPHAN_B20: d=1.14 g/cm3; n=6;  state=solid
+    +el: name=Hydrogen ; f=0.06
+    +el: name=Carbon ; f=0.49
+    +el: name=Nitrogen ; f=0.06
+    +el: name=Oxygen ; f=0.3
+    +el: name=Phosphor ; f=0.03
+    +el: name=Calcium ; f=0.06
+
+CATPHAN_B50: d=1.4 g/cm3; n=6;  state=solid
+    +el: name=Hydrogen ; f=0.04
+    +el: name=Carbon ; f=0.36
+    +el: name=Nitrogen ; f=0.06
+    +el: name=Oxygen ; f=0.34
+    +el: name=Phosphor ; f=0.14
+    +el: name=Calcium ; f=0.06
+
+CATPHAN_Teflon: d=2.16 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.2402
+    +el: name=Fluorine ; f=0.7598
+
+CATPHAN_Teflon_206: d=2.06 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.2402
+    +el: name=Fluorine ; f=0.7598
+
+ADIPOSE_TISSUE_ICRP: d=0.93 g/cm3; n=7;  state=solid
+    +el: name=Hydrogen ; f=0.116
+    +el: name=Carbon ; f=0.681
+    +el: name=Nitrogen ; f=0.002
+    +el: name=Oxygen ; f=0.198
+    +el: name=Sodium ; f=0.001
+    +el: name=Sulfur ; f=0.001
+    +el: name=Chlorine ; f=0.001
+
+GOS_Glue: d=4.59 g/cm3; n=6;  state=solid
+    +el: name=Hydrogen ; f=0.0257
+    +el: name=Carbon ; f=0.29
+    +el: name=Nitrogen ; f=0.1103
+    +el: name=Gadolinium ; f=0.451
+    +el: name=Sulfur ; f=0.092
+    +el: name=Terbium ; f=0.031
+
+Perovskite: d=3.83 g/cm3; n=5;  state=solid
+    +el: name=Hydrogen ; f=0.013
+    +el: name=Carbon ; f=0.025
+    +el: name=Nitrogen ; f=0.03
+    +el: name=Lead ; f=0.432
+    +el: name=Manganese ; f=0.5
+
+Perovskite_I: d=6.16 g/cm3; n=5;  state=solid
+    +el: name=Hydrogen ; f=0.013
+    +el: name=Carbon ; f=0.025
+    +el: name=Nitrogen ; f=0.03
+    +el: name=Lead ; f=0.432
+    +el: name=Iodine ; f=0.5
+
+CdZnTe: d=5.8 g/cm3; n=3;  state=solid
+    +el: name=Cadmium ; f=0.4
+    +el: name=Tellurium ; f=0.5
+    +el: name=Zinc ; f=0.1
+
+amorphous_selenium: d=4.28 g/cm3; n=1;  state=solid
+    +el: name=Selenium ; f=1.0
+
+G4_AIR: d=0.00120479 g/cm3; n=4;  state=solid
+    +el: name=Carbon ; f=0.000124
+    +el: name=Nitrogen ; f=0.755267
+    +el: name=Oxygen ; f=0.231781
+    +el: name=Argon ; f=0.012827
+
+G4_ALANINE: d=1.42 g/cm3; n=4;  state=solid
+    +el: name=Hydrogen ; f=0.07919
+    +el: name=Carbon ; f=0.404439
+    +el: name=Nitrogen ; f=0.157213
+    +el: name=Oxygen ; f=0.359159
+
+G4_ALUMINUM_OXIDE: d=3.97 g/cm3; n=2;  state=solid
+    +el: name=Oxygen ; f=0.470749
+    +el: name=Aluminium ; f=0.529251
+
+G4_AMBER: d=1.1 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.10593
+    +el: name=Carbon ; f=0.788973
+    +el: name=Oxygen ; f=0.105096
+
+G4_AMMONIA: d=0.000826019 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.177547
+    +el: name=Nitrogen ; f=0.822453
+
+G4_ANILINE: d=1.0235 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.075759
+    +el: name=Carbon ; f=0.773838
+    +el: name=Nitrogen ; f=0.150403
+
+G4_ANTHRACENE: d=1.283 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.05655
+    +el: name=Carbon ; f=0.94345
+
+G4_BAKELITE: d=1.25 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.057441
+    +el: name=Carbon ; f=0.774591
+    +el: name=Oxygen ; f=0.167968
+
+G4_BARIUM_FLUORIDE: d=4.89 g/cm3; n=2;  state=solid
+    +el: name=Fluorine ; f=0.21672
+    +el: name=Barium ; f=0.78328
+
+G4_BARIUM_SULFATE: d=4.5 g/cm3; n=3;  state=solid
+    +el: name=Oxygen ; f=0.274212
+    +el: name=Sulfur ; f=0.137368
+    +el: name=Barium ; f=0.58842
+
+G4_BENZENE: d=0.87865 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.077418
+    +el: name=Carbon ; f=0.922582
+
+G4_BERYLLIUM_OXIDE: d=3.01 g/cm3; n=2;  state=solid
+    +el: name=Beryllium ; f=0.36032
+    +el: name=Oxygen ; f=0.63968
+
+G4_BGO: d=7.13 g/cm3; n=3;  state=solid
+    +el: name=Oxygen ; f=0.154126
+    +el: name=Germanium ; f=0.17482
+    +el: name=Bismuth ; f=0.671054
+
+G4_BLOOD_ICRP: d=1.06 g/cm3; n=10;  state=solid
+    +el: name=Hydrogen ; f=0.102
+    +el: name=Carbon ; f=0.11
+    +el: name=Nitrogen ; f=0.033
+    +el: name=Oxygen ; f=0.745
+    +el: name=Sodium ; f=0.001
+    +el: name=Phosphor ; f=0.001
+    +el: name=Sulfur ; f=0.002
+    +el: name=Chlorine ; f=0.003
+    +el: name=Potassium ; f=0.002
+    +el: name=Iron ; f=0.001
+
+D6_Vertebra_ICRP: d=1.33 g/cm3; n=11;  state=solid
+    +el: name=Hydrogen ; f=0.07
+    +el: name=Carbon ; f=0.287
+    +el: name=Nitrogen ; f=0.038
+    +el: name=Oxygen ; f=0.437
+    +el: name=Sodium ; f=0.001
+    +el: name=Phosphor ; f=0.051
+    +el: name=Sulfur ; f=0.002
+    +el: name=Chlorine ; f=0.001
+    +el: name=Potassium ; f=0.001
+    +el: name=Calcium ; f=0.111
+    +el: name=Iron ; f=0.001
+
+C4_Vertebra_ICRP: d=1.42 g/cm3; n=10;  state=solid
+    +el: name=Hydrogen ; f=0.063
+    +el: name=Carbon ; f=0.261
+    +el: name=Nitrogen ; f=0.039
+    +el: name=Oxygen ; f=0.436
+    +el: name=Sodium ; f=0.002
+    +el: name=Phosphor ; f=0.061
+    +el: name=Sulfur ; f=0.003
+    +el: name=Chlorine ; f=0.001
+    +el: name=Potassium ; f=0.001
+    +el: name=Calcium ; f=0.133
+
+RIB_BONE_ICRP: d=1.41 g/cm3; n=11;  state=solid
+    +el: name=Hydrogen ; f=0.064
+    +el: name=Carbon ; f=0.263
+    +el: name=Nitrogen ; f=0.039
+    +el: name=Oxygen ; f=0.436
+    +el: name=Sodium ; f=0.001
+    +el: name=Magnesium ; f=0.001
+    +el: name=Phosphor ; f=0.06
+    +el: name=Sulfur ; f=0.003
+    +el: name=Chlorine ; f=0.001
+    +el: name=Potassium ; f=0.001
+    +el: name=Calcium ; f=0.131
+
+HEART_ICRP: d=1.05 g/cm3; n=10;  state=solid
+    +el: name=Hydrogen ; f=0.103
+    +el: name=Carbon ; f=0.121
+    +el: name=Nitrogen ; f=0.032
+    +el: name=Oxygen ; f=0.734
+    +el: name=Sodium ; f=0.001
+    +el: name=Phosphor ; f=0.001
+    +el: name=Sulfur ; f=0.002
+    +el: name=Chlorine ; f=0.003
+    +el: name=Potassium ; f=0.002
+    +el: name=Iron ; f=0.001
+
+KIDNEY_ICRP: d=1.05 g/cm3; n=10;  state=solid
+    +el: name=Hydrogen ; f=0.103
+    +el: name=Carbon ; f=0.132
+    +el: name=Nitrogen ; f=0.03
+    +el: name=Oxygen ; f=0.724
+    +el: name=Sodium ; f=0.002
+    +el: name=Phosphor ; f=0.002
+    +el: name=Sulfur ; f=0.002
+    +el: name=Chlorine ; f=0.002
+    +el: name=Potassium ; f=0.002
+    +el: name=Calcium ; f=0.001
+
+
+CsI: d=4.51 g/cm3; n=2;  state=solid
+    +el: name=Caesium ; f=0.512
+    +el: name=Iodine ; f=0.488
+
+LIVER_ICRP: d=1.06 g/cm3; n=9;  state=solid
+    +el: name=Hydrogen ; f=0.102
+    +el: name=Carbon ; f=0.139
+    +el: name=Nitrogen ; f=0.03
+    +el: name=Oxygen ; f=0.716
+    +el: name=Sodium ; f=0.002
+    +el: name=Phosphor ; f=0.003
+    +el: name=Sulfur ; f=0.003
+    +el: name=Chlorine ; f=0.002
+    +el: name=Potassium ; f=0.003
+
+LYMPH_ICRP: d=1.03 g/cm3; n=7;  state=solid
+    +el: name=Hydrogen ; f=0.108
+    +el: name=Carbon ; f=0.041
+    +el: name=Nitrogen ; f=0.011
+    +el: name=Oxygen ; f=0.832
+    +el: name=Sodium ; f=0.003
+    +el: name=Sulfur ; f=0.001
+    +el: name=Chlorine ; f=0.004
+
+PANCREAS_ICRP: d=1.04 g/cm3; n=9;  state=solid
+    +el: name=Hydrogen ; f=0.106
+    +el: name=Carbon ; f=0.169
+    +el: name=Nitrogen ; f=0.022
+    +el: name=Oxygen ; f=0.694
+    +el: name=Sodium ; f=0.002
+    +el: name=Phosphor ; f=0.002
+    +el: name=Sulfur ; f=0.001
+    +el: name=Chlorine ; f=0.002
+    +el: name=Potassium ; f=0.002
+
+INTESTINE_ICRP: d=1.03 g/cm3; n=9;  state=solid
+    +el: name=Hydrogen ; f=0.106
+    +el: name=Carbon ; f=0.115
+    +el: name=Nitrogen ; f=0.022
+    +el: name=Oxygen ; f=0.751
+    +el: name=Sodium ; f=0.001
+    +el: name=Phosphor ; f=0.001
+    +el: name=Sulfur ; f=0.001
+    +el: name=Chlorine ; f=0.002
+    +el: name=Potassium ; f=0.001
+
+SKULL_ICRP: d=1.61 g/cm3; n=9;  state=solid
+    +el: name=Hydrogen ; f=0.05
+    +el: name=Carbon ; f=0.212
+    +el: name=Nitrogen ; f=0.04
+    +el: name=Oxygen ; f=0.435
+    +el: name=Sodium ; f=0.001
+    +el: name=Magnesium ; f=0.002
+    +el: name=Phosphor ; f=0.081
+    +el: name=Sulfur ; f=0.003
+    +el: name=Calcium ; f=0.176
+
+CARTILAGE_ICRP: d=1.1 g/cm3; n=8;  state=solid
+    +el: name=Hydrogen ; f=0.096
+    +el: name=Carbon ; f=0.099
+    +el: name=Nitrogen ; f=0.022
+    +el: name=Oxygen ; f=0.744
+    +el: name=Sodium ; f=0.005
+    +el: name=Phosphor ; f=0.022
+    +el: name=Sulfur ; f=0.009
+    +el: name=Chlorine ; f=0.003
+
+SPLEEN_ICRP: d=1.06 g/cm3; n=9;  state=solid
+    +el: name=Hydrogen ; f=0.103
+    +el: name=Carbon ; f=0.113
+    +el: name=Nitrogen ; f=0.032
+    +el: name=Oxygen ; f=0.741
+    +el: name=Sodium ; f=0.001
+    +el: name=Phosphor ; f=0.003
+    +el: name=Sulfur ; f=0.002
+    +el: name=Chlorine ; f=0.002
+    +el: name=Potassium ; f=0.003
+
+OVARY_ICRP: d=1.05 g/cm3; n=9;  state=solid
+    +el: name=Hydrogen ; f=0.105
+    +el: name=Carbon ; f=0.093
+    +el: name=Nitrogen ; f=0.024
+    +el: name=Oxygen ; f=0.768
+    +el: name=Sodium ; f=0.002
+    +el: name=Phosphor ; f=0.002
+    +el: name=Sulfur ; f=0.002
+    +el: name=Chlorine ; f=0.002
+    +el: name=Potassium ; f=0.002
+
+RED_MARROW_ICRP: d=1.03 g/cm3; n=9;  state=solid
+    +el: name=Hydrogen ; f=0.105
+    +el: name=Carbon ; f=0.414
+    +el: name=Nitrogen ; f=0.034
+    +el: name=Oxygen ; f=0.439
+    +el: name=Phosphor ; f=0.001
+    +el: name=Sulfur ; f=0.002
+    +el: name=Chlorine ; f=0.002
+    +el: name=Potassium ; f=0.002
+    +el: name=Iron ; f=0.001
+
+BODY_ICRP: d=1.03 g/cm3; n=9;  state=solid
+    +el: name=Hydrogen ; f=0.105
+    +el: name=Carbon ; f=0.414
+    +el: name=Nitrogen ; f=0.034
+    +el: name=Oxygen ; f=0.439
+    +el: name=Phosphor ; f=0.001
+    +el: name=Sulfur ; f=0.002
+    +el: name=Chlorine ; f=0.002
+    +el: name=Potassium ; f=0.002
+    +el: name=Iron ; f=0.001
+
+YELLOW_MARROW_ICRP: d=0.98 g/cm3; n=7;  state=solid
+    +el: name=Hydrogen ; f=0.115
+    +el: name=Carbon ; f=0.644
+    +el: name=Nitrogen ; f=0.007
+    +el: name=Oxygen ; f=0.231
+    +el: name=Sodium ; f=0.001
+    +el: name=Sulfur ; f=0.001
+    +el: name=Chlorine ; f=0.001
+
+THYROID_ICRP: d=1.42 g/cm3; n=10;  state=solid
+    +el: name=Hydrogen ; f=0.104
+    +el: name=Carbon ; f=0.119
+    +el: name=Nitrogen ; f=0.024
+    +el: name=Oxygen ; f=0.745
+    +el: name=Sodium ; f=0.002
+    +el: name=Phosphor ; f=0.001
+    +el: name=Sulfur ; f=0.001
+    +el: name=Chlorine ; f=0.002
+    +el: name=Potassium ; f=0.001
+    +el: name=Iodine ; f=0.001
+
+BLADDER_ICRP: d=1.42 g/cm3; n=9;  state=solid
+    +el: name=Hydrogen ; f=0.105
+    +el: name=Carbon ; f=0.096
+    +el: name=Nitrogen ; f=0.026
+    +el: name=Oxygen ; f=0.761
+    +el: name=Sodium ; f=0.002
+    +el: name=Phosphor ; f=0.002
+    +el: name=Sulfur ; f=0.002
+    +el: name=Chlorine ; f=0.003
+    +el: name=Potassium ; f=0.003
+
+Spongiosa_Bone_ICRP: d=1.18 g/cm3; n=11;  state=solid
+    +el: name=Hydrogen ; f=0.063
+    +el: name=Carbon ; f=0.404
+    +el: name=Nitrogen ; f=0.028
+    +el: name=Oxygen ; f=0.367
+    +el: name=Sodium ; f=0.002
+    +el: name=Phosphor ; f=0.034
+    +el: name=Sulfur ; f=0.002
+    +el: name=Chlorine ; f=0.002
+    +el: name=Potassium ; f=0.001
+    +el: name=Calcium ; f=0.074
+    +el: name=Iron ; f=0.001
+
+G4_BONE_COMPACT_ICRU: d=1.85 g/cm3; n=8;  state=solid
+    +el: name=Hydrogen ; f=0.064
+    +el: name=Carbon ; f=0.278
+    +el: name=Nitrogen ; f=0.027
+    +el: name=Oxygen ; f=0.41
+    +el: name=Magnesium ; f=0.002
+    +el: name=Phosphor ; f=0.07
+    +el: name=Sulfur ; f=0.002
+    +el: name=Calcium ; f=0.147
+
+G4_BONE_CORTICAL_ICRP: d=1.92 g/cm3; n=9;  state=solid
+    +el: name=Hydrogen ; f=0.034
+    +el: name=Carbon ; f=0.155
+    +el: name=Nitrogen ; f=0.042
+    +el: name=Oxygen ; f=0.435
+    +el: name=Sodium ; f=0.001
+    +el: name=Magnesium ; f=0.002
+    +el: name=Phosphor ; f=0.103
+    +el: name=Sulfur ; f=0.003
+    +el: name=Calcium ; f=0.225
+
+G4_BORON_CARBIDE: d=2.52 g/cm3; n=2;  state=solid
+    +el: name=Boron ; f=0.78261
+    +el: name=Carbon ; f=0.21739
+
+G4_BORON_OXIDE: d=1.812 g/cm3; n=2;  state=solid
+    +el: name=Boron ; f=0.310551
+    +el: name=Oxygen ; f=0.689449
+
+G4_BRAIN_ICRP: d=1.04 g/cm3; n=9;  state=solid
+    +el: name=Hydrogen ; f=0.107
+    +el: name=Carbon ; f=0.145
+    +el: name=Nitrogen ; f=0.022
+    +el: name=Oxygen ; f=0.712
+    +el: name=Sodium ; f=0.002
+    +el: name=Phosphor ; f=0.004
+    +el: name=Sulfur ; f=0.002
+    +el: name=Chlorine ; f=0.003
+    +el: name=Potassium ; f=0.003
+
+G4_BUTANE: d=0.00249343 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.173408
+    +el: name=Carbon ; f=0.826592
+
+G4_CADMIUM_TELLURIDE: d=6.2 g/cm3; n=2;  state=solid
+    +el: name=Cadmium ; f=0.468355
+    +el: name=Tellurium ; f=0.531645
+
+G4_CADMIUM_TUNGSTATE: d=7.9 g/cm3; n=3;  state=solid
+    +el: name=Oxygen ; f=0.177644
+    +el: name=Cadmium ; f=0.312027
+    +el: name=Tungsten ; f=0.510329
+
+G4_CALCIUM_CARBONATE: d=2.8 g/cm3; n=3;  state=solid
+    +el: name=Carbon ; f=0.120003
+    +el: name=Oxygen ; f=0.479554
+    +el: name=Calcium ; f=0.400443
+
+G4_CALCIUM_FLUORIDE: d=3.18 g/cm3; n=2;  state=solid
+    +el: name=Fluorine ; f=0.486659
+    +el: name=Calcium ; f=0.513341
+
+G4_CALCIUM_OXIDE: d=3.3 g/cm3; n=2;  state=solid
+    +el: name=Oxygen ; f=0.285299
+    +el: name=Calcium ; f=0.714701
+
+G4_CALCIUM_SULFATE: d=2.96 g/cm3; n=3;  state=solid
+    +el: name=Oxygen ; f=0.470095
+    +el: name=Sulfur ; f=0.235497
+    +el: name=Calcium ; f=0.294408
+
+G4_CALCIUM_TUNGSTATE: d=6.062 g/cm3; n=3;  state=solid
+    +el: name=Oxygen ; f=0.22227
+    +el: name=Calcium ; f=0.139202
+    +el: name=Tungsten ; f=0.638529
+
+G4_CARBON_DIOXIDE: d=0.00184212 g/cm3; n=2;  state=solid
+    +el: name=Carbon ; f=0.272916
+    +el: name=Oxygen ; f=0.727084
+
+G4_CARBON_TETRACHLORIDE: d=1.594 g/cm3; n=2;  state=solid
+    +el: name=Carbon ; f=0.078083
+    +el: name=Chlorine ; f=0.921917
+
+G4_CELLULOSE_CELLOPHANE: d=1.42 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.062162
+    +el: name=Carbon ; f=0.444462
+    +el: name=Oxygen ; f=0.493376
+
+G4_CELLULOSE_BUTYRATE: d=1.2 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.067125
+    +el: name=Carbon ; f=0.545403
+    +el: name=Oxygen ; f=0.387472
+
+G4_CELLULOSE_NITRATE: d=1.49 g/cm3; n=4;  state=solid
+    +el: name=Hydrogen ; f=0.029216
+    +el: name=Carbon ; f=0.271296
+    +el: name=Nitrogen ; f=0.121276
+    +el: name=Oxygen ; f=0.578212
+
+G4_CERIC_SULFATE: d=1.03 g/cm3; n=5;  state=solid
+    +el: name=Hydrogen ; f=0.107596
+    +el: name=Nitrogen ; f=0.0008
+    +el: name=Oxygen ; f=0.874976
+    +el: name=Sulfur ; f=0.014627
+    +el: name=Cerium ; f=0.002001
+
+G4_CESIUM_FLUORIDE: d=4.115 g/cm3; n=2;  state=solid
+    +el: name=Fluorine ; f=0.125069
+    +el: name=Cesium ; f=0.874931
+
+G4_CESIUM_IODIDE: d=3.157 g/cm3; n=2;  state=solid
+    +el: name=Iodine ; f=0.488451
+    +el: name=Cesium ; f=0.511549
+
+G4_CHLOROBENZENE: d=1.1058 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.044772
+    +el: name=Carbon ; f=0.640254
+    +el: name=Chlorine ; f=0.314974
+
+G4_CHLOROFORM: d=1.4832 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.008443
+    +el: name=Carbon ; f=0.100613
+    +el: name=Chlorine ; f=0.890944
+
+G4_CONCRETE: d=2.3 g/cm3; n=10;  state=solid
+    +el: name=Hydrogen ; f=0.01
+    +el: name=Carbon ; f=0.001
+    +el: name=Oxygen ; f=0.529107
+    +el: name=Sodium ; f=0.016
+    +el: name=Magnesium ; f=0.002
+    +el: name=Aluminium ; f=0.033872
+    +el: name=Silicon ; f=0.337021
+    +el: name=Potassium ; f=0.013
+    +el: name=Calcium ; f=0.044
+    +el: name=Iron ; f=0.014
+
+G4_CYCLOHEXANE: d=0.779 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.143711
+    +el: name=Carbon ; f=0.856289
+
+G4_DICHLORODIETHYL_ETHER: d=1.2199 g/cm3; n=4;  state=solid
+    +el: name=Hydrogen ; f=0.056381
+    +el: name=Carbon ; f=0.335942
+    +el: name=Oxygen ; f=0.111874
+    +el: name=Chlorine ; f=0.495802
+
+G4_DIETHYL_ETHER: d=0.71378 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.135978
+    +el: name=Carbon ; f=0.648171
+    +el: name=Oxygen ; f=0.215851
+
+G4_DIMETHYL_SULFOXIDE: d=1.1014 g/cm3; n=4;  state=solid
+    +el: name=Hydrogen ; f=0.077403
+    +el: name=Carbon ; f=0.307467
+    +el: name=Oxygen ; f=0.204782
+    +el: name=Sulfur ; f=0.410348
+
+G4_ETHANE: d=0.00125324 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.201115
+    +el: name=Carbon ; f=0.798885
+
+G4_ETHYL_ALCOHOL: d=0.7893 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.131269
+    +el: name=Carbon ; f=0.521438
+    +el: name=Oxygen ; f=0.347294
+
+G4_ETHYL_CELLULOSE: d=1.13 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.090027
+    +el: name=Carbon ; f=0.585182
+    +el: name=Oxygen ; f=0.324791
+
+G4_ETHYLENE: d=0.00117497 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.143711
+    +el: name=Carbon ; f=0.856289
+
+G4_EYE_LENS_ICRP: d=1.07 g/cm3; n=8;  state=solid
+    +el: name=Hydrogen ; f=0.096
+    +el: name=Carbon ; f=0.195
+    +el: name=Nitrogen ; f=0.057
+    +el: name=Oxygen ; f=0.646
+    +el: name=Sodium ; f=0.001
+    +el: name=Phosphor ; f=0.001
+    +el: name=Sulfur ; f=0.003
+    +el: name=Chlorine ; f=0.001
+
+G4_FERRIC_OXIDE: d=5.2 g/cm3; n=2;  state=solid
+    +el: name=Oxygen ; f=0.300567
+    +el: name=Iron ; f=0.699433
+
+G4_FERROBORIDE: d=7.15 g/cm3; n=2;  state=solid
+    +el: name=Boron ; f=0.162174
+    +el: name=Iron ; f=0.837826
+
+G4_FERROUS_OXIDE: d=5.7 g/cm3; n=2;  state=solid
+    +el: name=Oxygen ; f=0.222689
+    +el: name=Iron ; f=0.777311
+
+G4_FERROUS_SULFATE: d=1.024 g/cm3; n=7;  state=solid
+    +el: name=Hydrogen ; f=0.108259
+    +el: name=Nitrogen ; f=2.7e-05
+    +el: name=Oxygen ; f=0.878636
+    +el: name=Sodium ; f=2.2e-05
+    +el: name=Sulfur ; f=0.012968
+    +el: name=Chlorine ; f=3.4e-05
+    +el: name=Iron ; f=5.4e-05
+
+G4_GADOLINIUM_OXYSULFIDE: d=7.44 g/cm3; n=3;  state=solid
+    +el: name=Oxygen ; f=0.084528
+    +el: name=Sulfur ; f=0.08469
+    +el: name=Gadolinium ; f=0.830782
+
+G4_GALLIUM_ARSENIDE: d=5.31 g/cm3; n=2;  state=solid
+    +el: name=Gallium ; f=0.482019
+    +el: name=Arsenic ; f=0.517981
+
+G4_GEL_PHOTO_EMULSION: d=1.2914 g/cm3; n=5;  state=solid
+    +el: name=Hydrogen ; f=0.08118
+    +el: name=Carbon ; f=0.41606
+    +el: name=Nitrogen ; f=0.11124
+    +el: name=Oxygen ; f=0.38064
+    +el: name=Sulfur ; f=0.01088
+
+G4_Pyrex_Glass: d=2.23 g/cm3; n=6;  state=solid
+    +el: name=Boron ; f=0.040064
+    +el: name=Oxygen ; f=0.539562
+    +el: name=Sodium ; f=0.028191
+    +el: name=Aluminium ; f=0.011644
+    +el: name=Silicon ; f=0.37722
+    +el: name=Potassium ; f=0.003321
+
+G4_GLASS_LEAD: d=6.22 g/cm3; n=5;  state=solid
+    +el: name=Oxygen ; f=0.156453
+    +el: name=Silicon ; f=0.080866
+    +el: name=Titanium ; f=0.008092
+    +el: name=Arsenic ; f=0.002651
+    +el: name=Lead ; f=0.751938
+
+G4_GLASS_PLATE: d=2.4 g/cm3; n=4;  state=solid
+    +el: name=Oxygen ; f=0.4598
+    +el: name=Sodium ; f=0.096441
+    +el: name=Silicon ; f=0.336553
+    +el: name=Calcium ; f=0.107205
+
+G4_GLUCOSE: d=1.54 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.071204
+    +el: name=Carbon ; f=0.363652
+    +el: name=Oxygen ; f=0.565144
+
+G4_GLUTAMINE: d=1.46 g/cm3; n=4;  state=solid
+    +el: name=Hydrogen ; f=0.068965
+    +el: name=Carbon ; f=0.410926
+    +el: name=Nitrogen ; f=0.191681
+    +el: name=Oxygen ; f=0.328427
+
+G4_GLYCEROL: d=1.2613 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.087554
+    +el: name=Carbon ; f=0.391262
+    +el: name=Oxygen ; f=0.521185
+
+G4_GYPSUM: d=2.32 g/cm3; n=4;  state=solid
+    +el: name=Hydrogen ; f=0.023416
+    +el: name=Oxygen ; f=0.557572
+    +el: name=Sulfur ; f=0.186215
+    +el: name=Calcium ; f=0.232797
+
+G4_KAPTON: d=1.42 g/cm3; n=4;  state=solid
+    +el: name=Hydrogen ; f=0.026362
+    +el: name=Carbon ; f=0.691133
+    +el: name=Nitrogen ; f=0.07327
+    +el: name=Oxygen ; f=0.209235
+
+G4_LANTHANUM_OXYBROMIDE: d=6.28 g/cm3; n=3;  state=solid
+    +el: name=Oxygen ; f=0.068138
+    +el: name=Bromine ; f=0.340294
+    +el: name=Lanthanum ; f=0.591568
+
+G4_LANTHANUM_OXYSULFIDE: d=5.86 g/cm3; n=3;  state=solid
+    +el: name=Oxygen ; f=0.0936
+    +el: name=Sulfur ; f=0.093778
+    +el: name=Lanthanum ; f=0.812622
+
+G4_LEAD_OXIDE: d=9.53 g/cm3; n=2;  state=solid
+    +el: name=Oxygen ; f=0.071682
+    +el: name=Lead ; f=0.928318
+
+G4_LITHIUM_AMIDE: d=1.178 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.087783
+    +el: name=Lithium ; f=0.302262
+    +el: name=Nitrogen ; f=0.609955
+
+G4_LITHIUM_CARBONATE: d=2.11 g/cm3; n=3;  state=solid
+    +el: name=Lithium ; f=0.187871
+    +el: name=Carbon ; f=0.16255
+    +el: name=Oxygen ; f=0.649579
+
+G4_LITHIUM_FLUORIDE: d=2.635 g/cm3; n=2;  state=solid
+    +el: name=Lithium ; f=0.267585
+    +el: name=Fluorine ; f=0.732415
+
+G4_LITHIUM_HYDRIDE: d=0.82 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.126797
+    +el: name=Lithium ; f=0.873203
+
+G4_LITHIUM_IODIDE: d=3.494 g/cm3; n=2;  state=solid
+    +el: name=Lithium ; f=0.051858
+    +el: name=Iodine ; f=0.948142
+
+G4_LITHIUM_OXIDE: d=2.013 g/cm3; n=2;  state=solid
+    +el: name=Lithium ; f=0.46457
+    +el: name=Oxygen ; f=0.53543
+
+G4_LITHIUM_TETRABORATE: d=2.44 g/cm3; n=3;  state=solid
+    +el: name=Lithium ; f=0.082085
+    +el: name=Boron ; f=0.25568
+    +el: name=Oxygen ; f=0.662235
+
+G4_LUNG_ICRP: d=1.04 g/cm3; n=9;  state=solid
+    +el: name=Hydrogen ; f=0.105
+    +el: name=Carbon ; f=0.083
+    +el: name=Nitrogen ; f=0.023
+    +el: name=Oxygen ; f=0.779
+    +el: name=Sodium ; f=0.002
+    +el: name=Phosphor ; f=0.001
+    +el: name=Sulfur ; f=0.002
+    +el: name=Chlorine ; f=0.003
+    +el: name=Potassium ; f=0.002
+
+G4_LUNG_LD_ICRP: d=0.26 g/cm3; n=9;  state=solid
+    +el: name=Hydrogen ; f=0.103
+    +el: name=Carbon ; f=0.105
+    +el: name=Nitrogen ; f=0.031
+    +el: name=Oxygen ; f=0.749
+    +el: name=Sodium ; f=0.002
+    +el: name=Phosphor ; f=0.002
+    +el: name=Sulfur ; f=0.003
+    +el: name=Chlorine ; f=0.003
+    +el: name=Potassium ; f=0.002
+
+G4_LUNG_MD_ICRP: d=0.57 g/cm3; n=9;  state=solid
+    +el: name=Hydrogen ; f=0.105
+    +el: name=Carbon ; f=0.083
+    +el: name=Nitrogen ; f=0.023
+    +el: name=Oxygen ; f=0.779
+    +el: name=Sodium ; f=0.002
+    +el: name=Phosphor ; f=0.001
+    +el: name=Sulfur ; f=0.002
+    +el: name=Chlorine ; f=0.003
+    +el: name=Potassium ; f=0.002
+
+G4_M3_WAX: d=1.05 g/cm3; n=5;  state=solid
+    +el: name=Hydrogen ; f=0.114318
+    +el: name=Carbon ; f=0.655823
+    +el: name=Oxygen ; f=0.092183
+    +el: name=Magnesium ; f=0.134792
+    +el: name=Calcium ; f=0.002883
+
+G4_MAGNESIUM_CARBONATE: d=2.958 g/cm3; n=3;  state=solid
+    +el: name=Carbon ; f=0.142455
+    +el: name=Oxygen ; f=0.569278
+    +el: name=Magnesium ; f=0.288267
+
+G4_MAGNESIUM_FLUORIDE: d=3.0 g/cm3; n=2;  state=solid
+    +el: name=Fluorine ; f=0.609883
+    +el: name=Magnesium ; f=0.390117
+
+G4_MAGNESIUM_OXIDE: d=3.58 g/cm3; n=2;  state=solid
+    +el: name=Oxygen ; f=0.396964
+    +el: name=Magnesium ; f=0.603036
+
+G4_MAGNESIUM_TETRABORATE: d=2.53 g/cm3; n=3;  state=solid
+    +el: name=Boron ; f=0.240837
+    +el: name=Oxygen ; f=0.62379
+    +el: name=Magnesium ; f=0.135373
+
+G4_MERCURIC_IODIDE: d=6.36 g/cm3; n=2;  state=solid
+    +el: name=Iodine ; f=0.55856
+    +el: name=Mercury ; f=0.44144
+
+G4_METHANE: d=0.000667151 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.251306
+    +el: name=Carbon ; f=0.748694
+
+G4_METHANOL: d=0.7914 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.125822
+    +el: name=Carbon ; f=0.374852
+    +el: name=Oxygen ; f=0.499326
+
+G4_MIX_D_WAX: d=0.99 g/cm3; n=5;  state=solid
+    +el: name=Hydrogen ; f=0.13404
+    +el: name=Carbon ; f=0.77796
+    +el: name=Oxygen ; f=0.03502
+    +el: name=Magnesium ; f=0.038594
+    +el: name=Titanium ; f=0.014386
+
+G4_MS20_TISSUE: d=1.0 g/cm3; n=6;  state=solid
+    +el: name=Hydrogen ; f=0.081192
+    +el: name=Carbon ; f=0.583442
+    +el: name=Nitrogen ; f=0.017798
+    +el: name=Oxygen ; f=0.186381
+    +el: name=Magnesium ; f=0.130287
+    +el: name=Chlorine ; f=0.0009
+
+G4_MUSCLE_SKELETAL_ICRP: d=1.05 g/cm3; n=9;  state=solid
+    +el: name=Hydrogen ; f=0.102
+    +el: name=Carbon ; f=0.143
+    +el: name=Nitrogen ; f=0.034
+    +el: name=Oxygen ; f=0.71
+    +el: name=Sodium ; f=0.001
+    +el: name=Phosphor ; f=0.002
+    +el: name=Sulfur ; f=0.003
+    +el: name=Chlorine ; f=0.001
+    +el: name=Potassium ; f=0.004
+
+G4_MUSCLE_STRIATED_ICRU: d=1.04 g/cm3; n=8;  state=solid
+    +el: name=Hydrogen ; f=0.102
+    +el: name=Carbon ; f=0.123
+    +el: name=Nitrogen ; f=0.035
+    +el: name=Oxygen ; f=0.729
+    +el: name=Sodium ; f=0.001
+    +el: name=Phosphor ; f=0.002
+    +el: name=Sulfur ; f=0.004
+    +el: name=Potassium ; f=0.003
+
+G4_MUSCLE_WITH_SUCROSE: d=1.11 g/cm3; n=4;  state=solid
+    +el: name=Hydrogen ; f=0.098234
+    +el: name=Carbon ; f=0.156214
+    +el: name=Nitrogen ; f=0.035451
+    +el: name=Oxygen ; f=0.7101
+
+G4_MUSCLE_WITHOUT_SUCROSE: d=1.07 g/cm3; n=4;  state=solid
+    +el: name=Hydrogen ; f=0.101969
+    +el: name=Carbon ; f=0.120058
+    +el: name=Nitrogen ; f=0.035451
+    +el: name=Oxygen ; f=0.742522
+
+G4_NAPHTHALENE: d=1.145 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.062909
+    +el: name=Carbon ; f=0.937091
+
+G4_NITROBENZENE: d=1.19867 g/cm3; n=4;  state=solid
+    +el: name=Hydrogen ; f=0.040935
+    +el: name=Carbon ; f=0.585374
+    +el: name=Nitrogen ; f=0.113773
+    +el: name=Oxygen ; f=0.259918
+
+G4_NITROUS_OXIDE: d=0.00183094 g/cm3; n=2;  state=solid
+    +el: name=Nitrogen ; f=0.636483
+    +el: name=Oxygen ; f=0.363517
+
+G4_OCTANE: d=0.7026 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.158821
+    +el: name=Carbon ; f=0.841179
+
+G4_PARAFFIN: d=0.93 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.148605
+    +el: name=Carbon ; f=0.851395
+
+G4_PHOTO_EMULSION: d=3.815 g/cm3; n=8;  state=solid
+    +el: name=Hydrogen ; f=0.0141
+    +el: name=Carbon ; f=0.072261
+    +el: name=Nitrogen ; f=0.01932
+    +el: name=Oxygen ; f=0.066101
+    +el: name=Sulfur ; f=0.00189
+    +el: name=Bromine ; f=0.349103
+    +el: name=Silver ; f=0.474105
+    +el: name=Iodine ; f=0.00312
+
+G4_PLASTIC_SC_VINYLTOLUENE: d=1.032 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.085
+    +el: name=Carbon ; f=0.915
+
+G4_POLYACRYLONITRILE: d=1.17 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.056983
+    +el: name=Carbon ; f=0.679056
+    +el: name=Nitrogen ; f=0.263962
+
+G4_POLYCARBONATE: d=1.2 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.055491
+    +el: name=Carbon ; f=0.755751
+    +el: name=Oxygen ; f=0.188758
+
+G4_POLYCHLOROSTYRENE: d=1.3 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.061869
+    +el: name=Carbon ; f=0.696325
+    +el: name=Chlorine ; f=0.241806
+
+G4_POLYETHYLENE: d=0.94 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.143711
+    +el: name=Carbon ; f=0.856289
+
+G4_MYLAR: d=1.4 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.041959
+    +el: name=Carbon ; f=0.625017
+    +el: name=Oxygen ; f=0.333025
+
+G4_PLEXIGLASS: d=1.19 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.080538
+    +el: name=Carbon ; f=0.599848
+    +el: name=Oxygen ; f=0.319614
+
+G4_POLYOXYMETHYLENE: d=1.425 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.067135
+    +el: name=Carbon ; f=0.400017
+    +el: name=Oxygen ; f=0.532848
+
+G4_POLYPROPYLENE: d=0.9 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.143711
+    +el: name=Carbon ; f=0.856289
+
+G4_POLYSTYRENE: d=1.06 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.077418
+    +el: name=Carbon ; f=0.922582
+
+G4_TEFLON: d=2.2 g/cm3; n=2;  state=solid
+    +el: name=Carbon ; f=0.240183
+    +el: name=Fluorine ; f=0.759817
+
+G4_POLYVINYL_ACETATE: d=1.19 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.070245
+    +el: name=Carbon ; f=0.558066
+    +el: name=Oxygen ; f=0.371689
+
+G4_POLYVINYL_ALCOHOL: d=1.3 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.091517
+    +el: name=Carbon ; f=0.545298
+    +el: name=Oxygen ; f=0.363185
+
+G4_POLYVINYL_BUTYRAL: d=1.12 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.092802
+    +el: name=Carbon ; f=0.680561
+    +el: name=Oxygen ; f=0.226637
+
+G4_POLYVINYL_CHLORIDE: d=1.3 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.04838
+    +el: name=Carbon ; f=0.38436
+    +el: name=Chlorine ; f=0.56726
+
+G4_POLYVINYLIDENE_CHLORIDE: d=1.7 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.020793
+    +el: name=Carbon ; f=0.247793
+    +el: name=Chlorine ; f=0.731413
+
+G4_POLYVINYLIDENE_FLUORIDE: d=1.76 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.03148
+    +el: name=Carbon ; f=0.375141
+    +el: name=Fluorine ; f=0.593379
+
+G4_POLYVINYL_PYRROLIDONE: d=1.25 g/cm3; n=4;  state=solid
+    +el: name=Hydrogen ; f=0.081616
+    +el: name=Carbon ; f=0.648407
+    +el: name=Nitrogen ; f=0.126024
+    +el: name=Oxygen ; f=0.143953
+
+G4_POTASSIUM_IODIDE: d=3.13 g/cm3; n=2;  state=solid
+    +el: name=Potassium ; f=0.235528
+    +el: name=Iodine ; f=0.764472
+
+G4_POTASSIUM_OXIDE: d=2.32 g/cm3; n=2;  state=solid
+    +el: name=Oxygen ; f=0.169852
+    +el: name=Potassium ; f=0.830148
+
+G4_PROPANE: d=0.00187939 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.182855
+    +el: name=Carbon ; f=0.817145
+
+G4_lPROPANE: d=0.43 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.182855
+    +el: name=Carbon ; f=0.817145
+
+G4_PYRIDINE: d=0.9819 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.06371
+    +el: name=Carbon ; f=0.759217
+    +el: name=Nitrogen ; f=0.177073
+
+G4_RUBBER_BUTYL: d=0.92 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.143711
+    +el: name=Carbon ; f=0.856289
+
+G4_RUBBER_NATURAL: d=0.92 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.118371
+    +el: name=Carbon ; f=0.881629
+
+G4_RUBBER_NEOPRENE: d=1.23 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.05692
+    +el: name=Carbon ; f=0.542646
+    +el: name=Chlorine ; f=0.400434
+
+G4_SILICON_DIOXIDE: d=2.32 g/cm3; n=2;  state=solid
+    +el: name=Oxygen ; f=0.532565
+    +el: name=Silicon ; f=0.467435
+
+G4_SILVER_BROMIDE: d=6.473 g/cm3; n=2;  state=solid
+    +el: name=Bromine ; f=0.425537
+    +el: name=Silver ; f=0.574463
+
+G4_SILVER_CHLORIDE: d=5.56 g/cm3; n=2;  state=solid
+    +el: name=Chlorine ; f=0.247368
+    +el: name=Silver ; f=0.752632
+
+G4_SILVER_HALIDES: d=6.47 g/cm3; n=3;  state=solid
+    +el: name=Bromine ; f=0.422895
+    +el: name=Silver ; f=0.573748
+    +el: name=Iodine ; f=0.003357
+
+G4_SILVER_IODIDE: d=6.01 g/cm3; n=2;  state=solid
+    +el: name=Silver ; f=0.459458
+    +el: name=Iodine ; f=0.540542
+
+G4_SKIN_ICRP: d=1.09 g/cm3; n=9;  state=solid
+    +el: name=Hydrogen ; f=0.1
+    +el: name=Carbon ; f=0.204
+    +el: name=Nitrogen ; f=0.042
+    +el: name=Oxygen ; f=0.645
+    +el: name=Sodium ; f=0.002
+    +el: name=Phosphor ; f=0.001
+    +el: name=Sulfur ; f=0.002
+    +el: name=Chlorine ; f=0.003
+    +el: name=Potassium ; f=0.001
+
+G4_SODIUM_CARBONATE: d=2.532 g/cm3; n=3;  state=solid
+    +el: name=Carbon ; f=0.113323
+    +el: name=Oxygen ; f=0.452861
+    +el: name=Sodium ; f=0.433815
+
+G4_SODIUM_IODIDE: d=3.667 g/cm3; n=2;  state=solid
+    +el: name=Sodium ; f=0.153373
+    +el: name=Iodine ; f=0.846627
+
+G4_SODIUM_MONOXIDE: d=2.27 g/cm3; n=2;  state=solid
+    +el: name=Oxygen ; f=0.258143
+    +el: name=Sodium ; f=0.741857
+
+G4_SODIUM_NITRATE: d=2.261 g/cm3; n=3;  state=solid
+    +el: name=Nitrogen ; f=0.164795
+    +el: name=Oxygen ; f=0.56472
+    +el: name=Sodium ; f=0.270485
+
+G4_STILBENE: d=0.9707 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.067101
+    +el: name=Carbon ; f=0.932899
+
+G4_SUCROSE: d=1.5805 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.064779
+    +el: name=Carbon ; f=0.42107
+    +el: name=Oxygen ; f=0.514151
+
+G4_TERPHENYL: d=1.234 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.044543
+    +el: name=Carbon ; f=0.955457
+
+G4_TESTIS_ICRP: d=1.04 g/cm3; n=9;  state=solid
+    +el: name=Hydrogen ; f=0.106
+    +el: name=Carbon ; f=0.099
+    +el: name=Nitrogen ; f=0.02
+    +el: name=Oxygen ; f=0.766
+    +el: name=Sodium ; f=0.002
+    +el: name=Phosphor ; f=0.001
+    +el: name=Sulfur ; f=0.002
+    +el: name=Chlorine ; f=0.002
+    +el: name=Potassium ; f=0.002
+
+G4_TETRACHLOROETHYLENE: d=1.625 g/cm3; n=2;  state=solid
+    +el: name=Carbon ; f=0.144856
+    +el: name=Chlorine ; f=0.855144
+
+G4_THALLIUM_CHLORIDE: d=7.004 g/cm3; n=2;  state=solid
+    +el: name=Chlorine ; f=0.147822
+    +el: name=Thallium ; f=0.852178
+
+G4_TISSUE_SOFT_ICRP: d=1.03 g/cm3; n=9;  state=solid
+    +el: name=Hydrogen ; f=0.105
+    +el: name=Carbon ; f=0.256
+    +el: name=Nitrogen ; f=0.027
+    +el: name=Oxygen ; f=0.602
+    +el: name=Sodium ; f=0.001
+    +el: name=Phosphor ; f=0.002
+    +el: name=Sulfur ; f=0.003
+    +el: name=Chlorine ; f=0.002
+    +el: name=Potassium ; f=0.002
+
+G4_TITANIUM_DIOXIDE: d=4.26 g/cm3; n=2;  state=solid
+    +el: name=Oxygen ; f=0.400592
+    +el: name=Titanium ; f=0.599408
+
+G4_TOLUENE: d=0.8669 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.08751
+    +el: name=Carbon ; f=0.91249
+
+G4_TRICHLOROETHYLENE: d=1.46 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.007671
+    +el: name=Carbon ; f=0.182831
+    +el: name=Chlorine ; f=0.809498
+
+G4_TRIETHYL_PHOSPHATE: d=1.07 g/cm3; n=4;  state=solid
+    +el: name=Hydrogen ; f=0.082998
+    +el: name=Carbon ; f=0.395628
+    +el: name=Oxygen ; f=0.351334
+    +el: name=Phosphor ; f=0.17004
+
+G4_TUNGSTEN_HEXAFLUORIDE: d=2.4 g/cm3; n=2;  state=solid
+    +el: name=Fluorine ; f=0.382723
+    +el: name=Tungsten ; f=0.617277
+
+G4_UREA: d=1.323 g/cm3; n=4;  state=solid
+    +el: name=Hydrogen ; f=0.067131
+    +el: name=Carbon ; f=0.199999
+    +el: name=Nitrogen ; f=0.466459
+    +el: name=Oxygen ; f=0.266411
+
+G4_VALINE: d=1.23 g/cm3; n=4;  state=solid
+    +el: name=Hydrogen ; f=0.094641
+    +el: name=Carbon ; f=0.512645
+    +el: name=Nitrogen ; f=0.119565
+    +el: name=Oxygen ; f=0.27315
+
+G4_VITON: d=1.8 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.009417
+    +el: name=Carbon ; f=0.280555
+    +el: name=Fluorine ; f=0.710028
+
+G4_XYLENE: d=0.87 g/cm3; n=2;  state=solid
+    +el: name=Hydrogen ; f=0.094935
+    +el: name=Carbon ; f=0.905065
+
+G4_LUCITE: d=1.19 g/cm3; n=3;  state=solid
+    +el: name=Hydrogen ; f=0.080538
+    +el: name=Carbon ; f=0.599848
+    +el: name=Oxygen ; f=0.319614
