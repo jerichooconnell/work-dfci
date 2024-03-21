@@ -15,7 +15,7 @@ material_file = '/home/jericho/1-Workspace/fastcat_gate/Materials.txt'
 spectrum_file = '/home/jericho/1-Workspace/1-jupyter_notebooks/4-preliminary_fastmc_projections/spectrum_120kVp_2.75mmAl_0.89mmTi.dat'
 # spectrum_file = '/home/jericho/Downloads/FastMC_Jan_05/FastMC_install/bin/data/120kV_2.5mmAl.dat'
 # range_file = '/home/jericho/1-Workspace/fastcat_gate/Catphan604_Range.txt'
-bowtie_file = '/home/jericho/Software/Catphan604_HeadSized/full_fan_1_deg.dat'
+bowtie_file = '/home/jericho/Downloads/firefox-downloads/full_fan_alt.dat'
 
 # nparticles = 1000000  # 000
 out = 'out'
