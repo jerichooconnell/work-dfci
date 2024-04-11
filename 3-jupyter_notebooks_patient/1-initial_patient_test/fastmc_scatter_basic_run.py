@@ -25,7 +25,6 @@ phantom.sim_angles = angles
 out_dir = 'out_dir'
 sim_dir = 'sim_dir'
 
-
 this_dir = os.path.dirname(os.path.abspath(__file__))
 out_dir = os.path.join(this_dir, out_dir)
 sim_dir = os.path.join(this_dir, sim_dir)
