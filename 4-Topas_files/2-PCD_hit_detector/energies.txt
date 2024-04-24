@@ -1,0 +1,363 @@
+==> Case1BinnedByIncidentTrackEnergy-0deg.csv <==
+17.97980880737305
+
+==> Case1BinnedByIncidentTrackEnergy-10deg.csv <==
+0.1899999976158142
+
+==> Case1BinnedByIncidentTrackEnergy-11deg.csv <==
+0.1198589354753494
+
+==> Case1BinnedByIncidentTrackEnergy-12deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-13deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-14deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-15deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-16deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-17deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-18deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-19deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-1deg.csv <==
+0.1899999976158142
+
+==> Case1BinnedByIncidentTrackEnergy-20deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-21deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-22deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-23deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-24deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-25deg.csv <==
+0
+
+==> Case1BinnedByIncidentTrackEnergy-26deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-27deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-28deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-29deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-2deg.csv <==
+0.1899999976158142
+
+==> Case1BinnedByIncidentTrackEnergy-30deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-31deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-32deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-33deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-34deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-35deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-36deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-37deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-38deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-39deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-3deg.csv <==
+0.1899999976158142
+
+==> Case1BinnedByIncidentTrackEnergy-40deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-41deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-42deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-43deg.csv <==
+0.02525910176336765
+
+==> Case1BinnedByIncidentTrackEnergy-44deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-45deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-46deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-47deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-48deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-49deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-4deg.csv <==
+0.1899999976158142
+
+==> Case1BinnedByIncidentTrackEnergy-50deg.csv <==
+0
+
+==> Case1BinnedByIncidentTrackEnergy-51deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-52deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-53deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-54deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-55deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-56deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-57deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-58deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-59deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-5deg.csv <==
+0.1899999976158142
+
+==> Case1BinnedByIncidentTrackEnergy-60deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-61deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-62deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-63deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-64deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-65deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-66deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-67deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-68deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-69deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-6deg.csv <==
+0.1899999976158142
+
+==> Case1BinnedByIncidentTrackEnergy-70deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-71deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-72deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-73deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-74deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-75deg.csv <==
+0
+
+==> Case1BinnedByIncidentTrackEnergy-76deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-77deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-78deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-79deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-7deg.csv <==
+0.1899999976158142
+
+==> Case1BinnedByIncidentTrackEnergy-80deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-81deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-82deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-83deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-84deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-85deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-86deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-87deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-88deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-89deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-8deg.csv <==
+0.1899999976158142
+
+==> Case1BinnedByIncidentTrackEnergy-90deg.csv <==
+0.0949999988079071
+
+==> Case1BinnedByIncidentTrackEnergy-9deg.csv <==
+0.1899999976158142
+17.97980880737305
+0.1899999976158142
+0.1198589354753494
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.1899999976158142
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.1899999976158142
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.1899999976158142
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.02525910176336765
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.1899999976158142
+0
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.1899999976158142
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.1899999976158142
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.1899999976158142
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.0949999988079071
+0.1899999976158142
+0.0949999988079071
+0.1899999976158142
