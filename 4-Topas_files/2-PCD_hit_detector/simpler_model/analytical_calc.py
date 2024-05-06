@@ -92,6 +92,14 @@ result = R(U_value, E_value)
 
 
 plt.figure()
+plt.title('CdTe Response Function to 75 keV photons')
 plt.plot(U_value, result)
-
+plt.xlabel('Energy keV')
+plt.ylabel('Intensity (a.u.)')
+# add a red dotted line at 75 kev
+plt.axvline(x=75, color='r', linestyle='--')
+# add a blue dotted line at 25 kev
+plt.axvline(x=75-25, color='b', linestyle='--')
+plt.legend(['Response Function', '$E_0$', '$E_0$ - $E_{escape}$'])
+plt.savefig('response_function.png',dpi=300)
 # %%
