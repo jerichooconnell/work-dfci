@@ -69,7 +69,7 @@ sc:Ge/GOS_Glue/Material                 = "GOS_Glue"
 s:Ge/GOS_Glue/Type                      = "TsBox"
 sc:Ge/GOS_Glue/DrawingStyle             = "Solid"
 s:Ge/GOS_Glue/Parent                    = "World"
-dc:Ge/GOS_Glue/HLZ                      = 0.3 mm
+dc:Ge/GOS_Glue/HLZ                      = 0.4 mm
 
 
 # ------------------- SCORER --------------------------
