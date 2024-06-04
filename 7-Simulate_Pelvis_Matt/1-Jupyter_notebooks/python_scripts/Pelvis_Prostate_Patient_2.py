@@ -7,9 +7,9 @@ nrrd_file = '/home/jericho/2-Datadir/Clinical_data/Pelvis/Pelvis_Prostate_Patien
 
 # Write to mhd
 
-nrrd_to_mhd(nrrd_file,force=True,tr= [1, 0, 2],crop=[313, 511, 111, 367, None, None])
+nrrd_to_mhd(nrrd_file,force=True,tr= [2, 1, 0],crop=[None, 114, None, None, None, None])
 
-phantom = patient_data.patient_phantom(nrrd_file, 1000000.0, force_materials=False, is_fullfan=False)
+phantom = patient_data.patient_phantom(nrrd_file, 10000000000.0, force_materials=False, is_fullfan=False)
 
 # Pixel size
 phantom.geomet.nDetector = np.array([360,360])
