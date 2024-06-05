@@ -11,3 +11,5 @@
 *.npy
 *.gif
 *.mp4
+**/gecco_data/*
+**/gecco_data_matlab/*

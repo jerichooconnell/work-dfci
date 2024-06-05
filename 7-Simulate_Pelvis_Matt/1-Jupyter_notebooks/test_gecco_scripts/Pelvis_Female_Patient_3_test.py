@@ -1,0 +1,78 @@
+
+import numpy as np
+from gecco import patient_data, calculate_spectrum_sp
+from gecco.utils import nrrd_to_mhd
+import os
+
+phantom = patient_data.patient_phantom('/home/berbecolab/2-Datadir/Clinical_data/Pelvis/Pelvis_Female_Patient_3.nrrd', 1e10, reload=True, sim_num=2)
+
+# Source spectrum
+spectrum = calculate_spectrum_sp(140,12)
+
+# Beam filters
+spectrum.filter('Be', 1.5)
+spectrum.filter('Al', 2.75)
+spectrum.filter('Ti', 0.89)
+
+# Detector filters
+spectrum.filter('Al', 3.7)
+spectrum.filter('C', 3.8*(2/1.7)) # Difference in density
+
+phantom.xx, phantom.yy = spectrum.get_points()
+phantom.run_gecco(1e20,2,conv_on=False)
+
+phantom.correct_intensity(ml=False,crop=40)
+phantom.interpolate_ggems_scatter()
+phantom.calc_gecco_projections(scat_weight=0.48,noise_weight=100) # Creates the gecco projections scatter to primary reduction from asg is 0.48 assumed half is taken by scatter correction
+
+# --------------------- Second Layer ----------------
+
+phantom2 = patient_data.patient_phantom('/home/berbecolab/2-Datadir/Clinical_data/Pelvis/Pelvis_Female_Patient_3.nrrd', 1e10, reload=True, sim_num=2, second_layer=True)
+
+# Source spectrum
+spectrum = calculate_spectrum_sp(140,12)
+
+# Beam filters
+spectrum.filter('Be', 1.5)
+spectrum.filter('Al', 2.75)
+spectrum.filter('Ti', 0.89)
+
+# Detector filters
+spectrum.filter('Al', 3.7)
+spectrum.filter('C', 3.8*(2/1.7)) # Difference in density
+
+# First layer filters
+spectrum.filter('Cesium Iodide',0.6*0.71) # 71% fill factor
+spectrum.filter('Si',1.1)
+
+phantom2.run_gecco(1e20,2,conv_on=False)
+
+phantom2.correct_intensity(ml=False,crop=40)
+phantom2.interpolate_ggems_scatter()
+phantom2.calc_gecco_projections(scat_weight=0.48,noise_weight=100)
+
+nrrd_base = 'Pelvis_Female_Patient_3'
+
+out = '/home/berbecolab/1-Workspace/1-Workspace/7-Simulate_Pelvis_Matt/1-Jupyter_notebooks/gecco_data'
+
+if not os.path.exists(os.path.join(out,nrrd_base)):
+    os.makedirs(os.path.join(out,nrrd_base))
+
+np.save(os.path.join(out,nrrd_base, nrrd_base + '_scatter_first_layer.npy'),
+        phantom.ggems_scatter_denoised)
+np.save(os.path.join(out,nrrd_base, nrrd_base + '_scatter_second_layer.npy'),
+        phantom2.ggems_scatter_denoised)
+
+np.save(os.path.join(out,nrrd_base, nrrd_base + '_primary_first_layer.npy'),
+        phantom.primary_projections)
+np.save(os.path.join(out,nrrd_base, nrrd_base + '_primary_second_layer.npy'),
+        phantom2.primary_projections)
+
+np.save(os.path.join(out,nrrd_base, nrrd_base + '_flood_first_layer.npy'),
+        phantom.flood_field)
+np.save(os.path.join(out,nrrd_base, nrrd_base + '_flood_second_layer.npy'),
+        phantom2.flood_field)
+
+with open(os.path.join(out, nrrd_base, "readme.txt"), 'w') as f:
+            f.write(str(phantom))
+
