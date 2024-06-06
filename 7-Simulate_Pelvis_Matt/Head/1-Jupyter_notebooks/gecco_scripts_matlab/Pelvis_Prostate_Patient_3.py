@@ -59,19 +59,19 @@ out = '/home/berbecolab/1-Workspace/1-Workspace/7-Simulate_Pelvis_Matt/1-Jupyter
 if not os.path.exists(os.path.join(out,nrrd_base)):
     os.makedirs(os.path.join(out,nrrd_base))
 
-savemat(os.path.join(out,nrrd_base, nrrd_base + '_scatter_first_layer'),
+savemat(os.path.join(out,nrrd_base, nrrd_base + '_scatter_first_layer' + '.mat'),
         { "Pelvis_Prostate_Patient_3": phantom.ggems_scatter_denoised })
-savemat(os.path.join(out,nrrd_base, nrrd_base + '_scatter_second_layer'),
+savemat(os.path.join(out,nrrd_base, nrrd_base + '_scatter_second_layer'+ '.mat'),
         { "Pelvis_Prostate_Patient_3": phantom2.ggems_scatter_denoised })
 
-savemat(os.path.join(out,nrrd_base, nrrd_base + '_primary_first_layer'),
+savemat(os.path.join(out,nrrd_base, nrrd_base + '_primary_first_layer'+ '.mat'),
         { "Pelvis_Prostate_Patient_3": phantom.primary_projections })
-savemat(os.path.join(out,nrrd_base, nrrd_base + '_primary_second_layer'),
+savemat(os.path.join(out,nrrd_base, nrrd_base + '_primary_second_layer'+ '.mat'),
         { "Pelvis_Prostate_Patient_3": phantom2.primary_projections })
 
-savemat(os.path.join(out,nrrd_base, nrrd_base + '_flood_first_layer'),
+savemat(os.path.join(out,nrrd_base, nrrd_base + '_flood_first_layer'+ '.mat'),
         { "Pelvis_Prostate_Patient_3": phantom.flood_field })
-savemat(os.path.join(out,nrrd_base, nrrd_base + '_flood_second_layer'),
+savemat(os.path.join(out,nrrd_base, nrrd_base + '_flood_second_layer'+ '.mat'),
         { "Pelvis_Prostate_Patient_3": phantom2.flood_field })
 
 with open(os.path.join(out, nrrd_base, nrrd_base + "simulation_info.txt"), 'w') as f:
