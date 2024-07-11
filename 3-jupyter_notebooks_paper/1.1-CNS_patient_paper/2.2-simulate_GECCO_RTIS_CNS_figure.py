@@ -89,9 +89,6 @@ phantom_rtis.retain_partial_calcs = True
 phantom_rtis.run_gecco(1e10,815,conv_on=False,filter_on=False)
 
 
-# In[291]:
-
-
 phantom_rtis.reweight(100,scat=0.05,mAs=400)
 
 
