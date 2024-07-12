@@ -160,7 +160,7 @@ app.layout = html.Div([
 )
 def update_output(contents, slice_index, crop_x, crop_y, transpose_option, filename, window, level):
     if contents is not None:
-        img_cropped_modified = get_and_crop(
+        img_cropped_modified, aspect = get_and_crop(
             contents, slice_index, crop_x, crop_y, transpose_option)
 
         zmin = level - (window / 2)
@@ -171,7 +171,7 @@ def update_output(contents, slice_index, crop_x, crop_y, transpose_option, filen
         fig_modified.update_layout(title=f'Planning CT Slice: {slice_index}',
                                    xaxis_title='X', yaxis_title='Y',
                                    xaxis=dict(constrain='domain'),
-                                   yaxis=dict(scaleanchor='x', scaleratio=1), width=700, height=700)
+                                   yaxis=dict(scaleanchor='x', scaleratio=aspect), width=700, height=700)
 
         return [dcc.Graph(figure=fig_modified)]
 
@@ -207,16 +207,27 @@ def get_and_crop(contents, slice_index, crop_x, crop_y, transpose_option):
     # Modified image processing based on transpose option
     if transpose_option == 'transpose_xy':
         nrrd_data = nrrd_data.transpose((0, 2, 1))
+        header['space directions'] = header['space directions'][np.array([
+            0, 2, 1])]
     elif transpose_option == 'transpose_yz':
         nrrd_data = nrrd_data.transpose((1, 2, 0))
+        header['space directions'] = header['space directions'][np.array([
+            1, 2, 0])]
     elif transpose_option == 'transpose_xz':
         nrrd_data = nrrd_data.transpose((2, 1, 0))
+        header['space directions'] = header['space directions'][np.array([
+            2, 1, 0])]
+
+    space = np.abs(header['space directions']).max(axis=1)
+    aspect = space[0] / space[1]
+
     img_modified = nrrd_data[:, :, slice_index]
-    img_cropped_modified = img_modified[crop_x[0]:crop_x[1], crop_y[0]:crop_y[1]]
-    return img_cropped_modified
+    img_cropped_modified = img_modified[crop_x[0]
+        :crop_x[1], crop_y[0]:crop_y[1]]
+    return img_cropped_modified, aspect
 
 
-def initialize_simulation(contents, crop_x, crop_y, slice_index, transpose_option):
+def initialize_simulation(contents, crop_x, crop_y, slice_index, transpose_option, bowtie_option):
     content_type, content_string = contents.split(',')
     decoded = base64.b64decode(content_string)
 
@@ -231,10 +242,29 @@ def initialize_simulation(contents, crop_x, crop_y, slice_index, transpose_optio
     # Modified image processing based on transpose option
     if transpose_option == 'transpose_xy':
         nrrd_data = nrrd_data.transpose((0, 2, 1))
+        header['space directions'] = header['space directions'][np.array([
+                                                                         0, 2, 1])]
     elif transpose_option == 'transpose_yz':
         nrrd_data = nrrd_data.transpose((1, 2, 0))
+        header['space directions'] = header['space directions'][np.array([
+                                                                         1, 2, 0])]
     elif transpose_option == 'transpose_xz':
         nrrd_data = nrrd_data.transpose((2, 1, 0))
+        header['space directions'] = header['space directions'][np.array([
+                                                                         2, 1, 0])]
+
+    if bowtie_option == 'full_fan':
+        is_fullfan = True
+    elif bowtie_option == 'half_fan':
+        is_fullfan = False
+    else:
+        is_fullfan = None
+
+    # Ensure slice_index is within the valid range
+    if slice_index < 0:
+        slice_index = 0
+    elif slice_index >= nrrd_data.shape[2]:
+        slice_index = nrrd_data.shape[2] - 2
 
     # img = nrrd_data[:, :, slice_index]
     img_cropped = nrrd_data[crop_x[0]:crop_x[1],
@@ -248,7 +278,8 @@ def initialize_simulation(contents, crop_x, crop_y, slice_index, transpose_optio
     nrrd_to_mhd(nrrd_file, force=True, tr=[0, 1, 2], crop=[None, None, None, None, None, None], flip=[False, False, False],
                 nrrd_data=img_cropped, nrrd_header=header)
 
-    phantom_rtis = patient_data.patient_phantom(nrrd_file, 1e7)
+    phantom_rtis = patient_data.patient_phantom(
+        nrrd_file, 1e7, is_fullfan=is_fullfan)
 
     # Beam filters
     spectrum.filter('Be', 1.5)
@@ -261,6 +292,7 @@ def initialize_simulation(contents, crop_x, crop_y, slice_index, transpose_optio
 
     phantom_rtis.initialize_fastmc(1, spectrum)
 
+    print(phantom_rtis)
     phantom_rtis.phantom = phantom_rtis.phantom[:, :, 0]
     phantom_rtis.density = phantom_rtis.density[:, :, 0]
 
@@ -289,9 +321,9 @@ def initialize_simulation(contents, crop_x, crop_y, slice_index, transpose_optio
     return phantom_rtis
 
 
-@cache.memoize(timeout=300)  # Cache the initialized simulation for 5 minutes
-def get_cached_simulation(contents, crop_x, crop_y, slice_index, transpose_option):
-    return initialize_simulation(contents, crop_x, crop_y, slice_index, transpose_option)
+@ cache.memoize(timeout=300)  # Cache the initialized simulation for 5 minutes
+def get_cached_simulation(contents, crop_x, crop_y, slice_index, transpose_option, bowtie_option):
+    return initialize_simulation(contents, crop_x, crop_y, slice_index, transpose_option, bowtie_option)
 
 
 @ app.callback(
@@ -316,7 +348,7 @@ def update_output2(n_clicks, contents, slice_index, crop_x, crop_y, transpose_op
     if n_clicks > 0 and contents is not None:
 
         phantom_rtis = get_cached_simulation(
-            contents, crop_x, crop_y, slice_index, transpose_option)
+            contents, crop_x, crop_y, slice_index, transpose_option, bowtie_option)
 
         phantom_rtis.reweight(kVp=kvp, scat=scat, mAs=mAs)
         img_modified = phantom_rtis.img.squeeze()
@@ -336,13 +368,18 @@ def update_output2(n_clicks, contents, slice_index, crop_x, crop_y, transpose_op
         img_cropped_modified = np.flipud(
             1000*(img_modified - mu_water)/mu_water)
 
+        scale_ratio = phantom_rtis.geomet.dVoxel[0] / \
+            phantom_rtis.geomet.dVoxel[1]
+
+        print(scale_ratio)
+
         zmin = level - (window / 2)
         zmax = level + (window / 2)
         fig_modified = go.Figure()
         fig_modified.add_trace(go.Heatmap(
             z=img_cropped_modified, colorscale='gray', zmin=zmin, zmax=zmax))
         fig_modified.update_layout(title=f'RTIS Simulation Slice: {slice_index}', xaxis_title='X', yaxis_title='Y', xaxis=dict(
-            constrain='domain'), yaxis=dict(scaleanchor='x', scaleratio=1), width=700, height=700)
+            constrain='domain'), yaxis=dict(scaleanchor='x', scaleratio=scale_ratio), width=700, height=700)
 
         return [dcc.Graph(figure=fig_modified)]
 
