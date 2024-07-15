@@ -57,13 +57,13 @@ app.layout = html.Div([
                 html.Label('Crop Y-Axis',
                            title='Adjust to crop the image on the X-axis'),
                 dcc.RangeSlider(id='crop-slider-x', min=0, max=512, step=1,
-                                value=[100, 400], marks={i: str(i) for i in range(0, 513, 50)}),
+                                value=[0, 512], marks={i: str(i) for i in range(0, 513, 50)}),
             ], title='Use this slider to crop the image horizontally'),
             html.Div([
                 html.Label('Crop X-Axis',
                            title='Adjust to crop the image on the Y-axis'),
                 dcc.RangeSlider(id='crop-slider-y', min=0, max=512, step=1,
-                                value=[100, 400], marks={i: str(i) for i in range(0, 513, 50)}),
+                                value=[0, 512], marks={i: str(i) for i in range(0, 513, 50)}),
             ], title='Use this slider to crop the image vertically'),
             html.Div([
                 html.Label('Transpose Image:',
@@ -98,7 +98,7 @@ app.layout = html.Div([
                 html.Label('Bowtie Filter:',
                            title='Select additional image processing options'),
                 dcc.RadioItems(id='bowtie-buttons', options=[{'label': 'Full-Fan', 'value': 'full_fan'}, {
-                               'label': 'Half-Fan', 'value': 'falf_fan'}, {'label': 'None', 'value': 'no_fan'}], value='full_fan', labelStyle={'display': 'inline-block'}),
+                               'label': 'Half-Fan', 'value': 'half_fan'}, {'label': 'None', 'value': 'no_fan'}], value='full_fan', labelStyle={'display': 'inline-block'}),
 
             ], title='Select additional image processing options', style={'display': 'flex'}),
 
@@ -222,8 +222,7 @@ def get_and_crop(contents, slice_index, crop_x, crop_y, transpose_option):
     aspect = space[0] / space[1]
 
     img_modified = nrrd_data[:, :, slice_index]
-    img_cropped_modified = img_modified[crop_x[0]
-        :crop_x[1], crop_y[0]:crop_y[1]]
+    img_cropped_modified = img_modified[crop_x[0]:crop_x[1], crop_y[0]:crop_y[1]]
     return img_cropped_modified, aspect
 
 
@@ -266,11 +265,21 @@ def initialize_simulation(contents, crop_x, crop_y, slice_index, transpose_optio
     elif slice_index >= nrrd_data.shape[2]:
         slice_index = nrrd_data.shape[2] - 2
 
+    # ensure that the crop values are within the valid range
+    if crop_x[0] < 0:
+        crop_x[0] = 0
+    if crop_x[1] > nrrd_data.shape[0]:
+        crop_x[1] = nrrd_data.shape[0]
+
+    if crop_y[0] < 0:
+        crop_y[0] = 0
+    if crop_y[1] > nrrd_data.shape[1]:
+        crop_y[1] = nrrd_data.shape[1]
     # img = nrrd_data[:, :, slice_index]
     img_cropped = nrrd_data[crop_x[0]:crop_x[1],
                             crop_y[0]:crop_y[1], slice_index:slice_index+2]
 
-    print(img_cropped.shape)
+    # print(img_cropped.shape)
     spectrum = fc.calculate_spectrum_sp(100, 12)
 
     nrrd_file = 'temp'
@@ -296,13 +305,15 @@ def initialize_simulation(contents, crop_x, crop_y, slice_index, transpose_optio
     phantom_rtis.phantom = phantom_rtis.phantom[:, :, 0]
     phantom_rtis.density = phantom_rtis.density[:, :, 0]
 
-    print(phantom_rtis.phantom.shape)
+    # print(phantom_rtis.phantom.shape)
     # insert a new axis to the phantom
     phantom_rtis.phantom = phantom_rtis.phantom[np.newaxis, ...]
     phantom_rtis.density = phantom_rtis.density[np.newaxis, ...]
 
     phantom_rtis.geomet.nVoxel = np.array(phantom_rtis.phantom.shape)
-    phantom_rtis.geomet.dVoxel = np.array([0.8, 0.8, 0.8])
+    # rearange the voxel dimensions to match the phantom
+    phantom_rtis.geomet.dVoxel = phantom_rtis.geomet.dVoxel[np.array([
+        2, 0, 1])]
     phantom_rtis.geomet.sVoxel = phantom_rtis.geomet.dVoxel * phantom_rtis.geomet.nVoxel
 
     phantom_rtis.geomet.nDetector = np.array([1, 512])
@@ -317,6 +328,8 @@ def initialize_simulation(contents, crop_x, crop_y, slice_index, transpose_optio
     phantom_rtis.run_gecco(1e10, 815, conv_on=False, filter_on=False)
 
     phantom_rtis.reweight(100, scat=0.05, mAs=400)
+
+    print(phantom_rtis)
 
     return phantom_rtis
 
@@ -368,10 +381,10 @@ def update_output2(n_clicks, contents, slice_index, crop_x, crop_y, transpose_op
         img_cropped_modified = np.flipud(
             1000*(img_modified - mu_water)/mu_water)
 
-        scale_ratio = phantom_rtis.geomet.dVoxel[0] / \
-            phantom_rtis.geomet.dVoxel[1]
+        scale_ratio = phantom_rtis.geomet.dVoxel[1] / \
+            phantom_rtis.geomet.dVoxel[2]
 
-        print(scale_ratio)
+        # print(scale_ratio)
 
         zmin = level - (window / 2)
         zmax = level + (window / 2)

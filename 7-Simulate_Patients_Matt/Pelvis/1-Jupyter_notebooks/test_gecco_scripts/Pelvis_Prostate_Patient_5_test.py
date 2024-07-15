@@ -4,7 +4,7 @@ from gecco import patient_data, calculate_spectrum_sp
 from gecco.utils import nrrd_to_mhd
 import os
 
-phantom = patient_data.patient_phantom('/home/berbecolab/2-Datadir/Clinical_data/Pelvis/Pelvis_Prostate_Patient_5.nrrd', 1e10, reload=True, sim_num=None)
+phantom = patient_data.patient_phantom('/media/jericho/T7/Clinical_data/Pelvis/Pelvis_Prostate_Patient_5.nrrd', 1e10, reload=True, sim_num=None)
 
 # Source spectrum
 spectrum = calculate_spectrum_sp(140,12)

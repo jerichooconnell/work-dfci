@@ -24,7 +24,7 @@ spectrum.filter('Ti', 0.89)
 
 phantom.initialize_fastmc(10,spectrum)
 
-phantom.run_fastmc(fastmc_path ='/home/berbecolab/Software/gecco-master/extra/fastmc_install/bin/FastMC')
+phantom.run_fastmc(fastmc_path ='/home/jericho/Downloads/FastMC_Jan_05/FastMC_install/bin/FastMC')
 
 phantom.load_ggems()
 
