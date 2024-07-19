@@ -222,7 +222,8 @@ def get_and_crop(contents, slice_index, crop_x, crop_y, transpose_option):
     aspect = space[0] / space[1]
 
     img_modified = nrrd_data[:, :, slice_index]
-    img_cropped_modified = img_modified[crop_x[0]:crop_x[1], crop_y[0]:crop_y[1]]
+    img_cropped_modified = img_modified[crop_x[0]
+        :crop_x[1], crop_y[0]:crop_y[1]]
     return img_cropped_modified, aspect
 
 
@@ -301,7 +302,6 @@ def initialize_simulation(contents, crop_x, crop_y, slice_index, transpose_optio
 
     phantom_rtis.initialize_fastmc(1, spectrum)
 
-    print(phantom_rtis)
     phantom_rtis.phantom = phantom_rtis.phantom[:, :, 0]
     phantom_rtis.density = phantom_rtis.density[:, :, 0]
 
@@ -309,12 +309,16 @@ def initialize_simulation(contents, crop_x, crop_y, slice_index, transpose_optio
     # insert a new axis to the phantom
     phantom_rtis.phantom = phantom_rtis.phantom[np.newaxis, ...]
     phantom_rtis.density = phantom_rtis.density[np.newaxis, ...]
+    # # rearange the voxel dimensions to match the phantom
+    if phantom_rtis.geomet.nVoxel[0] != 1:
+        phantom_rtis.geomet.nVoxel = np.array(phantom_rtis.phantom.shape)
+        print(phantom_rtis.phantom.shape)
 
-    phantom_rtis.geomet.nVoxel = np.array(phantom_rtis.phantom.shape)
-    # rearange the voxel dimensions to match the phantom
-    phantom_rtis.geomet.dVoxel = phantom_rtis.geomet.dVoxel[np.array([
-        2, 0, 1])]
-    phantom_rtis.geomet.sVoxel = phantom_rtis.geomet.dVoxel * phantom_rtis.geomet.nVoxel
+        phantom_rtis.geomet.dVoxel = phantom_rtis.geomet.dVoxel[np.array([
+            2, 0, 1])]
+        phantom_rtis.geomet.sVoxel = phantom_rtis.geomet.dVoxel * phantom_rtis.geomet.nVoxel
+    # else:
+    #     phantom_rtis.geomet.sVoxel = phantom_rtis.geomet.dVoxel * phantom_rtis.geomet.nVoxel
 
     phantom_rtis.geomet.nDetector = np.array([1, 512])
     phantom_rtis.geomet.dDetector = np.array(
@@ -322,7 +326,14 @@ def initialize_simulation(contents, crop_x, crop_y, slice_index, transpose_optio
     phantom_rtis.geomet.sDetector = phantom_rtis.geomet.dDetector * \
         phantom_rtis.geomet.nDetector
 
-    phantom_rtis.geomet.mode = "parallel"
+    if is_fullfan:
+        phantom_rtis.geomet.mode = "parallel"
+    else:
+        phantom_rtis.geomet.mode = "cone"
+    if is_fullfan == None:
+        phantom_rtis.geomet.mode = "parallel"
+
+    print(phantom_rtis)
 
     phantom_rtis.retain_partial_calcs = True
     phantom_rtis.run_gecco(1e10, 815, conv_on=False, filter_on=False)
