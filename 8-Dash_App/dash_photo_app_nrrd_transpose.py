@@ -100,7 +100,16 @@ app.layout = html.Div([
                 dcc.RadioItems(id='bowtie-buttons', options=[{'label': 'Full-Fan', 'value': 'full_fan'}, {
                                'label': 'Half-Fan', 'value': 'half_fan'}, {'label': 'None', 'value': 'no_fan'}], value='full_fan', labelStyle={'display': 'inline-block'}),
 
-            ], title='Select additional image processing options', style={'display': 'flex'}),
+            ],
+                title='Select additional image processing options', style={'display': 'flex'}),
+            html.Div([
+                html.Label('Titanium Filter:',
+                           title='Select additional image processing options'),
+                dcc.RadioItems(id='bh_filter-buttons', options=[{'label': 'On', 'value': True}, {
+                               'label': 'Off', 'value': False}], value=True, labelStyle={'display': 'inline-block'}),
+
+            ],
+                title='Select additional image processing options', style={'display': 'flex'}),
 
         ], style={'width': '40%', 'display': 'inline-block', 'margin-left': 'auto', 'margin-right': 'auto', 'margin-bottom': '20px'}, title='Additional image processing controls'),
         html.Div([
@@ -222,12 +231,11 @@ def get_and_crop(contents, slice_index, crop_x, crop_y, transpose_option):
     aspect = space[0] / space[1]
 
     img_modified = nrrd_data[:, :, slice_index]
-    img_cropped_modified = img_modified[crop_x[0]
-        :crop_x[1], crop_y[0]:crop_y[1]]
+    img_cropped_modified = img_modified[crop_x[0]                                        :crop_x[1], crop_y[0]:crop_y[1]]
     return img_cropped_modified, aspect
 
 
-def initialize_simulation(contents, crop_x, crop_y, slice_index, transpose_option, bowtie_option):
+def initialize_simulation(contents, crop_x, crop_y, slice_index, transpose_option, bowtie_option, bh_option):
     content_type, content_string = contents.split(',')
     decoded = base64.b64decode(content_string)
 
@@ -338,7 +346,8 @@ def initialize_simulation(contents, crop_x, crop_y, slice_index, transpose_optio
     phantom_rtis.retain_partial_calcs = True
     phantom_rtis.run_gecco(1e10, 815, conv_on=False, filter_on=False)
 
-    phantom_rtis.reweight(100, scat=0.05, mAs=400)
+    phantom_rtis.reweight(100, scat=0.05, mAs=400, filter=[
+        22, 0.89])  # element number and thickness in mm
 
     print(phantom_rtis)
 
@@ -346,8 +355,8 @@ def initialize_simulation(contents, crop_x, crop_y, slice_index, transpose_optio
 
 
 @ cache.memoize(timeout=300)  # Cache the initialized simulation for 5 minutes
-def get_cached_simulation(contents, crop_x, crop_y, slice_index, transpose_option, bowtie_option):
-    return initialize_simulation(contents, crop_x, crop_y, slice_index, transpose_option, bowtie_option)
+def get_cached_simulation(contents, crop_x, crop_y, slice_index, transpose_option, bowtie_option, bh_option):
+    return initialize_simulation(contents, crop_x, crop_y, slice_index, transpose_option, bowtie_option, bh_option)
 
 
 @ app.callback(
@@ -364,15 +373,16 @@ def get_cached_simulation(contents, crop_x, crop_y, slice_index, transpose_optio
         Input('mas-slider', 'value'),
         Input('scatter-slider', 'value'),
         Input('bowtie-buttons', 'value'),
+        Input('bh_filter-buttons', 'value'),
         Input('window-slider', 'value'),
         Input('level-slider', 'value')
     ]
 )
-def update_output2(n_clicks, contents, slice_index, crop_x, crop_y, transpose_option, filename, kvp, mAs, scat, bowtie_option, window, level):
+def update_output2(n_clicks, contents, slice_index, crop_x, crop_y, transpose_option, filename, kvp, mAs, scat, bowtie_option, bh_option, window, level):
     if n_clicks > 0 and contents is not None:
 
         phantom_rtis = get_cached_simulation(
-            contents, crop_x, crop_y, slice_index, transpose_option, bowtie_option)
+            contents, crop_x, crop_y, slice_index, transpose_option, bowtie_option, bh_option)
 
         phantom_rtis.reweight(kVp=kvp, scat=scat, mAs=mAs)
         img_modified = phantom_rtis.img.squeeze()
