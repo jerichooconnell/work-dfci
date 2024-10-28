@@ -1,11 +1,11 @@
 import matplotlib.pyplot as plt
 import scipy.io
 import numpy as np
- 
+
 # Creates a mask of misbehaving pixels and generate and applies gain maps/mask
 
 # Load mask
-base_path = "/home/jericho/1-Workspace/9-PCCT_Magdalena_results"
+base_path = "/home/jericho/1-Workspace/9-PCCT_Magdalena_results/"
 filebasemask = base_path + "S1728_PeptoBismol_Mask_20_30_76_100_114_120/"
 filebaseblank = base_path + "S1728_PeptoBismol_AirScan_20_30_76_100_114_120/"
 filebaseStent = base_path + "S1728_PeptoBismol_BiAtt_20_30_76_100_114_120/"
@@ -101,15 +101,26 @@ maskmap5 = mapMask(imageBin5, thresh)
 maskmap6 = mapMask(imageBin6, thresh)
 maskmapall = mapMask(imageBinAll, thresh)
 
-# Calculate mean images
-imageBin1mean = np.mean(imageBin1, axis=1)
-imageBin2mean = np.mean(imageBin2, axis=1)
-imageBin3mean = np.mean(imageBin3, axis=1)
-imageBin4mean = np.mean(imageBin4, axis=1)
-imageBin5mean = np.mean(imageBin5, axis=1)
-imageBin6mean = np.mean(imageBin6, axis=1)
-imageBinAllmean = np.mean(imageBinAll, axis=1)
-
+# check if the image is 3d
+if len(imageBin1.squeeze().shape) > 2:
+    # Calculate mean images
+    print('shape is 3d')
+    imageBin1mean = np.mean(imageBin1, axis=1)
+    imageBin2mean = np.mean(imageBin2, axis=1)
+    imageBin3mean = np.mean(imageBin3, axis=1)
+    imageBin4mean = np.mean(imageBin4, axis=1)
+    imageBin5mean = np.mean(imageBin5, axis=1)
+    imageBin6mean = np.mean(imageBin6, axis=1)
+    imageBinAllmean = np.mean(imageBinAll, axis=1)
+else:
+    print("image is 2d")
+    imageBin1mean = imageBin1.squeeze()
+    imageBin2mean = imageBin2.squeeze()
+    imageBin3mean = imageBin3.squeeze()
+    imageBin4mean = imageBin4.squeeze()
+    imageBin5mean = imageBin5.squeeze()
+    imageBin6mean = imageBin6.squeeze()
+    imageBinAllmean = imageBinAll.squeeze()
 # import numpy as np
 
 # Initialize maskarray
@@ -317,6 +328,7 @@ ncol = imageBin1blank.shape[2]
 # Initialize output arrays
 imageout = np.zeros((nangle, nrow, ncol))
 imageoutblank = np.zeros((nangle, nrow, ncol))
+
 
 # Process each bin
 for bb in range(1, 8):
