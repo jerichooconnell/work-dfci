@@ -29,7 +29,6 @@ app.layout = html.Div([
 
 # Callback for updating the plot based on the selected file and kVp
 
-
 @app.callback(
     Output('plot-area', 'figure'),
     [Input('upload-nrrd', 'contents'), Input('kvp-slider', 'value')]

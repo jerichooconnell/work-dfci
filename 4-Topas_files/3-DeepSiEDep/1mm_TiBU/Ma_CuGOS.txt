@@ -1,0 +1,122 @@
+# ------------------------------------------------------------------ #
+
+# Materials
+dv:Ma/Air/RefractiveIndex/Energies = 3 1.0 3.5 7.14 eV
+uv:Ma/Air/RefractiveIndex/Values = 3 1.0 1.0 1.0
+
+#---------- Materials in the table of Star-Lack "Figure 4" --------------
+
+# Epoxy
+sv:Ma/Epoxy/Components = 4 "Carbon" "Hydrogen" "Oxygen" "Chlorine"
+uv:Ma/Epoxy/Fractions = 4  0.6420 .0642 .2036 .0902 
+d:Ma/Epoxy/Density = 1. g/cm3
+s:Ma/Epoxy/DefaultColor = "lightblue"
+
+# PCB Board from https://www.researchgate.net/publication/312944511_The_Multi-Blade_Boron-10-based_Neutron_Detector_for_high_intensity_Neutron_Reflectometry_at_ESS/figures?lo=1
+sv:Ma/PCB_Board/Components = 6 "Carbon" "Hydrogen" "Oxygen" "Magnesium" "Aluminum" "Silicon"
+uv:Ma/PCB_Board/Fractions = 6  .17 .014 .43 .119 .131 .136
+d:Ma/PCB_Board/Density = 1.85 g/cm3
+s:Ma/PCB_Board/DefaultColor = "lightblue"
+
+# Rohacell foam is just carbon as is compression foam
+sv:Ma/Rohacell/Components = 1 "Carbon"
+uv:Ma/Rohacell/Fractions = 1  1
+d:Ma/Rohacell/Density = 0.051 g/cm3
+s:Ma/Rohacell/DefaultColor = "grey160"
+
+# Rohacell foam is just carbon as is compression foam
+sv:Ma/Compression_Foam/Components = 1 "Carbon"
+uv:Ma/Compression_Foam/Fractions = 1  1
+d:Ma/Compression_Foam/Density = 0.035 g/cm3
+s:Ma/Compression_Foam/DefaultColor = "grey220"
+
+b:Ma/Cu_Build_Up/EnableOpticalProperties = "True"
+sv:Ma/Cu_Build_Up/Components = 1 "Copper"
+uv:Ma/Cu_Build_Up/Fractions  = 1 1
+d:Ma/Cu_Build_Up/Density     = 8.94 g/cm3
+s:Ma/Cu_Build_Up/DefaultColor = "orange"
+dv:Ma/Cu_Build_Up/AbsLength/Energies = 6 1.0 2.11501 2.3509 2.85803 3.10177 7.0 eV
+dv:Ma/Cu_Build_Up/AbsLength/Values = 6 0 0 0 0 0 0 mm 
+dv:Ma/Cu_Build_Up/Reflectivity/Energies = 2 1.0 7.0 eV
+uv:Ma/Cu_Build_Up/Reflectivity/Values = 2 0 0
+dv:Ma/Cu_Build_Up/RefractiveIndex/Energies = 3 1.0 3.5 7.14 eV
+uv:Ma/Cu_Build_Up/RefractiveIndex/Values = 3 1.0 1.0 1.0
+
+b:Ma/White_Plastic/EnableOpticalProperties = "True"
+sv:Ma/White_Plastic/Components = 2 "Carbon" "Hydrogen"
+uv:Ma/White_Plastic/Fractions  = 2 .9226 .0774
+d:Ma/White_Plastic/Density     = 1.05 g/cm3
+s:Ma/White_Plastic/DefaultColor = "white"
+dv:Ma/White_Plastic/AbsLength/Energies = 6 1.0 2.11501 2.3509 2.85803 3.10177 7.0 eV
+dv:Ma/White_Plastic/AbsLength/Values = 6 5000 5000 5000 5000 5000 5000 mm 
+dv:Ma/White_Plastic/Reflectivity/Energies = 6 1.0 2.11501 2.3509 2.85803 3.10177 7.0 eV
+uv:Ma/White_Plastic/Reflectivity/Values = 6 0.88 0.88 0.88 0.88 0.88 0.88
+dv:Ma/White_Plastic/RefractiveIndex/Energies = 3 1.0 3.5 7.14 eV
+uv:Ma/White_Plastic/RefractiveIndex/Values = 3 1.6 1.6 1.6
+
+b:Ma/GOS_Glue/EnableOpticalProperties = "True"
+sv:Ma/GOS_Glue/Components = 2 "Caesium" "Iodine"
+uv:Ma/GOS_Glue/Fractions = 2 0.488451 0.511549
+d:Ma/GOS_Glue/Density = 3.157 g/cm3
+s:Ma/GOS_Glue/DefaultColor= "fuchsia"
+u:Ma/GOS_Glue/ScintillationYield      = 400 # Actually 60,000 see Sui et al. 2018
+u:Ma/GOS_Glue/ResolutionScale         = 1.0 # Standard deviation
+d:Ma/GOS_Glue/FastTimeConstant        = 2.1 ns 
+u:Ma/GOS_Glue/YieldRatio              = 1.0
+dv:Ma/GOS_Glue/RefractiveIndex/Energies    = 6 1.0 2.11501 2.3509 2.85803 3.10177 7.14 eV
+uv:Ma/GOS_Glue/RefractiveIndex/Values    = 6 1.7 1.7 1.7 1.7 1.7 1.7 # this was 2.3
+dv:Ma/GOS_Glue/AbsLength/Energies = 6 1.0 2.11501 2.3509 2.85803 3.10177 7.14 eV
+dv:Ma/GOS_Glue/AbsLength/Values = 6 43 43 43 43 43 43. mm
+dv:Ma/GOS_Glue/FastComponent/Energies = 1 2.275 eV
+uv:Ma/GOS_Glue/FastComponent/Values = 1 1
+dv:Ma/GOS_Glue/Miehg/Energies = 6 1.0 2.11501 2.3509 2.85803 3.10177 7.14 eV
+dv:Ma/GOS_Glue/Miehg/Values = 6 0.017 0.017 0.017  0.017  0.017  0.017 mm # See Star-Lack 2014
+u:Ma/GOS_Glue/Miehg_Forward = 0
+u:Ma/GOS_Glue/Miehg_Backward = 0
+u:Ma/GOS_Glue/Miehg_Forward_Ratio = 1
+# dv:Ma/GOS_Glue/Miehg/Values = 6 0.00346 0.00346 0.00346  0.00346  0.00346  0.00346 mm # See Shi2018
+# u:Ma/GOS_Glue/Miehg_Forward = 0.99
+# u:Ma/GOS_Glue/Miehg_Backward = 0
+# u:Ma/GOS_Glue/Miehg_Forward_Ratio = 0.82
+
+b:Ma/Epoxy_Optical/EnableOpticalProperties = "True"
+sv:Ma/Epoxy_Optical/Components = 4 "Carbon" "Hydrogen" "Oxygen" "Chlorine"
+uv:Ma/Epoxy_Optical/Fractions = 4  0.6420 .0642 .2036 .0902 
+d:Ma/Epoxy_Optical/Density = 1. g/cm3
+s:Ma/Epoxy_Optical/DefaultColor = "white"
+dv:Ma/Epoxy_Optical/AbsLength/Energies = 6 1.0 2.11501 2.3509 2.85803 3.10177 7.14 eV
+dv:Ma/Epoxy_Optical/AbsLength/Values = 6 5000 5000 5000 5000 5000 5000 mm 
+dv:Ma/Epoxy_Optical/RefractiveIndex/Energies = 3 1.0 3.5 7.14 eV
+uv:Ma/Epoxy_Optical/RefractiveIndex/Values = 3 1.5 1.5 1.5 # This is either 1.5 or 1.6
+
+b:Ma/Silicon_Dioxide/EnableOpticalProperties = "True"
+sv:Ma/Silicon_Dioxide/Components = 2 "Silicon" "Oxygen"
+uv:Ma/Silicon_Dioxide/Fractions = 2 0.4674 0.5326
+d:Ma/Silicon_Dioxide/Density = 2.64 g/cm3
+s:Ma/Silicon_Dioxide/DefaultColor = "lime"
+dv:Ma/Silicon_Dioxide/AbsLength/Energies = 4 1.11501 2.3509 2.85803 3.10177 eV
+dv:Ma/Silicon_Dioxide/AbsLength/Values = 4 0.0001 0.0001 0.0001 0.0001 mm 
+dv:Ma/Silicon_Dioxide/RefractiveIndex/Energies = 3 1.0 3.5 7.14 eV
+uv:Ma/Silicon_Dioxide/RefractiveIndex/Values = 3 1.7 1.7 1.7
+
+b:Ma/Al_Mylar/EnableOpticalProperties = "True"
+sv:Ma/Al_Mylar/Components = 1 "Aluminum"
+uv:Ma/Al_Mylar/Fractions  = 1 1
+d:Ma/Al_Mylar/Density     = 2.7 g/cm3
+s:Ma/Al_Mylar/DefaultColor = "red"
+dv:Ma/Al_Mylar/AbsLength/Energies = 4 1.11501 2.3509 2.85803 7.10177 eV
+dv:Ma/Al_Mylar/AbsLength/Values = 4 0.0001 0.0001 0.0001 0.0001 cm 
+dv:Ma/Al_Mylar/Reflectivity/Energies = 2 2.0 7.0 eV
+uv:Ma/Al_Mylar/Reflectivity/Values = 2 0.88 0.88
+
+b:Ma/Vikuiti/EnableOpticalProperties = "True"
+sv:Ma/Vikuiti/Components = 2 "Carbon" "Hydrogen"
+uv:Ma/Vikuiti/Fractions  = 2 0.5 0.5
+d:Ma/Vikuiti/Density     = 1.05 g/cm3
+s:Ma/Vikuiti/DefaultColor = "blue"
+dv:Ma/Vikuiti/AbsLength/Energies = 4 1.11501 2.3509 2.85803 7.10177 eV
+dv:Ma/Vikuiti/AbsLength/Values = 4 0.01 0.01 0.01 0.01 cm 
+dv:Ma/Vikuiti/Reflectivity/Energies = 2 2.0 7.0 eV
+uv:Ma/Vikuiti/Reflectivity/Values = 2 0.98 0.98
+dv:Ma/Vikuiti/RefractiveIndex/Energies = 3 1.0 3.5 7.14 eV
+uv:Ma/Vikuiti/RefractiveIndex/Values = 3 1.0 1.0 1.0
