@@ -3,11 +3,11 @@ import numpy as np
 from gecco import patient_data, calculate_spectrum_sp
 from gecco.utils import nrrd_to_mhd
 
-nrrd_file = '/home/berbecolab/2-Datadir/Clinical_data/Pelvis/Pelvis_Female_Patient_2.nrrd'
+nrrd_file = '/media/jericho/T7/Clinical_data/Pelvis/Pelvis_Female_Patient_2.nrrd'
 
 # Write to mhd
 
-nrrd_to_mhd(nrrd_file,force=True,tr= [1, 0, 2],crop=[313, 511, 111, 367, None, None])
+nrrd_to_mhd(nrrd_file,force=True,tr= [1, 0, 2],crop=[200, 300, 111, 367, None, None])
 
 phantom = patient_data.patient_phantom(nrrd_file, 10000000000.0, force_materials=False, is_fullfan=False)
 
@@ -24,7 +24,7 @@ spectrum.filter('Ti', 0.89)
 
 phantom.initialize_fastmc(10,spectrum)
 
-phantom.run_fastmc(fastmc_path ='/home/berbecolab/Software/gecco-master/extra/fastmc_install/bin/FastMC')
+phantom.run_fastmc(fastmc_path ='/home/jericho/Downloads/FastMC_Jan_05/FastMC_install/bin/FastMC')
 
 phantom.load_ggems()
 

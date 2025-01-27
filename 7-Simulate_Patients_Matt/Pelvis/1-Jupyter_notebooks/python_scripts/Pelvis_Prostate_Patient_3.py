@@ -3,7 +3,7 @@ import numpy as np
 from gecco import patient_data, calculate_spectrum_sp
 from gecco.utils import nrrd_to_mhd
 
-nrrd_file = '/home/berbecolab/2-Datadir/Clinical_data/Pelvis/Pelvis_Prostate_Patient_3.nrrd'
+nrrd_file = '/media/jericho/T7/Clinical_data/Pelvis/Pelvis_Prostate_Patient_3.nrrd'
 
 # Write to mhd
 
@@ -24,7 +24,7 @@ spectrum.filter('Ti', 0.89)
 
 phantom.initialize_fastmc(10,spectrum)
 
-phantom.run_fastmc(fastmc_path ='/home/berbecolab/Software/gecco-master/extra/fastmc_install/bin/FastMC')
+phantom.run_fastmc(fastmc_path ='/home/jericho/Downloads/FastMC_Jan_05/FastMC_install/bin/FastMC')
 
 phantom.load_ggems()
 

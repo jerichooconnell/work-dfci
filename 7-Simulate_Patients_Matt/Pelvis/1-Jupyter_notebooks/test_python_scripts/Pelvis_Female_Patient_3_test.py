@@ -3,7 +3,7 @@ import numpy as np
 from gecco import patient_data, calculate_spectrum_sp
 from gecco.utils import nrrd_to_mhd
 
-nrrd_file = '/home/jericho/2-Datadir/Clinical_data/Pelvis/Pelvis_Female_Patient_3.nrrd'
+nrrd_file = '/media/jericho/T7/Clinical_data/Pelvis/Pelvis_Female_Patient_3.nrrd'
 
 # Write to mhd
 
