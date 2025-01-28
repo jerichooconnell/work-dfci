@@ -2,7 +2,7 @@
 #!/bin/bash
 
 # Directory containing the Python scripts
-dir="/home/berbecolab/1-Workspace/1-Workspace/7-Simulate_Pelvis_Matt/1-Jupyter_notebooks/./test_gecco_scripts"
+dir="/home/jericho/1-Workspace/7-Simulate_Patients_Matt/Pelvis/1-Jupyter_notebooks/./test_gecco_scripts"
 
 # Loop over all Python files in the directory
 for file in "$dir"/*.py

@@ -2,6 +2,7 @@
 import numpy as np
 from gecco import patient_data, calculate_spectrum_sp
 from gecco.utils import nrrd_to_mhd
+from scipy.io import savemat
 import os
 
 phantom = patient_data.patient_phantom('/home/berbecolab/2-Datadir/Clinical_data/Pelvis/Pelvis_Prostate_Patient_2.nrrd', 1e10, reload=True, sim_num=1)
@@ -53,26 +54,26 @@ phantom2.calc_gecco_projections(scat_weight=0.48,noise_weight=100)
 
 nrrd_base = 'Pelvis_Prostate_Patient_2'
 
-out = '/home/berbecolab/1-Workspace/1-Workspace/7-Simulate_Pelvis_Matt/1-Jupyter_notebooks/gecco_data'
+out = '/home/jericho/1-Workspace/7-Simulate_Patients_Matt/Pelvis/1-Jupyter_notebooks/gecco_data'
 
 if not os.path.exists(os.path.join(out,nrrd_base)):
     os.makedirs(os.path.join(out,nrrd_base))
 
-np.save(os.path.join(out,nrrd_base, nrrd_base + '_scatter_first_layer.npy'),
-        phantom.ggems_scatter_denoised)
-np.save(os.path.join(out,nrrd_base, nrrd_base + '_scatter_second_layer.npy'),
-        phantom2.ggems_scatter_denoised)
+np.save(os.path.join(out,nrrd_base, nrrd_base + '_scatter_first_layer' + '.npy'),
+         phantom.ggems_scatter_denoised )
+np.save(os.path.join(out,nrrd_base, nrrd_base + '_scatter_second_layer'+ '.npy'),
+         phantom2.ggems_scatter_denoised )
 
-np.save(os.path.join(out,nrrd_base, nrrd_base + '_primary_first_layer.npy'),
-        phantom.primary_projections)
-np.save(os.path.join(out,nrrd_base, nrrd_base + '_primary_second_layer.npy'),
-        phantom2.primary_projections)
+np.save(os.path.join(out,nrrd_base, nrrd_base + '_primary_first_layer'+ '.npy'),
+         phantom.primary_projections )
+np.save(os.path.join(out,nrrd_base, nrrd_base + '_primary_second_layer'+ '.npy'),
+         phantom2.primary_projections )
 
-np.save(os.path.join(out,nrrd_base, nrrd_base + '_flood_first_layer.npy'),
-        phantom.flood_field)
-np.save(os.path.join(out,nrrd_base, nrrd_base + '_flood_second_layer.npy'),
-        phantom2.flood_field)
+np.save(os.path.join(out,nrrd_base, nrrd_base + '_flood_first_layer'+ '.npy'),
+         phantom.flood_field )
+np.save(os.path.join(out,nrrd_base, nrrd_base + '_flood_second_layer'+ '.npy'),
+         phantom2.flood_field )
 
-with open(os.path.join(out, nrrd_base, "readme.txt"), 'w') as f:
+with open(os.path.join(out, nrrd_base, nrrd_base + "_simulation_info.txt"), 'w') as f:
             f.write(str(phantom))
 
